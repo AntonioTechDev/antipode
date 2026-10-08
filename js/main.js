@@ -230,22 +230,72 @@ $$(".journey__head .echo, .work__intro .echo, .proof .echo, .offer .echo, .faq .
 });
 
 /* ---------------------------------------------------------
-   JOURNEY: parallax timeline cards
+   JOURNEY: horizontal timeline driven by vertical scroll
+   (sticky panel; the section gets exactly the height it needs)
 --------------------------------------------------------- */
-gsap.fromTo(".journey__lede", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1, scrollTrigger: { trigger: ".journey", start: "top 70%" } });
-$$(".jitem").forEach((item) => {
-  const speed = +item.dataset.speed || 1;
-  gsap.to(item, {
-    y: () => (1 - speed) * innerHeight * (isMobile() ? 0.25 : 0.9), ease: "none",
-    scrollTrigger: { trigger: item, start: "top bottom", end: "bottom top", scrub: true, invalidateOnRefresh: true },
-  });
-  const card = $(".jcard", item);
-  gsap.fromTo(card, { clipPath: "inset(100% 0 0 0)", rotate: speed > 1 ? 4 : -4 }, {
-    clipPath: "inset(0% 0 0 0)", rotate: 0, duration: 1.2, ease: "power4.out",
-    scrollTrigger: { trigger: item, start: "top 88%" },
-  });
-  gsap.fromTo($("header", item), { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.8, scrollTrigger: { trigger: item, start: "top 88%" } });
+const journey = $(".journey"), jpin = $(".journey__pin"), jtrack = $("#jtrack");
+const chapters = $$(".jch", jtrack), ticks = $$(".jline__ticks li");
+const jyear = $("#jyear"), jfill = $("#jfill");
+journey.classList.add("is-pinned");
+const jDist = () => Math.max(0, jtrack.scrollWidth - innerWidth);
+const setJourneyHeight = () => { jpin.style.height = jDist() + innerHeight * 1.25 + "px"; };
+setJourneyHeight();
+ScrollTrigger.addEventListener("refreshInit", setJourneyHeight);
+
+let jIdx = -1;
+function setChapter(i) {
+  if (i === jIdx) return;
+  const dir = i > jIdx ? 1 : -1;
+  jIdx = i;
+  chapters.forEach((c, k) => c.classList.toggle("is-active", k === i));
+  ticks.forEach((t, k) => t.classList.toggle("is-active", k <= i));
+  const label = i === chapters.length - 1 ? $(".jch__year", chapters[i]).textContent : chapters[i].dataset.year;
+  gsap.to(jyear, { yPercent: -100 * dir, opacity: 0, duration: 0.18, ease: "power2.in", onComplete: () => {
+    jyear.textContent = label;
+    jyear.parentElement.classList.toggle("is-long", label.length > 4);
+    gsap.fromTo(jyear, { yPercent: 100 * dir, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.35, ease: "power3.out" });
+  } });
+}
+const hScroll = gsap.to(jtrack, {
+  x: () => -jDist(), ease: "none",
+  onUpdate: function () {
+    const pr = this.progress();
+    jfill.style.transform = `scaleX(${pr})`;
+    setChapter(Math.min(chapters.length - 1, Math.round(pr * (chapters.length - 1))));
+  },
+  scrollTrigger: { trigger: jpin, start: "top top", end: () => "+=" + jDist(), scrub: SCRUB < 1 ? 0.4 : 0.8, invalidateOnRefresh: true },
 });
+setChapter(0);
+
+chapters.forEach((ch) => {
+  gsap.fromTo($(".jch__card", ch), { rotate: 6, scale: 0.86, opacity: 0.55 }, {
+    rotate: 0, scale: 1, opacity: 1, ease: "none",
+    scrollTrigger: { trigger: ch, containerAnimation: hScroll, start: "left 100%", end: "left 50%", scrub: true },
+  });
+  gsap.fromTo($(".jch__year", ch), { xPercent: 30 }, {
+    xPercent: -10, ease: "none",
+    scrollTrigger: { trigger: ch, containerAnimation: hScroll, start: "left right", end: "right left", scrub: true },
+  });
+  const img = $(".jv-shot img", ch);
+  if (img) gsap.fromTo(img, { xPercent: -5 }, {
+    xPercent: 5, ease: "none",
+    scrollTrigger: { trigger: ch, containerAnimation: hScroll, start: "left right", end: "right left", scrub: true },
+  });
+});
+gsap.fromTo([".journey__lede", ".journey__year", ".jline"], { opacity: 0, y: 30 }, {
+  opacity: 1, y: 0, stagger: 0.1, duration: 0.9, ease: "power3.out", scrollTrigger: { trigger: ".journey", start: "top 70%" },
+});
+
+// live clocks in the last chapter
+const clocks = $$(".clock__time");
+function tickClocks() {
+  const now = new Date();
+  clocks.forEach((el) => {
+    el.textContent = new Intl.DateTimeFormat(LANG === "en" ? "en-AU" : "it-IT", { timeZone: el.dataset.tz, hour: "2-digit", minute: "2-digit", hour12: false }).format(now);
+  });
+}
+tickClocks();
+setInterval(tickClocks, 20000);
 
 /* ---------------------------------------------------------
    WHY: marker strikes + stickers

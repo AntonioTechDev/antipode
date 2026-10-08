@@ -197,10 +197,10 @@
     <section class="work" id="lavori">
       <div class="work__intro">
         <div class="work__collage" aria-hidden="true">
-          <img src="assets/shots/mase.webp" alt="" style="--r:-8deg;--x:-4%;--y:6%" width="1200" height="750">
-          <img src="assets/shots/axa-lamiasalute.webp" alt="" style="--r:6deg;--x:46%;--y:-4%" width="1200" height="750">
-          <img src="assets/shots/scame-emobility.webp" alt="" style="--r:-3deg;--x:62%;--y:48%" width="1200" height="750">
-          <img src="assets/shots/repubblica-digitale.webp" alt="" style="--r:9deg;--x:8%;--y:56%" width="1200" height="750">
+          <img src="assets/shots/sella.webp" alt="" style="--r:-7deg;--x:-6%;--y:4%" width="1200" height="750">
+          <img src="assets/shots/cheai.webp" alt="" style="--r:5deg;--x:44%;--y:-6%" width="1200" height="750">
+          <img src="assets/shots/scame-emobility.webp" alt="" style="--r:-4deg;--x:58%;--y:46%" width="1200" height="750">
+          <img src="assets/shots/agenzia-entrate.webp" alt="" style="--r:8deg;--x:6%;--y:58%" width="1200" height="750">
         </div>
         <div class="work__intro-txt">
           <h2 class="echo echo--xl" data-echo data-i18n="workTitle">Il lavoro<br>parla meglio<br>di noi</h2>
@@ -244,44 +244,117 @@
       </div>
     </section>
 
-    <!-- ============ JOURNEY ============ -->
-    <section class="journey" id="chi-siamo">
-      <div class="journey__head">
-        <p class="mono tag tag--ink" data-i18n="aboutTag">Chi siamo</p>
-        <h2 class="echo echo--ink" data-echo data-i18n="jTitle">Esperienza<br>&amp; mestiere</h2>
-        <p class="mono journey__lede" data-i18n="jLede">Antipode nasce dal percorso del suo fondatore, Antonio De Biase: sei anni di sviluppo, dai primi siti per clienti privati ai portali della Pubblica Amministrazione, fino a una startup AI.</p>
-      </div>
-      <div class="journey__items">
-        <article class="jitem" data-speed="0.9" style="--x:58%">
-          <header><span class="jnum">01</span><p class="mono" data-i18n="j1">2020 · Freelance<br>I primi siti e web app per clienti privati</p></header>
-          <div class="jcard jcard--code"><pre class="mono">const cliente = await brief();
-deploy(sito(cliente));
-<span data-i18n="j1code">// v1.0, il primo di tanti</span></pre></div>
-        </article>
-        <article class="jitem" data-speed="1.15" style="--x:6%">
-          <header><span class="jnum">02</span><p class="mono" data-i18n="j2">2022 · ITS Incom, Milano<br>Specializzazione post-diploma in Full Stack Development</p></header>
-          <div class="jcard jcard--stack" aria-hidden="true"><span>HTML</span><span>CSS</span><span>JS</span><span>SQL</span><span>Java</span><span>Git</span></div>
-        </article>
-        <article class="jitem" data-speed="0.8" style="--x:62%">
-          <header><span class="jnum">03</span><p class="mono" data-i18n="j3">2023 · SMC<br>Da stagista a Senior Frontend Engineer</p></header>
-          <div class="jcard jcard--img"><img src="assets/shots/agenzia-entrate.webp" alt="Homepage del portale Agenzia delle Entrate" data-i18n-alt="altAE" loading="lazy" width="1200" height="750"></div>
-        </article>
-        <article class="jitem" data-speed="1.2" style="--x:14%">
-          <header><span class="jnum">04</span><p class="mono" data-i18n="j4">2023 → 2026 · Oltre 15 portali enterprise<br>PA, sanità, banche ed e-commerce su Liferay 7.x e React</p></header>
-          <div class="jcard jcard--img"><img src="assets/shots/unar.webp" alt="Homepage del portale UNAR" data-i18n-alt="altUnar" loading="lazy" width="1200" height="750"></div>
-        </article>
-        <article class="jitem" data-speed="0.95" style="--x:56%">
-          <header><span class="jnum">05</span><p class="mono" data-i18n="j5">2026 · Co-fondatore di Gruppo Automa<br>CHEAI, customer service AI multicanale</p></header>
-          <div class="jcard jcard--img"><img src="assets/shots/cheai.webp" alt="Homepage di CHEAI" data-i18n-alt="altCheai" loading="lazy" width="1200" height="750"></div>
-        </article>
-        <article class="jitem" data-speed="1.1" style="--x:10%">
-          <header><span class="jnum">06</span><p class="mono" data-i18n="j6">Oggi · Antipode<br>Townsville (QLD) e Aversa (CE), clienti in Italia e in Australia</p></header>
-          <div class="jcard jcard--globe" aria-hidden="true">
-            <div><b class="mono">Townsville</b><span class="mono">GMT+10</span></div>
-            <i>⇄</i>
-            <div><b class="mono">Aversa</b><span class="mono">GMT+1</span></div>
+    <!-- ============ JOURNEY (horizontal timeline) ============ -->
+    <section class="journey" id="chi-siamo" aria-labelledby="journey-title">
+      <div class="journey__pin">
+        <div class="journey__sticky">
+          <div class="journey__top">
+            <div class="journey__head">
+              <p class="mono tag tag--ink" data-i18n="aboutTag">Chi siamo</p>
+              <h2 class="echo echo--ink" id="journey-title" data-echo data-i18n="jTitle">Esperienza<br>&amp; mestiere</h2>
+            </div>
+            <div class="journey__side">
+              <p class="mono journey__lede" data-i18n="jLede">Antipode nasce dal percorso del suo fondatore, Antonio De Biase: sei anni a scrivere codice, dai primi siti per clienti privati ai portali dello Stato, fino a una startup AI.</p>
+              <div class="journey__year" aria-hidden="true"><span id="jyear">2020</span></div>
+            </div>
           </div>
-        </article>
+
+          <div class="jtrack" id="jtrack">
+            <article class="jch" data-year="2020">
+              <span class="jch__year" aria-hidden="true">2020</span>
+              <div class="jch__card jch__card--ink">
+                <div class="jch__visual jv-code"><pre class="mono">const cliente = await brief();
+const sito = design(cliente);
+deploy(sito);
+<span data-i18n="j1code">// v1.0, il primo di tanti</span></pre></div>
+                <div class="jch__body">
+                  <p class="mono jch__meta"><b>01</b><span data-i18n="j1M">Freelance</span></p>
+                  <h3 data-i18n="j1T">Il primo cliente</h3>
+                  <p class="mono" data-i18n="j1D">Siti e piccole web app per professionisti e attività locali. S'impara in fretta quando il cliente ti chiama alle dieci di sera.</p>
+                  <div class="jch__chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">WordPress</span></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="jch" data-year="2022">
+              <span class="jch__year" aria-hidden="true">2022</span>
+              <div class="jch__card jch__card--cobalt">
+                <div class="jch__visual jv-keys" aria-hidden="true"><span>Java</span><span>SQL</span><span>JS</span><span>Git</span><span>REST</span><span>React</span></div>
+                <div class="jch__body">
+                  <p class="mono jch__meta"><b>02</b><span data-i18n="j2M">ITS Incom · Milano</span></p>
+                  <h3 data-i18n="j2T">La formazione</h3>
+                  <p class="mono" data-i18n="j2D">Un percorso post-diploma in Full Stack Development: Java, SQL, JavaScript e progetti in team con le stesse regole di un'azienda vera.</p>
+                  <div class="jch__chips"><span class="chip">Full stack</span><span class="chip">Team work</span><span class="chip">Git</span></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="jch" data-year="2023">
+              <span class="jch__year" aria-hidden="true">2023</span>
+              <div class="jch__card jch__card--white">
+                <div class="jch__visual jv-shot"><img src="assets/shots/agenzia-entrate.webp" alt="Homepage del portale Agenzia delle Entrate" data-i18n-alt="altAE" loading="lazy" width="1200" height="750"></div>
+                <div class="jch__body">
+                  <p class="mono jch__meta"><b>03</b><span>SMC</span></p>
+                  <h3 data-i18n="j3T">Il salto in azienda</h3>
+                  <p class="mono" data-i18n="j3D">Stage da Junior Developer, poi Senior Frontend Engineer: temi Liferay su misura, librerie di componenti riutilizzabili, interfacce drag-and-drop per i clienti.</p>
+                  <div class="jch__chips"><span class="chip">Liferay 7.x</span><span class="chip">React</span><span class="chip">FreeMarker</span></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="jch" data-year="2023–26">
+              <span class="jch__year" aria-hidden="true">15+</span>
+              <div class="jch__card jch__card--lilac">
+                <div class="jch__visual jv-stack" aria-hidden="true">
+                  <img src="assets/shots/unar.webp" alt="" loading="lazy" width="1200" height="750">
+                  <img src="assets/shots/adm.webp" alt="" loading="lazy" width="1200" height="750">
+                  <img src="assets/shots/sella.webp" alt="" loading="lazy" width="1200" height="750">
+                </div>
+                <div class="jch__body">
+                  <p class="mono jch__meta"><b>04</b><span data-i18n="j4M">2023 → 2026</span></p>
+                  <h3 data-i18n="j4T">Portali dove sbagliare costa</h3>
+                  <p class="mono" data-i18n="j4D">Oltre 15 portali per PA, sanità, banche ed e-commerce. Accessibilità WCAG 2.1 AA, migrazioni da Liferay 7.0 a 7.4, demo e formazione direttamente con i clienti.</p>
+                  <div class="jch__chips"><span class="chip">WCAG 2.1 AA</span><span class="chip" data-i18n="chipMig">Migrazioni</span><span class="chip">Enterprise</span></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="jch" data-year="2026">
+              <span class="jch__year" aria-hidden="true">2026</span>
+              <div class="jch__card jch__card--ink">
+                <div class="jch__visual jv-shot"><img src="assets/shots/cheai.webp" alt="Homepage di CHEAI" data-i18n-alt="altCheai" loading="lazy" width="1200" height="750"></div>
+                <div class="jch__body">
+                  <p class="mono jch__meta"><b>05</b><span>Gruppo Automa · CHEAI</span></p>
+                  <h3 data-i18n="j5T">La prima startup</h3>
+                  <p class="mono" data-i18n="j5D">Co-fondazione di Gruppo Automa e lancio di CHEAI: agenti AI, RAG e un customer service che risponde su WhatsApp, Instagram e Messenger.</p>
+                  <div class="jch__chips"><span class="chip">LLM agents</span><span class="chip">RAG</span><span class="chip">SaaS</span></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="jch" data-year="Oggi" data-i18n-year="jToday">
+              <span class="jch__year" aria-hidden="true" data-i18n="jToday">Oggi</span>
+              <div class="jch__card jch__card--lime">
+                <div class="jch__visual jv-clocks" aria-hidden="true">
+                  <div class="clock"><b class="mono">Townsville</b><span class="clock__time" data-tz="Australia/Brisbane">--:--</span><small class="mono">QLD · AU</small></div>
+                  <i>⇄</i>
+                  <div class="clock"><b class="mono">Aversa</b><span class="clock__time" data-tz="Europe/Rome">--:--</span><small class="mono">CE · IT</small></div>
+                </div>
+                <div class="jch__body">
+                  <p class="mono jch__meta"><b>06</b><span>Antipode</span></p>
+                  <h3 data-i18n="j6T">Due città, un solo team</h3>
+                  <p class="mono" data-i18n="j6D">Tutto quello che abbiamo imparato, messo al servizio della tua azienda. Mentre in Italia si dorme, in Australia si lavora sul tuo progetto.</p>
+                  <a class="pill pill--ink" href="#contatti" data-i18n="j6Cta">Lavoriamo insieme ↗</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="jline" aria-hidden="true">
+            <div class="jline__bar"><i id="jfill"></i></div>
+            <ol class="jline__ticks mono"><li>2020</li><li>2022</li><li>2023</li><li>2023–26</li><li>2026</li><li data-i18n="jToday">Oggi</li></ol>
+          </div>
+        </div>
       </div>
     </section>
 
