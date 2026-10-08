@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Antipode — Siti web, automazioni e web app · Townsville &amp; Aversa</title>
+  <meta name="description" content="Antipode è uno studio digitale tra Townsville (Australia) e Aversa (Italia). Sviluppiamo siti web su misura, automazioni con AI e web app. Oltre 15 portali enterprise realizzati per PA, sanità, banche ed e-commerce.">
+  <meta name="theme-color" content="#2B2BEA">
+  <meta property="og:title" content="Antipode — Studio digitale, Townsville & Aversa">
+  <meta property="og:description" content="Siti web, automazioni e web app. Un team piccolo su due fusi orari.">
+  <meta property="og:type" content="website">
+  <link rel="preload" href="fonts/BricolageGrotesque-300-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='8' width='56' height='50' rx='12' fill='%230D0F1C'/%3E%3Crect x='10' y='6' width='44' height='40' rx='9' fill='%23171A33'/%3E%3Ctext x='32' y='34' text-anchor='middle' font-family='Arial Black,Arial' font-weight='900' font-size='17' fill='%23D9FF3F'%3E%3C/%3E%3C/text%3E%3C/svg%3E">
+  <script type="importmap">
+    { "imports": { "three": "./vendor/three.module.min.js", "three/addons/": "./vendor/addons/" } }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Antipode",
+    "description": "Studio digitale: siti web su misura, automazioni con AI e web app.",
+    "email": "antoniodebiase2003@gmail.com",
+    "founder": { "@type": "Person", "name": "Antonio De Biase", "jobTitle": "Founder & Software Developer", "sameAs": "https://www.linkedin.com/in/antonio-de-biase-1097b5235" },
+    "address": [
+      { "@type": "PostalAddress", "addressLocality": "Townsville", "addressRegion": "QLD", "addressCountry": "AU" },
+      { "@type": "PostalAddress", "addressLocality": "Aversa", "addressRegion": "CE", "addressCountry": "IT" }
+    ],
+    "areaServed": ["IT", "AU"],
+    "knowsAbout": ["React", "Next.js", "TypeScript", "JavaScript", "Liferay DXP 7.x", "n8n", "LLM agents", "RAG", "WCAG 2.1 AA", "REST API", "Supabase", "Docker"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip mono" href="#main" data-i18n="skip">Vai al contenuto</a>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ============ LOADER ============ -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__keys"><span>&lt;</span><span>/</span><span>&gt;</span></div>
+    <div class="loader__bar"><i></i></div>
+    <p class="mono loader__txt"><span data-i18n="loader">Compilo l'esperienza</span><span class="loader__pct">0</span>%</p>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <nav class="nav__left" aria-label="Sezioni" data-i18n-aria="navLabel">
+      <a class="pill" href="#lavori" data-i18n="navWork">Lavori</a>
+      <a class="pill" href="#servizi" data-i18n="navServices">Servizi</a>
+      <a class="pill" href="#percorso" data-i18n="navStory">Percorso</a>
+    </nav>
+    <a class="logo" href="#top" aria-label="Antipode, torna all'inizio" data-i18n-aria="logoLabel">
+      <span class="logo__key">&lt;/&gt;</span>
+      <span class="logo__txt"><b>Antipode</b><small class="mono">Townsville ⇄ Aversa</small></span>
+    </a>
+    <div class="nav__right">
+      <span class="pill pill--ghost mono status"><i></i><span data-i18n="status">Nuovi progetti aperti</span></span>
+      <div class="lang" role="group" aria-label="Lingua / Language">
+        <button class="lang__btn" data-lang="it" aria-pressed="true" lang="it">IT</button>
+        <button class="lang__btn" data-lang="en" aria-pressed="false" lang="en">EN</button>
+      </div>
+      <a class="pill pill--solid nav__cta" href="#contatti" data-i18n="navCta">Scrivici ↗</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <span id="top"></span>
+    <!-- ============ HERO + 3D STORY ============ -->
+    <section class="stage-wrap" id="stage-wrap">
+      <div class="stage">
+        <div class="stage__pattern" aria-hidden="true"></div>
+
+        <div class="stage__back">
+          <div class="step step--2">
+            <h2 class="echo echo--center" data-echo data-i18n="s2Title">Dall'idea<br>al deploy</h2>
+          </div>
+        </div>
+
+        <canvas class="stage__canvas" id="key3d" aria-hidden="true"></canvas>
+
+        <div class="hero">
+          <div class="hero__rule hero__rule--top"></div>
+          <p class="hero__kicker mono" data-i18n="heroKicker">Studio digitale · Townsville (AU) &amp; Aversa (IT)</p>
+          <h1 class="hero__title">
+            <span class="sr-only" data-i18n="heroH1">Antipode, studio digitale: codice audace</span>
+            <span class="hero__word" aria-hidden="true" data-split data-i18n="heroW1">Codice</span>
+            <span class="hero__word" aria-hidden="true" data-split data-i18n="heroW2">Audace</span>
+          </h1>
+          <div class="hero__rule hero__rule--bottom"></div>
+          <p class="hero__sub" data-i18n="heroSub">Siti web · Automazioni · Web app</p>
+
+          <div class="hero__foot">
+            <p class="mono hero__lede" data-i18n="heroLede">Progettiamo e sviluppiamo siti, automazioni e web app per aziende che vogliono meno lavoro manuale e più clienti. Un team piccolo, due fusi orari, una sola persona a cui scrivere.</p>
+            <a class="pill pill--solid pill--lg" href="#contatti" data-i18n="heroCta">Parliamone</a>
+          </div>
+          <div class="hero__scroll mono" aria-hidden="true"><span data-i18n="scroll">Scorri</span><i></i></div>
+        </div>
+
+        <div class="stage__front">
+          <div class="step step--1">
+            <h2 class="echo" data-echo data-i18n="s1Title">Un nuovo angolo<br>sul web</h2>
+            <p class="mono step__txt" data-i18n="s1Txt">Prima di aprire l'editor ci chiediamo cosa deve riuscire a fare chi userà il prodotto. Design, codice e dati arrivano dopo, e lavorano per quella risposta.</p>
+          </div>
+          <div class="step step--2b">
+            <p class="mono step__txt step__txt--center" data-i18n="s2Txt">Analisi, design, sviluppo, test e messa online restano nelle stesse mani. Niente passaggi di consegna, niente telefono senza fili.</p>
+            <div class="step__chips">
+              <span class="chip">React</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">n8n</span><span class="chip">LLM &amp; RAG</span>
+            </div>
+          </div>
+          <div class="step step--3">
+            <h2 class="echo" data-echo data-i18n="s3Title">Una nuova<br>prospettiva<br>sul codice</h2>
+            <ul class="stats mono">
+              <li><b data-count="6">6</b><span data-i18n="stat1">anni di esperienza</span></li>
+              <li><b data-count="15" data-suffix="+">15+</b><span data-i18n="stat2">portali enterprise</span></li>
+              <li><b>AA</b><span data-i18n="stat3">accessibilità WCAG 2.1</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="services" id="servizi" aria-labelledby="svc-label">
+      <div class="services__sticky">
+        <div class="services__left">
+          <p class="mono tag"><span id="svc-label" data-i18n="svcTag">Servizi</span> <span class="services__count"><b id="svc-n">01</b> / 03</span></p>
+          <div class="services__heads">
+            <h2 class="echo echo--sm" data-echo data-i18n="svcH1">Cosa c'è<br>dentro</h2>
+            <h2 class="echo echo--sm" data-echo data-i18n="svcH2">Niente template.<br>Niente scorciatoie.</h2>
+            <h2 class="echo echo--sm" data-echo data-i18n="svcH3">Codice solido,<br>ogni volta</h2>
+          </div>
+          <ol class="svc-list">
+            <li>
+              <span class="svc-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="15" rx="3"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
+              <div><h3 data-i18n="svc1T">Siti web su misura</h3><p class="mono" data-i18n="svc1D">Siti aziendali, portali e landing page veloci, accessibili, fatti per farsi trovare su Google. Usiamo un CMS se vuoi aggiornarlo da solo, codice su misura quando conta ogni millisecondo.</p></div>
+            </li>
+            <li>
+              <span class="svc-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M7.5 12h4l5-5M11.5 12l5 5"/></svg></span>
+              <div><h3 data-i18n="svc2T">Automazioni &amp; AI</h3><p class="mono" data-i18n="svc2D">Flussi n8n, agenti LLM e chatbot che rispondono su WhatsApp, Instagram e sul sito usando i tuoi documenti. Le domande ripetitive le gestiscono loro, quelle delicate passano a una persona.</p></div>
+            </li>
+            <li>
+              <span class="svc-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="5" rx="2"/><rect x="13" y="10" width="8" height="11" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/></svg></span>
+              <div><h3 data-i18n="svc3T">Web app &amp; MVP</h3><p class="mono" data-i18n="svc3D">Gestionali, SaaS e dashboard con login, ruoli, pagamenti e integrazioni API. Partiamo da un MVP da mostrare ai primi clienti e lo facciamo crescere.</p></div>
+            </li>
+          </ol>
+        </div>
+        <div class="services__right" aria-hidden="true">
+          <div class="svc-visual">
+            <div class="mock-browser">
+              <div class="mock-browser__bar"><i></i><i></i><i></i><span class="mono" data-i18n="mockUrl">iltuosito.it</span></div>
+              <div class="mock-browser__body">
+                <div class="mb-hero"><b></b><b></b><span></span></div>
+                <div class="mb-grid"><i></i><i></i><i></i></div>
+                <div class="mb-lines"><i></i><i></i><i></i></div>
+              </div>
+            </div>
+            <div class="score mono"><b>100</b><span data-i18n="mockScore">Lighthouse<br>accessibilità</span></div>
+          </div>
+          <div class="svc-visual">
+            <div class="flowbox">
+              <svg class="flow" viewBox="0 0 400 300">
+                <path class="flow__path" d="M70 150 C130 150 130 70 200 70 S270 150 330 150"/>
+                <path class="flow__path" d="M70 150 C130 150 130 230 200 230 S270 150 330 150"/>
+                <path class="flow__path" d="M200 70 L200 230"/>
+                <circle class="flow__dot" r="5"><animateMotion dur="2.6s" repeatCount="indefinite" path="M70 150 C130 150 130 70 200 70 S270 150 330 150"/></circle>
+                <circle class="flow__dot" r="5"><animateMotion dur="3.1s" begin="1s" repeatCount="indefinite" path="M70 150 C130 150 130 230 200 230 S270 150 330 150"/></circle>
+              </svg>
+              <div class="node node--a"><span>✉︎</span><b class="mono" data-i18n="flowA">Nuovo lead</b></div>
+              <div class="node node--b"><span>✦</span><b class="mono" data-i18n="flowB">Agente AI</b></div>
+              <div class="node node--c"><span>⌗</span><b class="mono">CRM</b></div>
+              <div class="node node--d"><span>✓</span><b class="mono" data-i18n="flowD">Risposta inviata</b></div>
+            </div>
+          </div>
+          <div class="svc-visual">
+            <div class="dash">
+              <div class="dash__side"><i></i><i></i><i></i><i></i></div>
+              <div class="dash__main">
+                <div class="dash__kpis"><div><small class="mono" data-i18n="kpi1">Ordini</small><b>1.284</b></div><div><small class="mono" data-i18n="kpi2">Conversione</small><b>4,7%</b></div><div><small class="mono" data-i18n="kpi3">Tempo risp.</small><b>12s</b></div></div>
+                <div class="dash__chart"><i style="--h:40%"></i><i style="--h:62%"></i><i style="--h:48%"></i><i style="--h:75%"></i><i style="--h:58%"></i><i style="--h:88%"></i><i style="--h:70%"></i><i style="--h:96%"></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="services__pattern"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ JOURNEY ============ -->
+    <section class="journey" id="percorso">
+      <div class="journey__head">
+        <h2 class="echo echo--ink" data-echo data-i18n="jTitle">Esperienza<br>&amp; mestiere</h2>
+        <p class="mono journey__lede" data-i18n="jLede">Antipode nasce dal percorso del suo fondatore, Antonio De Biase: sei anni di sviluppo, dai primi siti per clienti privati ai portali della Pubblica Amministrazione, fino a una startup AI.</p>
+      </div>
+      <div class="journey__items">
+        <article class="jitem" data-speed="0.9" style="--x:58%">
+          <header><span class="jnum">01</span><p class="mono" data-i18n="j1">2020 · Freelance<br>I primi siti e web app per clienti privati</p></header>
+          <div class="jcard jcard--code"><pre class="mono">const cliente = await brief();
+deploy(sito(cliente));
+<span data-i18n="j1code">// v1.0, il primo di tanti</span></pre></div>
+        </article>
+        <article class="jitem" data-speed="1.15" style="--x:6%">
+          <header><span class="jnum">02</span><p class="mono" data-i18n="j2">2022 · ITS Incom, Milano<br>Specializzazione post-diploma in Full Stack Development</p></header>
+          <div class="jcard jcard--stack" aria-hidden="true"><span>HTML</span><span>CSS</span><span>JS</span><span>SQL</span><span>Java</span><span>Git</span></div>
+        </article>
+        <article class="jitem" data-speed="0.8" style="--x:62%">
+          <header><span class="jnum">03</span><p class="mono" data-i18n="j3">2023 · SMC<br>Da stagista a Senior Frontend Engineer</p></header>
+          <div class="jcard jcard--img"><img src="assets/shots/agenzia-entrate.webp" alt="Homepage del portale Agenzia delle Entrate" data-i18n-alt="altAE" loading="lazy" width="1200" height="750"></div>
+        </article>
+        <article class="jitem" data-speed="1.2" style="--x:14%">
+          <header><span class="jnum">04</span><p class="mono" data-i18n="j4">2023 → 2026 · Oltre 15 portali enterprise<br>PA, sanità, banche ed e-commerce su Liferay 7.x e React</p></header>
+          <div class="jcard jcard--img"><img src="assets/shots/unar.webp" alt="Homepage del portale UNAR" data-i18n-alt="altUnar" loading="lazy" width="1200" height="750"></div>
+        </article>
+        <article class="jitem" data-speed="0.95" style="--x:56%">
+          <header><span class="jnum">05</span><p class="mono" data-i18n="j5">2026 · Co-fondatore di Gruppo Automa<br>CHEAI, customer service AI multicanale</p></header>
+          <div class="jcard jcard--img"><img src="assets/shots/cheai.webp" alt="Homepage di CHEAI" data-i18n-alt="altCheai" loading="lazy" width="1200" height="750"></div>
+        </article>
+        <article class="jitem" data-speed="1.1" style="--x:10%">
+          <header><span class="jnum">06</span><p class="mono" data-i18n="j6">Oggi · Antipode<br>Townsville (QLD) e Aversa (CE), clienti in Italia e in Australia</p></header>
+          <div class="jcard jcard--globe" aria-hidden="true">
+            <div><b class="mono">Townsville</b><span class="mono">GMT+10</span></div>
+            <i>⇄</i>
+            <div><b class="mono">Aversa</b><span class="mono">GMT+1</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ WHY ============ -->
+    <section class="why" aria-labelledby="why-title">
+      <div class="why__head">
+        <h2 class="why__title" id="why-title">
+          <span class="hl"><span data-i18n="whyW1">Perché</span><span class="sticker" style="--r:-12deg" data-i18n="whyS1">dettagli</span><svg class="strike" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 26 C80 14 200 30 296 12"/></svg></span>
+          <span class="hl"><span data-i18n="whyW2">il codice</span><span class="sticker sticker--b" style="--r:8deg" data-i18n="whyS2">non solo pixel</span><svg class="strike" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 18 C90 30 210 8 296 22"/></svg></span><br>
+          <span class="hl"><span data-i18n="whyW3">conta</span><span class="sticker sticker--c" style="--r:-6deg" data-i18n="whyS3">sempre</span><svg class="strike" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 24 C70 10 220 34 296 16"/></svg></span>
+        </h2>
+        <p class="mono why__sub" data-i18n="whySub">Un sito bello che carica lento, non compare su Google o non si usa con uno screen reader ti fa perdere clienti ogni giorno.</p>
+      </div>
+      <div class="why__cols">
+        <div class="why__col">
+          <span class="why__ico" aria-hidden="true">♿</span>
+          <h3 class="mono" data-i18n="why1T">Accessibile</h3>
+          <p class="mono" data-i18n="why1D">I portali per la PA li abbiamo sviluppati secondo le WCAG 2.1 AA: si usano da tastiera, si leggono con lo screen reader, funzionano per tutti. Lo stesso standard lo portiamo nel tuo progetto.</p>
+        </div>
+        <div class="why__col">
+          <span class="why__ico" aria-hidden="true">⚡</span>
+          <h3 class="mono" data-i18n="why2T">Veloce</h3>
+          <p class="mono" data-i18n="why2D">Codice leggero, immagini ottimizzate, Core Web Vitals tenuti d'occhio. Le persone non aspettano, e Google nemmeno.</p>
+        </div>
+        <div class="why__col">
+          <span class="why__ico" aria-hidden="true">⌘</span>
+          <h3 class="mono" data-i18n="why3T">Pronto a crescere</h3>
+          <p class="mono" data-i18n="why3D">Componenti riutilizzabili e un'architettura in ordine. Quando arriva la funzione nuova, non si riparte da zero.</p>
+        </div>
+      </div>
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track mono">
+          <span>React</span><span>✦</span><span>Next.js</span><span>✦</span><span>TypeScript</span><span>✦</span><span>Liferay 7.x</span><span>✦</span><span>n8n</span><span>✦</span><span>Supabase</span><span>✦</span><span>LLM agents</span><span>✦</span><span>RAG</span><span>✦</span><span>Tailwind</span><span>✦</span><span>Docker</span><span>✦</span><span>REST API</span><span>✦</span><span>WordPress</span><span>✦</span><span>Webflow</span><span>✦</span>
+          <span>React</span><span>✦</span><span>Next.js</span><span>✦</span><span>TypeScript</span><span>✦</span><span>Liferay 7.x</span><span>✦</span><span>n8n</span><span>✦</span><span>Supabase</span><span>✦</span><span>LLM agents</span><span>✦</span><span>RAG</span><span>✦</span><span>Tailwind</span><span>✦</span><span>Docker</span><span>✦</span><span>REST API</span><span>✦</span><span>WordPress</span><span>✦</span><span>Webflow</span><span>✦</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORK / SHOWCASE ============ -->
+    <section class="work" id="lavori">
+      <div class="work__intro">
+        <div class="work__collage" aria-hidden="true">
+          <img src="assets/shots/mase.webp" alt="" style="--r:-8deg;--x:-4%;--y:6%" width="1200" height="750">
+          <img src="assets/shots/axa-lamiasalute.webp" alt="" style="--r:6deg;--x:46%;--y:-4%" width="1200" height="750">
+          <img src="assets/shots/scame-emobility.webp" alt="" style="--r:-3deg;--x:62%;--y:48%" width="1200" height="750">
+          <img src="assets/shots/repubblica-digitale.webp" alt="" style="--r:9deg;--x:8%;--y:56%" width="1200" height="750">
+        </div>
+        <div class="work__intro-txt">
+          <h2 class="echo echo--xl" data-echo data-i18n="workTitle">Il lavoro<br>parla meglio<br>di noi</h2>
+          <a class="pill pill--ink" href="#showcase" data-i18n="workCta">Guarda i lavori ↓</a>
+        </div>
+      </div>
+
+      <div class="showcase" id="showcase">
+        <div class="showcase__head">
+          <h2 class="showcase__title">Showcase<sup class="mono" id="work-count">00</sup></h2>
+          <div class="filters" role="group" aria-label="Filtra progetti" data-i18n-aria="filterLabel">
+            <button class="filter is-active" data-filter="all" aria-pressed="true" data-i18n="fAll">Tutti</button>
+            <button class="filter" data-filter="pa" aria-pressed="false" data-i18n="fPa">Pubblica Amministrazione</button>
+            <button class="filter" data-filter="enterprise" aria-pressed="false" data-i18n="fEnt">Sanità &amp; Enterprise</button>
+            <button class="filter" data-filter="business" aria-pressed="false" data-i18n="fBiz">Business &amp; E-commerce</button>
+            <button class="filter" data-filter="product" aria-pressed="false" data-i18n="fProd">Startup &amp; prodotti</button>
+          </div>
+        </div>
+        <div class="grid" id="grid"></div>
+        <p class="mono showcase__note" data-i18n="workNote">I portali PA ed enterprise li ha sviluppati il nostro fondatore come Senior Frontend Engineer in SMC, lavorando in team di progetto. Gli screenshot mostrano i siti come sono oggi.</p>
+      </div>
+    </section>
+
+    <!-- ============ OFFER ============ -->
+    <section class="offer" aria-labelledby="offer-title">
+      <div class="offer__head">
+        <span class="offer__mark" aria-hidden="true">✦</span>
+        <h2 class="echo echo--lime" id="offer-title" data-echo data-i18n="offerTitle">Costruiamolo<br>insieme</h2>
+        <a class="pill pill--solid" href="#contatti" data-i18n="offerCta">Prenota una call</a>
+      </div>
+      <div class="offer__cards">
+        <article class="ocard">
+          <div class="ocard__top"><span class="chip chip--ink">Web</span><span class="chip chip--ink">CMS / full-code</span></div>
+          <h3 data-i18n="o1T">Sito web<br>su misura</h3>
+          <ul class="mono" data-i18n="o1L"><li>Design pensato per te, niente template</li><li>SEO tecnica e velocità</li><li>Accessibilità WCAG 2.1</li><li>Lo aggiorni da solo</li></ul>
+          <p class="mono ocard__for" data-i18n="o1F">Per: professionisti, PMI, brand</p>
+        </article>
+        <article class="ocard ocard--lilac">
+          <div class="ocard__top"><span class="chip chip--ink">AI</span><span class="chip chip--ink">n8n</span></div>
+          <h3 data-i18n="o2T">Automazioni<br>&amp; agenti AI</h3>
+          <ul class="mono" data-i18n="o2L"><li>Flussi tra gli strumenti che già usi</li><li>Chatbot su WhatsApp, Instagram e sito</li><li>Risposte basate sui tuoi documenti</li><li>Passaggio a una persona quando serve</li></ul>
+          <p class="mono ocard__for" data-i18n="o2F">Per: chi risponde a tanti clienti ogni giorno</p>
+        </article>
+        <article class="ocard ocard--paper">
+          <div class="ocard__top"><span class="chip chip--ink">SaaS</span><span class="chip chip--ink">MVP</span></div>
+          <h3 data-i18n="o3T">Web app<br>&amp; MVP</h3>
+          <ul class="mono" data-i18n="o3L"><li>Gestionali e dashboard</li><li>Integrazioni API e pagamenti</li><li>Login, ruoli, database</li><li>Messa online e manutenzione</li></ul>
+          <p class="mono ocard__for" data-i18n="o3F">Per: startup e processi interni</p>
+        </article>
+      </div>
+      <ol class="process mono">
+        <li><b>01</b><span data-i18n="p1">Call conoscitiva</span></li>
+        <li><b>02</b><span data-i18n="p2">Proposta e preventivo</span></li>
+        <li><b>03</b><span data-i18n="p3">Design e sviluppo</span></li>
+        <li><b>04</b><span data-i18n="p4">Lancio e supporto</span></li>
+      </ol>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact" id="contatti" aria-labelledby="contact-title">
+      <div class="contact__left">
+        <h2 class="echo echo--ink echo--sm" id="contact-title" data-echo data-i18n="cTitle">Hai un progetto?<br>Raccontacelo.</h2>
+        <form class="cform" id="cform" novalidate>
+          <div class="cform__row">
+            <label class="field"><span class="mono" data-i18n="cName">Nome</span><input name="nome" autocomplete="name" required></label>
+            <label class="field"><span class="mono">Email</span><input name="email" type="email" autocomplete="email" required></label>
+          </div>
+          <fieldset class="cform__types">
+            <legend class="mono" data-i18n="cNeed">Ci serve</legend>
+            <label><input type="checkbox" name="tipo" value="Sito web"><span data-i18n="cT1">Sito web</span></label>
+            <label><input type="checkbox" name="tipo" value="Automazione / AI"><span data-i18n="cT2">Automazione / AI</span></label>
+            <label><input type="checkbox" name="tipo" value="Web app / MVP"><span data-i18n="cT3">Web app / MVP</span></label>
+          </fieldset>
+          <label class="field field--area"><span class="mono" data-i18n="cMsg">Di cosa hai bisogno?</span><textarea name="messaggio" rows="3" required></textarea></label>
+          <p class="mono cform__legal" data-i18n="cLegal">Il modulo apre il tuo programma di posta con il messaggio già pronto: il sito non salva nulla. Dettagli nella <a href="privacy.html">privacy policy</a>.</p>
+          <div class="cform__foot">
+            <p class="mono cform__msg" id="cform-msg" role="status"></p>
+            <button class="pill pill--ink pill--lg" type="submit" data-i18n="cSend">Invia ↗</button>
+          </div>
+        </form>
+      </div>
+      <div class="contact__right">
+        <div class="keys" id="keys" data-i18n="keys" aria-label="Tastiera decorativa" data-i18n-aria="keysLabel">
+          <button class="kc" data-k="C" type="button">C</button><button class="kc" data-k="I" type="button">I</button><button class="kc" data-k="A" type="button">A</button><button class="kc" data-k="O" type="button">O</button>
+          <button class="kc kc--wide kc--lime" data-k="Enter" type="button">invio ⏎</button>
+        </div>
+        <p class="mono contact__hint" data-i18n="keysHint">Prova a scrivere sulla tastiera ↑</p>
+        <ul class="contact__places mono">
+          <li><b>Townsville</b>QLD · Australia</li>
+          <li><b>Aversa</b>CE · Italia</li>
+        </ul>
+        <ul class="contact__links mono">
+          <li><a href="mailto:antoniodebiase2003@gmail.com">antoniodebiase2003@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com/in/antonio-de-biase-1097b5235" target="_blank" rel="noopener" data-i18n="cLinkedin">LinkedIn del fondatore ↗</a></li>
+        </ul>
+        <div class="contact__pattern" aria-hidden="true"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__big" aria-hidden="true"><span>Antipode</span><span>Antipode</span><span>Antipode</span><span>Antipode</span></div>
+    <div class="footer__row mono">
+      <span>© 2026 Antipode · <span data-i18n="footStudio">Studio digitale</span></span>
+      <span>Townsville · Aversa</span>
+      <nav class="footer__links" aria-label="Note legali" data-i18n-aria="legalLabel">
+        <a href="privacy.html">Privacy policy</a>
+        <a href="cookie.html">Cookie policy</a>
+        <a href="#top" data-i18n="footTop">Torna su ↑</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="corner">
+    <button class="corner__btn" id="motion-toggle" aria-pressed="false" aria-label="Metti in pausa le animazioni" data-i18n-aria="motionOff"><span class="eq"><i></i><i></i><i></i></span></button>
+    <a class="corner__btn" href="#top" aria-label="Torna su" data-i18n-aria="toTop">↑</a>
+  </div>
+
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="vendor/lenis.min.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/projects.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
