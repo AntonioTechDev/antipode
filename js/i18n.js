@@ -9,9 +9,9 @@
   var EN = {
     skip: "Skip to content",
     loader: "Compiling the experience",
-    navLabel: "Sections", navWork: "Work", navServices: "Services", navStory: "Story",
+    navLabel: "Sections", navWork: "Work", navServices: "Services", navAbout: "About us",
     logoLabel: "Antipode, back to top",
-    status: "Taking new projects", navCta: "Contact us ↗",
+    status: "Taking new projects", navCta: "Get a quote ↗",
 
     heroKicker: "Digital studio · Townsville (AU) &amp; Aversa (IT)",
     heroH1: "Antipode, digital studio: bold code",
@@ -20,11 +20,11 @@
     heroLede: "We design and build websites, automations and web apps for businesses that want less busywork and more customers. A small team across two time zones, and one person you actually talk to.",
     heroCta: "Let's talk", scroll: "Scroll",
 
-    s1Title: "A new angle<br>on the web",
-    s1Txt: "Before we open an editor, we ask what the people using the product need to get done. Design, code and data come after, and they all serve that answer.",
+    s1Title: "Nice site.<br>No customers?",
+    s1Txt: "<li>It loads slowly and Google can't find it.</li><li>You spend hours answering the same messages.</li><li>Your business data lives in ten spreadsheets.</li><li class=\"problems__end\">Sound familiar? It's fixable.</li>",
     s2Title: "From idea<br>to deploy",
-    s2Txt: "Discovery, design, build, testing and launch stay with the same people. No hand-offs, no broken telephone.",
-    s3Title: "A fresh<br>take<br>on code",
+    s2Txt: "We start from your problem, not from the tech. Discovery, design, build, testing and launch stay with the same people: no hand-offs, no broken telephone.",
+    s3Title: "Numbers,<br>not<br>promises",
     stat1: "years of experience", stat2: "enterprise portals", stat3: "WCAG 2.1 accessibility",
 
     svcTag: "Services",
@@ -32,15 +32,16 @@
     svcH2: "No templates.<br>No shortcuts.",
     svcH3: "Solid code,<br>every time",
     svc1T: "Custom websites",
-    svc1D: "Company sites, portals and landing pages that load fast, work for everyone and are built to rank. We use a CMS when you want to edit it yourself, and custom code when every millisecond counts.",
+    svc1D: "<b class=\"svc-for\">For sites that don't bring in leads.</b> Company sites, portals and landing pages that load fast, work for everyone and are built to rank. A CMS when you want to edit it yourself, custom code when every millisecond counts.",
     svc2T: "Automation &amp; AI",
-    svc2D: "n8n workflows, LLM agents and chatbots that answer on WhatsApp, Instagram and your site using your own documents. They take the repetitive questions and hand the tricky ones to a person.",
+    svc2D: "<b class=\"svc-for\">For teams answering the same questions all day.</b> n8n workflows, LLM agents and chatbots that reply on WhatsApp, Instagram and your site using your own documents. Sensitive requests go to a person.",
     svc3T: "Web apps &amp; MVPs",
-    svc3D: "Back-office tools, SaaS products and dashboards with login, roles, payments and API integrations. We start with an MVP you can show your first customers, then grow it.",
+    svc3D: "<b class=\"svc-for\">For businesses run on spreadsheets and disconnected apps.</b> Back-office tools, SaaS products and dashboards with login, roles, payments and API integrations. We start with an MVP you can show your first customers, then grow it.",
     mockUrl: "yoursite.com", mockScore: "Lighthouse<br>accessibility",
     flowA: "New lead", flowB: "AI agent", flowD: "Reply sent",
     kpi1: "Orders", kpi2: "Conversion", kpi3: "Reply time",
 
+    aboutTag: "About us",
     jTitle: "Experience<br>&amp; craft",
     jLede: "Antipode grew out of its founder's work. Antonio De Biase has spent six years building software, from first websites for private clients to Italian government portals and an AI startup.",
     j1: "2020 · Freelance<br>First websites and web apps for private clients",
@@ -68,6 +69,31 @@
     workCta: "See the work ↓",
     filterLabel: "Filter projects",
     fAll: "All", fPa: "Public sector", fEnt: "Healthcare &amp; Enterprise", fBiz: "Business &amp; E-commerce", fProd: "Startups &amp; products",
+    workCtaTxt: "Want results like these for your business?",
+    workCtaBtn: "Get a quote ↗",
+    proofTag: "Testimonials",
+    proofTitle: "Trust,<br>earned",
+    proofLede: "Before Antipode, our founder worked on portals where mistakes are expensive: government, healthcare, banking. We bring the same care to your project.",
+    logosLabel: "Enterprise portals our founder has worked on",
+    faqTitle: "Questions<br>we get asked",
+    faqLede: "The questions that come up in every first call. If yours isn't here, write to us: a person will answer, not a bot.",
+    faqCta: "Ask your question ↗",
+    q1: "How much does a project cost?",
+    a1: "It depends on what you need: a landing page and a back-office app are very different jobs. After a first call we send a written quote with costs, timeline and what's included, before any work starts. You can already give us a rough budget in the form below.",
+    q2: "How long does it take?",
+    a2: "A company website usually takes weeks, a web app months. The quote lists every milestone with dates, so you always know where we are and what you'll see next.",
+    q3: "How do you work remotely across two time zones?",
+    a3: "Townsville and Aversa are eight or nine hours apart, so work keeps moving while you sleep. We book calls at times that suit both sides, in English or Italian.",
+    q4: "Can I update the site myself?",
+    a4: "Yes. If you need to change text, photos or articles we use a CMS and show you how it works. If the project is custom-coded, we build the editable parts you actually need.",
+    q5: "Who owns the code, domain and accounts?",
+    a5: "You do. Domain, hosting and accounts are in your name, and on delivery you get the source code and credentials. If you ever want to switch provider, you don't need anyone's permission.",
+    q6: "What happens after launch?",
+    a6: "In the weeks after go-live we fix anything that comes up. After that, if you like, we agree a maintenance plan with updates, backups and monitoring.",
+    q7: "Are AI chatbots safe for my customers' data?",
+    a7: "The chatbot only uses the documents you choose, and we handle data in line with the GDPR. We set it up to say \"I don't know\" instead of making things up, and to hand the conversation to a person when needed.",
+    q8: "Do you work outside Italy and Australia?",
+    a8: "Yes. We work remotely with clients anywhere and build sites in English and Italian.",
     workNote: "Our founder built the public-sector and enterprise portals as a Senior Frontend Engineer at SMC, working in project teams. Screenshots show the sites as they are today.",
 
     offerTitle: "Let's build<br>it together",
@@ -86,6 +112,7 @@
     cTitle: "Got a project?<br>Tell us<br>about it.",
     cName: "Name", cNeed: "We need", cT1: "Website", cT2: "Automation / AI", cT3: "Web app / MVP",
     cMsg: "What do you need?",
+    cBudget: "Rough budget", bud0: "Not sure yet",
     cLegal: "The form opens your email app with the message ready to send: this site stores nothing. Details in our <a href=\"privacy.html\">privacy policy</a>.",
     cSend: "Send ↗",
     keys: '<button class="kc" data-k="H" type="button">H</button><button class="kc" data-k="E" type="button">E</button><button class="kc" data-k="Y" type="button">Y</button><button class="kc" data-k="!" type="button">!</button><button class="kc kc--wide kc--lime" data-k="Enter" type="button">enter ⏎</button>',
@@ -93,6 +120,8 @@
     keysHint: "Try typing on your keyboard ↑",
     cLinkedin: "Founder on LinkedIn ↗",
     footStudio: "Digital studio", legalLabel: "Legal", footTop: "Back to top ↑",
+    footTag: "A digital studio between Townsville and Aversa. Websites, automations and web apps for businesses that want less busywork and more customers.",
+    footContact: "Contact", italy: "Italy", vat: "VAT no.",
     motionOff: "Pause animations", motionOn: "Resume animations", toTop: "Back to top",
 
     /* strings used from JS */
@@ -107,7 +136,8 @@
     _homeOf: "Homepage of",
     _newTab: "opens in a new tab",
     _private: "private project",
-    _client: "Client", _library: "Library"
+    _client: "Client", _library: "Library",
+    _budget: "Budget", _todo: "to fill in"
   };
 
   var IT_JS = {
@@ -121,6 +151,7 @@
     _newTab: "apre in una nuova scheda",
     _private: "progetto privato",
     _client: "Cliente", _library: "Libreria",
+    _budget: "Budget", _todo: "da compilare",
     motionOff: "Metti in pausa le animazioni", motionOn: "Riprendi le animazioni"
   };
 

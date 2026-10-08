@@ -225,7 +225,7 @@ svc.fromTo(bars, { scaleY: 0 }, { scaleY: 1, stagger: 0.05, duration: 0.6, ease:
 /* ---------------------------------------------------------
    Generic echo reveals for standalone headings
 --------------------------------------------------------- */
-$$(".journey__head .echo, .work__intro .echo, .offer .echo, .contact .echo").forEach((el) => {
+$$(".journey__head .echo, .work__intro .echo, .proof .echo, .offer .echo, .faq .echo, .contact .echo").forEach((el) => {
   ScrollTrigger.create({ trigger: el, start: "top 82%", once: true, onEnter: () => echoIn(el) });
 });
 
@@ -340,6 +340,59 @@ if (matchMedia("(hover: hover)").matches) {
 }
 
 /* ---------------------------------------------------------
+   SHOWCASE CTA
+--------------------------------------------------------- */
+gsap.fromTo(".showcase__cta", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", scrollTrigger: { trigger: ".showcase__cta", start: "top 90%" } });
+
+/* ---------------------------------------------------------
+   TESTIMONIALS — real quotes only; placeholders appear on localhost
+--------------------------------------------------------- */
+const isDev = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+const real = (window.TESTIMONIALS || []).filter((t) => !t.placeholder);
+const shown = real.length ? real : isDev ? window.TESTIMONIALS || [] : [];
+const quotesEl = $("#quotes");
+if (shown.length) {
+  quotesEl.innerHTML = shown.map((t) => `
+    <figure class="quote${t.placeholder ? " quote--todo" : ""}">
+      ${t.placeholder ? `<span class="quote__todo mono">${T("_todo", "da compilare")}</span>` : ""}
+      <span class="quote__mark" aria-hidden="true">“</span>
+      <blockquote><p>${esc(t.quote[LANG] || t.quote.it)}</p></blockquote>
+      <figcaption class="mono"><b>${esc(t.name)}</b><span>${esc(t.role[LANG] || t.role.it)}</span>${t.project ? `<i>${esc(t.project)}</i>` : ""}</figcaption>
+    </figure>`).join("");
+  gsap.fromTo(".quote", { opacity: 0, y: 80, rotate: (i) => [-3, 2, -1][i % 3] }, {
+    opacity: 1, y: 0, rotate: 0, stagger: 0.12, duration: 1.1, ease: "power4.out",
+    scrollTrigger: { trigger: quotesEl, start: "top 85%" },
+  });
+} else {
+  quotesEl.remove();
+}
+gsap.fromTo(".logos__list li", { opacity: 0, y: 24 }, {
+  opacity: 1, y: 0, stagger: 0.04, duration: 0.6, ease: "power3.out",
+  scrollTrigger: { trigger: ".logos", start: "top 88%" },
+});
+
+/* ---------------------------------------------------------
+   FAQ — accordion + FAQPage structured data for search engines
+--------------------------------------------------------- */
+const qas = $$(".qa");
+gsap.fromTo(qas, { opacity: 0, y: 30 }, { opacity: 1, y: 0, stagger: 0.07, duration: 0.7, ease: "power3.out", scrollTrigger: { trigger: ".faq__list", start: "top 85%" } });
+qas.forEach((d) => d.addEventListener("toggle", () => {
+  // keep one answer open at a time, then re-measure the triggers below
+  if (d.open) qas.forEach((o) => { if (o !== d) o.open = false; });
+  setTimeout(() => ScrollTrigger.refresh(), 450);
+}));
+const ld = document.createElement("script");
+ld.type = "application/ld+json";
+ld.textContent = JSON.stringify({
+  "@context": "https://schema.org", "@type": "FAQPage",
+  mainEntity: qas.map((d) => ({
+    "@type": "Question", name: $("summary span", d).textContent.trim(),
+    acceptedAnswer: { "@type": "Answer", text: $(".qa__a", d).textContent.trim() },
+  })),
+});
+document.head.appendChild(ld);
+
+/* ---------------------------------------------------------
    OFFER cards + process
 --------------------------------------------------------- */
 gsap.fromTo(".ocard", { y: 160, rotate: (i) => [-6, 3, 7][i], opacity: 0 }, {
@@ -379,7 +432,8 @@ form.addEventListener("submit", (e) => {
     return;
   }
   const tipi = d.getAll("tipo").join(", ") || T("_tbd");
-  const body = `${T("_mailHello")}\n\n${testo}\n\n${T("_mailNeed")}: ${tipi}\n\n${nome}\n${email}`;
+  const budget = d.get("budget") || T("_tbd");
+  const body = `${T("_mailHello")}\n\n${testo}\n\n${T("_mailNeed")}: ${tipi}\n${T("_budget")}: ${budget}\n\n${nome}\n${email}`;
   location.href = `mailto:antoniodebiase2003@gmail.com?subject=${encodeURIComponent(T("_mailSubject") + " — " + nome)}&body=${encodeURIComponent(body)}`;
   msg.textContent = T("_formOk");
 });

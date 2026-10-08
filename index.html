@@ -49,7 +49,8 @@
     <nav class="nav__left" aria-label="Sezioni" data-i18n-aria="navLabel">
       <a class="pill" href="#lavori" data-i18n="navWork">Lavori</a>
       <a class="pill" href="#servizi" data-i18n="navServices">Servizi</a>
-      <a class="pill" href="#percorso" data-i18n="navStory">Percorso</a>
+      <a class="pill" href="#chi-siamo" data-i18n="navAbout">Chi siamo</a>
+      <a class="pill" href="#faq">FAQ</a>
     </nav>
     <a class="logo" href="#top" aria-label="Antipode, torna all'inizio" data-i18n-aria="logoLabel">
       <span class="logo__key">&lt;/&gt;</span>
@@ -61,7 +62,7 @@
         <button class="lang__btn" data-lang="it" aria-pressed="true" lang="it">IT</button>
         <button class="lang__btn" data-lang="en" aria-pressed="false" lang="en">EN</button>
       </div>
-      <a class="pill pill--solid nav__cta" href="#contatti" data-i18n="navCta">Scrivici ↗</a>
+      <a class="pill pill--solid nav__cta" href="#contatti" data-i18n="navCta">Preventivo ↗</a>
     </div>
   </header>
 
@@ -100,17 +101,22 @@
 
         <div class="stage__front">
           <div class="step step--1">
-            <h2 class="echo" data-echo data-i18n="s1Title">Un nuovo angolo<br>sul web</h2>
-            <p class="mono step__txt" data-i18n="s1Txt">Prima di aprire l'editor ci chiediamo cosa deve riuscire a fare chi userà il prodotto. Design, codice e dati arrivano dopo, e lavorano per quella risposta.</p>
+            <h2 class="echo" data-echo data-i18n="s1Title">Il sito c'è.<br>I clienti no?</h2>
+            <ul class="mono step__txt problems" data-i18n="s1Txt">
+              <li>Carica lento e su Google non si trova.</li>
+              <li>Passi ore a rispondere agli stessi messaggi.</li>
+              <li>I dati dell'azienda vivono in dieci file Excel.</li>
+              <li class="problems__end">Ti suona familiare? Si risolve.</li>
+            </ul>
           </div>
           <div class="step step--2b">
-            <p class="mono step__txt step__txt--center" data-i18n="s2Txt">Analisi, design, sviluppo, test e messa online restano nelle stesse mani. Niente passaggi di consegna, niente telefono senza fili.</p>
+            <p class="mono step__txt step__txt--center" data-i18n="s2Txt">Partiamo dal tuo problema, non dalla tecnologia. Analisi, design, sviluppo, test e lancio restano nelle stesse mani: niente passaggi di consegna, niente telefono senza fili.</p>
             <div class="step__chips">
               <span class="chip">React</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">n8n</span><span class="chip">LLM &amp; RAG</span>
             </div>
           </div>
           <div class="step step--3">
-            <h2 class="echo" data-echo data-i18n="s3Title">Una nuova<br>prospettiva<br>sul codice</h2>
+            <h2 class="echo" data-echo data-i18n="s3Title">Numeri,<br>non<br>promesse</h2>
             <ul class="stats mono">
               <li><b data-count="6">6</b><span data-i18n="stat1">anni di esperienza</span></li>
               <li><b data-count="15" data-suffix="+">15+</b><span data-i18n="stat2">portali enterprise</span></li>
@@ -134,15 +140,15 @@
           <ol class="svc-list">
             <li>
               <span class="svc-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="15" rx="3"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
-              <div><h3 data-i18n="svc1T">Siti web su misura</h3><p class="mono" data-i18n="svc1D">Siti aziendali, portali e landing page veloci, accessibili, fatti per farsi trovare su Google. Usiamo un CMS se vuoi aggiornarlo da solo, codice su misura quando conta ogni millisecondo.</p></div>
+              <div><h3 data-i18n="svc1T">Siti web su misura</h3><p class="mono" data-i18n="svc1D"><b class="svc-for">Per chi ha un sito che non porta contatti.</b> Siti aziendali, portali e landing page veloci, accessibili, fatti per farsi trovare su Google. CMS se vuoi aggiornarlo da solo, codice su misura quando conta ogni millisecondo.</p></div>
             </li>
             <li>
               <span class="svc-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M7.5 12h4l5-5M11.5 12l5 5"/></svg></span>
-              <div><h3 data-i18n="svc2T">Automazioni &amp; AI</h3><p class="mono" data-i18n="svc2D">Flussi n8n, agenti LLM e chatbot che rispondono su WhatsApp, Instagram e sul sito usando i tuoi documenti. Le domande ripetitive le gestiscono loro, quelle delicate passano a una persona.</p></div>
+              <div><h3 data-i18n="svc2T">Automazioni &amp; AI</h3><p class="mono" data-i18n="svc2D"><b class="svc-for">Per chi risponde tutto il giorno alle stesse domande.</b> Flussi n8n, agenti LLM e chatbot che rispondono su WhatsApp, Instagram e sul sito usando i tuoi documenti. Le richieste delicate passano a una persona.</p></div>
             </li>
             <li>
               <span class="svc-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="5" rx="2"/><rect x="13" y="10" width="8" height="11" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/></svg></span>
-              <div><h3 data-i18n="svc3T">Web app &amp; MVP</h3><p class="mono" data-i18n="svc3D">Gestionali, SaaS e dashboard con login, ruoli, pagamenti e integrazioni API. Partiamo da un MVP da mostrare ai primi clienti e lo facciamo crescere.</p></div>
+              <div><h3 data-i18n="svc3T">Web app &amp; MVP</h3><p class="mono" data-i18n="svc3D"><b class="svc-for">Per chi gestisce l'azienda tra Excel e app scollegate.</b> Gestionali, SaaS e dashboard con login, ruoli, pagamenti e integrazioni API. Partiamo da un MVP da mostrare ai primi clienti e lo facciamo crescere.</p></div>
             </li>
           </ol>
         </div>
@@ -187,9 +193,61 @@
       </div>
     </section>
 
+    <!-- ============ WORK / SHOWCASE ============ -->
+    <section class="work" id="lavori">
+      <div class="work__intro">
+        <div class="work__collage" aria-hidden="true">
+          <img src="assets/shots/mase.webp" alt="" style="--r:-8deg;--x:-4%;--y:6%" width="1200" height="750">
+          <img src="assets/shots/axa-lamiasalute.webp" alt="" style="--r:6deg;--x:46%;--y:-4%" width="1200" height="750">
+          <img src="assets/shots/scame-emobility.webp" alt="" style="--r:-3deg;--x:62%;--y:48%" width="1200" height="750">
+          <img src="assets/shots/repubblica-digitale.webp" alt="" style="--r:9deg;--x:8%;--y:56%" width="1200" height="750">
+        </div>
+        <div class="work__intro-txt">
+          <h2 class="echo echo--xl" data-echo data-i18n="workTitle">Il lavoro<br>parla meglio<br>di noi</h2>
+          <a class="pill pill--ink" href="#showcase" data-i18n="workCta">Guarda i lavori ↓</a>
+        </div>
+      </div>
+
+      <div class="showcase" id="showcase">
+        <div class="showcase__head">
+          <h2 class="showcase__title">Showcase<sup class="mono" id="work-count">00</sup></h2>
+          <div class="filters" role="group" aria-label="Filtra progetti" data-i18n-aria="filterLabel">
+            <button class="filter is-active" data-filter="all" aria-pressed="true" data-i18n="fAll">Tutti</button>
+            <button class="filter" data-filter="pa" aria-pressed="false" data-i18n="fPa">Pubblica Amministrazione</button>
+            <button class="filter" data-filter="enterprise" aria-pressed="false" data-i18n="fEnt">Sanità &amp; Enterprise</button>
+            <button class="filter" data-filter="business" aria-pressed="false" data-i18n="fBiz">Business &amp; E-commerce</button>
+            <button class="filter" data-filter="product" aria-pressed="false" data-i18n="fProd">Startup &amp; prodotti</button>
+          </div>
+        </div>
+        <div class="grid" id="grid"></div>
+        <p class="mono showcase__note" data-i18n="workNote">I portali PA ed enterprise li ha sviluppati il nostro fondatore come Senior Frontend Engineer in SMC, lavorando in team di progetto. Gli screenshot mostrano i siti come sono oggi.</p>
+        <div class="showcase__cta">
+          <p data-i18n="workCtaTxt">Vuoi un risultato così per la tua azienda?</p>
+          <a class="pill pill--solid pill--lg" href="#contatti" data-i18n="workCtaBtn">Richiedi un preventivo ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="proof" id="recensioni" aria-labelledby="proof-title">
+      <div class="proof__head">
+        <p class="mono tag tag--ink" data-i18n="proofTag">Testimonianze</p>
+        <h2 class="echo echo--ink" id="proof-title" data-echo data-i18n="proofTitle">Fiducia<br>guadagnata</h2>
+        <p class="mono proof__lede" data-i18n="proofLede">Prima di Antipode, il nostro fondatore ha lavorato su portali dove sbagliare costa caro: pubblica amministrazione, sanità, banche. Lo stesso rigore lo mettiamo nei tuoi progetti.</p>
+      </div>
+      <div class="quotes" id="quotes"></div>
+      <div class="logos">
+        <p class="mono logos__label" data-i18n="logosLabel">Portali enterprise su cui ha lavorato il nostro fondatore</p>
+        <ul class="logos__list">
+          <li>Agenzia delle Entrate</li><li>MEF</li><li>AXA</li><li>Banca Sella</li><li>Coop</li><li>ADM</li><li>ASST Nord Milano</li><li>Scame</li><li>UNAR</li><li>MASE</li><li>Agenzia del Demanio</li><li>Veneto Lavoro</li>
+        </ul>
+      </div>
+    </section>
+
     <!-- ============ JOURNEY ============ -->
-    <section class="journey" id="percorso">
+    <section class="journey" id="chi-siamo">
       <div class="journey__head">
+        <p class="mono tag tag--ink" data-i18n="aboutTag">Chi siamo</p>
         <h2 class="echo echo--ink" data-echo data-i18n="jTitle">Esperienza<br>&amp; mestiere</h2>
         <p class="mono journey__lede" data-i18n="jLede">Antipode nasce dal percorso del suo fondatore, Antonio De Biase: sei anni di sviluppo, dai primi siti per clienti privati ai portali della Pubblica Amministrazione, fino a una startup AI.</p>
       </div>
@@ -262,37 +320,6 @@ deploy(sito(cliente));
       </div>
     </section>
 
-    <!-- ============ WORK / SHOWCASE ============ -->
-    <section class="work" id="lavori">
-      <div class="work__intro">
-        <div class="work__collage" aria-hidden="true">
-          <img src="assets/shots/mase.webp" alt="" style="--r:-8deg;--x:-4%;--y:6%" width="1200" height="750">
-          <img src="assets/shots/axa-lamiasalute.webp" alt="" style="--r:6deg;--x:46%;--y:-4%" width="1200" height="750">
-          <img src="assets/shots/scame-emobility.webp" alt="" style="--r:-3deg;--x:62%;--y:48%" width="1200" height="750">
-          <img src="assets/shots/repubblica-digitale.webp" alt="" style="--r:9deg;--x:8%;--y:56%" width="1200" height="750">
-        </div>
-        <div class="work__intro-txt">
-          <h2 class="echo echo--xl" data-echo data-i18n="workTitle">Il lavoro<br>parla meglio<br>di noi</h2>
-          <a class="pill pill--ink" href="#showcase" data-i18n="workCta">Guarda i lavori ↓</a>
-        </div>
-      </div>
-
-      <div class="showcase" id="showcase">
-        <div class="showcase__head">
-          <h2 class="showcase__title">Showcase<sup class="mono" id="work-count">00</sup></h2>
-          <div class="filters" role="group" aria-label="Filtra progetti" data-i18n-aria="filterLabel">
-            <button class="filter is-active" data-filter="all" aria-pressed="true" data-i18n="fAll">Tutti</button>
-            <button class="filter" data-filter="pa" aria-pressed="false" data-i18n="fPa">Pubblica Amministrazione</button>
-            <button class="filter" data-filter="enterprise" aria-pressed="false" data-i18n="fEnt">Sanità &amp; Enterprise</button>
-            <button class="filter" data-filter="business" aria-pressed="false" data-i18n="fBiz">Business &amp; E-commerce</button>
-            <button class="filter" data-filter="product" aria-pressed="false" data-i18n="fProd">Startup &amp; prodotti</button>
-          </div>
-        </div>
-        <div class="grid" id="grid"></div>
-        <p class="mono showcase__note" data-i18n="workNote">I portali PA ed enterprise li ha sviluppati il nostro fondatore come Senior Frontend Engineer in SMC, lavorando in team di progetto. Gli screenshot mostrano i siti come sono oggi.</p>
-      </div>
-    </section>
-
     <!-- ============ OFFER ============ -->
     <section class="offer" aria-labelledby="offer-title">
       <div class="offer__head">
@@ -328,6 +355,34 @@ deploy(sito(cliente));
       </ol>
     </section>
 
+    <!-- ============ FAQ ============ -->
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <div class="faq__side">
+        <p class="mono tag">FAQ</p>
+        <h2 class="echo echo--sm" id="faq-title" data-echo data-i18n="faqTitle">Domande<br>frequenti</h2>
+        <p class="mono faq__lede" data-i18n="faqLede">Le domande che ci fanno in ogni prima call. Se la tua non c'è, scrivici: rispondiamo noi, non un bot.</p>
+        <a class="pill pill--solid" href="#contatti" data-i18n="faqCta">Fai la tua domanda ↗</a>
+      </div>
+      <div class="faq__list">
+        <details class="qa"><summary><span data-i18n="q1">Quanto costa un progetto?</span><i aria-hidden="true"></i></summary>
+          <div class="qa__a"><p data-i18n="a1">Dipende da cosa ti serve: una landing page e un gestionale sono mondi diversi. Dopo una prima call ti mandiamo un preventivo scritto con costi, tempi e cosa è incluso, prima di iniziare qualsiasi lavoro. Nel modulo qui sotto puoi già indicare un budget indicativo.</p></div></details>
+        <details class="qa"><summary><span data-i18n="q2">Quanto tempo serve?</span><i aria-hidden="true"></i></summary>
+          <div class="qa__a"><p data-i18n="a2">Per un sito vetrina parliamo in genere di settimane, per una web app di mesi. Nel preventivo trovi le tappe con le date, così sai sempre a che punto siamo e cosa vedrai alla consegna successiva.</p></div></details>
+        <details class="qa"><summary><span data-i18n="q3">Come lavorate a distanza, con due fusi orari?</span><i aria-hidden="true"></i></summary>
+          <div class="qa__a"><p data-i18n="a3">Tra Townsville e Aversa ci sono otto o nove ore di differenza. Per te significa che il lavoro va avanti anche mentre dormi. Le call le fissiamo in orari comodi per entrambi, in italiano o in inglese.</p></div></details>
+        <details class="qa"><summary><span data-i18n="q4">Potrò modificare il sito da solo?</span><i aria-hidden="true"></i></summary>
+          <div class="qa__a"><p data-i18n="a4">Sì. Se devi aggiornare testi, foto o articoli usiamo un CMS e ti mostriamo come funziona. Se il progetto è in codice su misura, prepariamo le parti modificabili che ti servono davvero.</p></div></details>
+        <details class="qa"><summary><span data-i18n="q5">Codice, dominio e accessi di chi sono?</span><i aria-hidden="true"></i></summary>
+          <div class="qa__a"><p data-i18n="a5">Tuoi. Dominio, hosting e account sono intestati a te e alla consegna ricevi codice sorgente e credenziali. Se un giorno vuoi cambiare fornitore, puoi farlo senza chiedere permesso a nessuno.</p></div></details>
+        <details class="qa"><summary><span data-i18n="q6">Cosa succede dopo il lancio?</span><i aria-hidden="true"></i></summary>
+          <div class="qa__a"><p data-i18n="a6">Nelle settimane dopo la messa online sistemiamo eventuali problemi. Poi, se vuoi, concordiamo un piano di manutenzione con aggiornamenti, backup e monitoraggio.</p></div></details>
+        <details class="qa"><summary><span data-i18n="q7">I chatbot AI sono sicuri per i dati dei miei clienti?</span><i aria-hidden="true"></i></summary>
+          <div class="qa__a"><p data-i18n="a7">Il chatbot usa solo i documenti che scegli tu e trattiamo i dati secondo il GDPR. Lo istruiamo a dire "non lo so" invece di inventare, e a passare la conversazione a una persona quando serve.</p></div></details>
+        <details class="qa"><summary><span data-i18n="q8">Lavorate anche fuori da Italia e Australia?</span><i aria-hidden="true"></i></summary>
+          <div class="qa__a"><p data-i18n="a8">Sì. Lavoriamo da remoto con clienti ovunque e realizziamo siti in italiano e in inglese.</p></div></details>
+      </div>
+    </section>
+
     <!-- ============ CONTACT ============ -->
     <section class="contact" id="contatti" aria-labelledby="contact-title">
       <div class="contact__left">
@@ -343,6 +398,15 @@ deploy(sito(cliente));
             <label><input type="checkbox" name="tipo" value="Automazione / AI"><span data-i18n="cT2">Automazione / AI</span></label>
             <label><input type="checkbox" name="tipo" value="Web app / MVP"><span data-i18n="cT3">Web app / MVP</span></label>
           </fieldset>
+          <label class="field field--select"><span class="mono" data-i18n="cBudget">Budget indicativo</span>
+            <select name="budget">
+              <option value="" data-i18n="bud0">Non lo so ancora</option>
+              <option value="< 2.000 €">&lt; 2.000 €</option>
+              <option value="2.000–5.000 €">2.000–5.000 €</option>
+              <option value="5.000–15.000 €">5.000–15.000 €</option>
+              <option value="> 15.000 €">&gt; 15.000 €</option>
+            </select>
+          </label>
           <label class="field field--area"><span class="mono" data-i18n="cMsg">Di cosa hai bisogno?</span><textarea name="messaggio" rows="3" required></textarea></label>
           <p class="mono cform__legal" data-i18n="cLegal">Il modulo apre il tuo programma di posta con il messaggio già pronto: il sito non salva nulla. Dettagli nella <a href="privacy.html">privacy policy</a>.</p>
           <div class="cform__foot">
@@ -372,9 +436,41 @@ deploy(sito(cliente));
 
   <footer class="footer">
     <div class="footer__big" aria-hidden="true"><span>Antipode</span><span>Antipode</span><span>Antipode</span><span>Antipode</span></div>
+    <div class="footer__cols">
+      <div class="fcol fcol--brand">
+        <b class="footer__logo">Antipode</b>
+        <p class="mono" data-i18n="footTag">Studio digitale tra Townsville e Aversa. Siti web, automazioni e web app per aziende che vogliono meno lavoro manuale e più clienti.</p>
+        <a class="pill pill--solid" href="#contatti" data-i18n="navCta">Preventivo ↗</a>
+      </div>
+      <nav class="fcol" aria-labelledby="f-svc">
+        <h3 class="mono" id="f-svc" data-i18n="svcTag">Servizi</h3>
+        <ul>
+          <li><a href="#servizi" data-i18n="svc1T">Siti web su misura</a></li>
+          <li><a href="#servizi" data-i18n="svc2T">Automazioni &amp; AI</a></li>
+          <li><a href="#servizi" data-i18n="svc3T">Web app &amp; MVP</a></li>
+        </ul>
+      </nav>
+      <nav class="fcol" aria-labelledby="f-studio">
+        <h3 class="mono" id="f-studio">Studio</h3>
+        <ul>
+          <li><a href="#lavori" data-i18n="navWork">Lavori</a></li>
+          <li><a href="#recensioni" data-i18n="proofTag">Testimonianze</a></li>
+          <li><a href="#chi-siamo" data-i18n="navAbout">Chi siamo</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="fcol">
+        <h3 class="mono" data-i18n="footContact">Contatti</h3>
+        <ul>
+          <li><a href="mailto:antoniodebiase2003@gmail.com">antoniodebiase2003@gmail.com</a></li>
+          <li>Townsville, QLD · Australia</li>
+          <li>Aversa, CE · <span data-i18n="italy">Italia</span></li>
+          <li><a href="https://www.linkedin.com/in/antonio-de-biase-1097b5235" target="_blank" rel="noopener" data-i18n="cLinkedin">LinkedIn del fondatore ↗</a></li>
+        </ul>
+      </div>
+    </div>
     <div class="footer__row mono">
-      <span>© 2026 Antipode · <span data-i18n="footStudio">Studio digitale</span></span>
-      <span>Townsville · Aversa</span>
+      <span>© 2026 Antipode · <span data-i18n="vat">P.IVA</span> <span class="todo">[da inserire]</span></span>
       <nav class="footer__links" aria-label="Note legali" data-i18n-aria="legalLabel">
         <a href="privacy.html">Privacy policy</a>
         <a href="cookie.html">Cookie policy</a>
@@ -393,6 +489,7 @@ deploy(sito(cliente));
   <script src="vendor/lenis.min.js"></script>
   <script src="js/i18n.js"></script>
   <script src="js/projects.js"></script>
+  <script src="js/testimonials.js"></script>
   <script type="module" src="js/main.js"></script>
 </body>
 </html>
