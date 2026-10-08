@@ -23,7 +23,10 @@ Apri http://localhost:5173 (serve un server: i moduli JS non funzionano da file:
 - **Privacy / Cookie** → `privacy.html`, `cookie.html`: completare i campi evidenziati in giallo (ragione sociale, P.IVA, ABN, hosting, email)
 
 ## Pubblicazione
-Carica la cartella `site/` su Netlify, Vercel, Cloudflare Pages o GitHub Pages.
+Online su **https://antoniotechdev.github.io/antipode/** (GitHub Pages, gratis).
+- Il sorgente resta nel repo privato `AntonioTechDev/antipode-site`.
+- Il repo pubblico `AntonioTechDev/antipode` contiene solo la cartella `site/`.
+- Per aggiornare il sito online: fai commit nel repo privato, poi `bash deploy.sh` (1–2 minuti per vedere le modifiche).
 
 ## Struttura della landing (formula)
 1. Logo + tagline + CTA "Preventivo" sempre visibili (nav fissa)
