@@ -3,475 +3,322 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Antipode — Siti web, automazioni e web app · Townsville &amp; Aversa</title>
-  <meta name="description" content="Antipode è uno studio digitale tra Townsville (Australia) e Aversa (Italia). Sviluppiamo siti web su misura, automazioni con AI e web app. Oltre 15 portali enterprise realizzati per PA, sanità, banche ed e-commerce.">
-  <meta name="theme-color" content="#2B2BEA">
-  <meta property="og:title" content="Antipode — Studio digitale, Townsville & Aversa">
-  <meta property="og:description" content="Siti web, automazioni e web app. Un team piccolo su due fusi orari.">
+  <title>Antipode — Agenzia AI: agenti, automazioni e siti che vendono</title>
+  <meta name="description" content="Antipode è un'agenzia di consulenza e sviluppo AI tra Townsville (Australia) e Aversa (Italia). Agenti AI che rispondono e qualificano i clienti, automazioni e siti che convertono.">
+  <meta name="theme-color" content="#07080B">
+  <meta property="og:title" content="Antipode — Agenzia AI · Townsville & Aversa">
+  <meta property="og:description" content="Più vendite, meno lavoro manuale. Agenti AI, automazioni e siti che convertono.">
   <meta property="og:type" content="website">
-  <link rel="preload" href="fonts/BricolageGrotesque-300-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Geist-normal-300-700-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='8' width='56' height='50' rx='12' fill='%230D0F1C'/%3E%3Crect x='10' y='6' width='44' height='40' rx='9' fill='%23171A33'/%3E%3Ctext x='32' y='34' text-anchor='middle' font-family='Arial Black,Arial' font-weight='900' font-size='17' fill='%23D9FF3F'%3E%3C/%3E%3C/text%3E%3C/svg%3E">
-  <script type="importmap">
-    { "imports": { "three": "./vendor/three.module.min.js", "three/addons/": "./vendor/addons/" } }
-  </script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2307080B'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%23F2F3F5' stroke-width='3'/%3E%3Ccircle cx='20' cy='20' r='5' fill='%23C6FF3D'/%3E%3Ccircle cx='44' cy='44' r='5' fill='%23C6FF3D'/%3E%3C/svg%3E">
+  <script type="importmap">{ "imports": { "three": "./vendor/three.module.min.js" } }</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Antipode",
-    "description": "Studio digitale: siti web su misura, automazioni con AI e web app.",
+    "description": "Agenzia di consulenza e sviluppo AI: agenti AI, automazioni, siti e web app.",
     "email": "antoniodebiase2003@gmail.com",
-    "founder": { "@type": "Person", "name": "Antonio De Biase", "jobTitle": "Founder & Software Developer", "sameAs": "https://www.linkedin.com/in/antonio-de-biase-1097b5235" },
+    "founder": { "@type": "Person", "name": "Antonio De Biase", "jobTitle": "Founder & AI Engineer", "sameAs": "https://www.linkedin.com/in/antonio-de-biase-1097b5235" },
     "address": [
       { "@type": "PostalAddress", "addressLocality": "Townsville", "addressRegion": "QLD", "addressCountry": "AU" },
       { "@type": "PostalAddress", "addressLocality": "Aversa", "addressRegion": "CE", "addressCountry": "IT" }
     ],
     "areaServed": ["IT", "AU"],
-    "knowsAbout": ["React", "Next.js", "TypeScript", "JavaScript", "Liferay DXP 7.x", "n8n", "LLM agents", "RAG", "WCAG 2.1 AA", "REST API", "Supabase", "Docker"]
+    "knowsAbout": ["AI agents", "LLM", "RAG", "n8n", "Automation", "React", "Next.js", "TypeScript", "WCAG 2.1 AA"]
   }
   </script>
 </head>
 <body>
-  <a class="skip mono" href="#main" data-i18n="skip">Vai al contenuto</a>
-  <div class="grain" aria-hidden="true"></div>
-
-  <!-- ============ LOADER ============ -->
-  <div class="loader" aria-hidden="true">
-    <div class="loader__keys"><span>&lt;</span><span>/</span><span>&gt;</span></div>
-    <div class="loader__bar"><i></i></div>
-    <p class="mono loader__txt"><span data-i18n="loader">Compilo l'esperienza</span><span class="loader__pct">0</span>%</p>
-  </div>
+  <a class="skip" href="#main" data-i18n="skip">Vai al contenuto</a>
+  <div class="noise" aria-hidden="true"></div>
 
   <!-- ============ NAV ============ -->
-  <header class="nav">
-    <nav class="nav__left" aria-label="Sezioni" data-i18n-aria="navLabel">
-      <a class="pill" href="#lavori" data-i18n="navWork">Lavori</a>
-      <a class="pill" href="#servizi" data-i18n="navServices">Servizi</a>
-      <a class="pill" href="#chi-siamo" data-i18n="navAbout">Chi siamo</a>
-      <a class="pill" href="#faq">FAQ</a>
-    </nav>
-    <a class="logo" href="#top" aria-label="Antipode, torna all'inizio" data-i18n-aria="logoLabel">
-      <span class="logo__key">&lt;/&gt;</span>
-      <span class="logo__txt"><b>Antipode</b><small class="mono">Townsville ⇄ Aversa</small></span>
+  <header class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="Antipode, torna all'inizio" data-i18n-aria="brandLabel">
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="10.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="8.6" cy="8.6" r="3" class="brand__dot"/><circle cx="23.4" cy="23.4" r="3" class="brand__dot"/></svg>
+      <span class="brand__name">antipode</span>
     </a>
+    <nav class="nav__links" aria-label="Sezioni" data-i18n-aria="navLabel">
+      <a href="#servizi" data-i18n="navServices">Servizi</a>
+      <a href="#metodo" data-i18n="navMethod">Metodo</a>
+      <a href="#casi" data-i18n="navCases">Casi studio</a>
+      <a href="#faq">FAQ</a>
+    </nav>
     <div class="nav__right">
-      <span class="pill pill--ghost mono status"><i></i><span data-i18n="status">Nuovi progetti aperti</span></span>
       <div class="lang" role="group" aria-label="Lingua / Language">
         <button class="lang__btn" data-lang="it" aria-pressed="true" lang="it">IT</button>
         <button class="lang__btn" data-lang="en" aria-pressed="false" lang="en">EN</button>
       </div>
-      <a class="pill pill--solid nav__cta" href="#contatti" data-i18n="navCta">Preventivo ↗</a>
+      <a class="btn btn--primary btn--sm" href="#contatti"><span data-i18n="navCta">Prenota una call</span><i aria-hidden="true">→</i></a>
     </div>
   </header>
 
   <main id="main">
     <span id="top"></span>
-    <!-- ============ HERO + 3D STORY ============ -->
-    <section class="stage-wrap" id="stage-wrap">
-      <div class="stage">
-        <div class="stage__pattern" aria-hidden="true"></div>
 
-        <div class="stage__back">
-          <div class="step step--2">
-            <h2 class="echo echo--center" data-echo data-i18n="s2Title">Dall'idea<br>al deploy</h2>
-          </div>
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="hero__grid" aria-hidden="true"></div>
+      <canvas class="hero__globe" id="globe" aria-hidden="true"></canvas>
+      <div class="city-tag" data-city="0" aria-hidden="true"><b>Townsville</b><span class="mono"><span class="js-clock" data-tz="Australia/Brisbane">--:--</span> · AU</span></div>
+      <div class="city-tag" data-city="1" aria-hidden="true"><b>Aversa</b><span class="mono"><span class="js-clock" data-tz="Europe/Rome">--:--</span> · IT</span></div>
+
+      <div class="hero__inner wrap">
+        <p class="eyebrow"><span class="dot"></span><span data-i18n="heroEyebrow">Agenzia AI · Townsville &amp; Aversa</span></p>
+        <h1 class="hero__title" id="hero-title" data-split data-i18n="heroTitle">Più vendite.<br>Meno lavoro manuale.<br><em>Con l'AI.</em></h1>
+        <p class="hero__sub" data-i18n="heroSub">Progettiamo agenti AI, automazioni e siti che rispondono ai clienti, qualificano i contatti e fissano appuntamenti al posto tuo. A te resta la parte migliore: chiudere.</p>
+        <div class="hero__ctas">
+          <a class="btn btn--primary btn--lg" href="#contatti"><span data-i18n="heroCta">Prenota una call di 30 minuti</span><i aria-hidden="true">→</i></a>
+          <a class="btn btn--ghost btn--lg" href="#demo"><span data-i18n="heroCta2">Guarda un agente al lavoro</span></a>
         </div>
+        <ul class="hero__assure mono">
+          <li data-i18n="assure1">Preventivo scritto prima di iniziare</li>
+          <li data-i18n="assure2">Codice e account intestati a te</li>
+          <li data-i18n="assure3">Italiano &amp; English</li>
+        </ul>
+      </div>
+    </section>
 
-        <canvas class="stage__canvas" id="key3d" aria-hidden="true"></canvas>
+    <!-- ============ TRUST ============ -->
+    <section class="trust" aria-label="Esperienza" data-i18n-aria="trustLabel">
+      <p class="trust__label mono" data-i18n="trustLabel2">Il nostro team ha lavorato su progetti per</p>
+      <div class="trust__marquee">
+        <ul class="trust__track">
+          <li>Agenzia delle Entrate</li><li>MEF</li><li>AXA</li><li>Banca Sella</li><li>Coop</li><li>ADM</li><li>Scame</li><li>UNAR</li><li>ASST Nord Milano</li><li>MASE</li><li>Veneto Lavoro</li>
+          <li aria-hidden="true">Agenzia delle Entrate</li><li aria-hidden="true">MEF</li><li aria-hidden="true">AXA</li><li aria-hidden="true">Banca Sella</li><li aria-hidden="true">Coop</li><li aria-hidden="true">ADM</li><li aria-hidden="true">Scame</li><li aria-hidden="true">UNAR</li><li aria-hidden="true">ASST Nord Milano</li><li aria-hidden="true">MASE</li><li aria-hidden="true">Veneto Lavoro</li>
+        </ul>
+      </div>
+    </section>
 
-        <div class="hero">
-          <div class="hero__rule hero__rule--top"></div>
-          <p class="hero__kicker mono" data-i18n="heroKicker">Studio digitale · Townsville (AU) &amp; Aversa (IT)</p>
-          <h1 class="hero__title">
-            <span class="sr-only" data-i18n="heroH1">Antipode, studio digitale: codice audace</span>
-            <span class="hero__word" aria-hidden="true" data-split data-i18n="heroW1">Codice</span>
-            <span class="hero__word" aria-hidden="true" data-split data-i18n="heroW2">Audace</span>
-          </h1>
-          <div class="hero__rule hero__rule--bottom"></div>
-          <p class="hero__sub" data-i18n="heroSub">Siti web · Automazioni · Web app</p>
-
-          <div class="hero__foot">
-            <p class="mono hero__lede" data-i18n="heroLede">Progettiamo e sviluppiamo siti, automazioni e web app per aziende che vogliono meno lavoro manuale e più clienti. Un team piccolo, due fusi orari, una sola persona a cui scrivere.</p>
-            <a class="pill pill--solid pill--lg" href="#contatti" data-i18n="heroCta">Parliamone</a>
-          </div>
-          <div class="hero__scroll mono" aria-hidden="true"><span data-i18n="scroll">Scorri</span><i></i></div>
+    <!-- ============ PROBLEM ============ -->
+    <section class="section problem" id="problema" aria-labelledby="problem-title">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="tag" data-i18n="probTag">Il problema</p>
+          <h2 id="problem-title" data-split data-i18n="probTitle">Ogni giorno perdi clienti <em>senza accorgertene.</em></h2>
         </div>
+        <div class="cards3">
+          <article class="pcard spot" data-reveal>
+            <span class="pcard__num mono">01</span>
+            <h3 data-i18n="prob1T">Rispondi troppo tardi</h3>
+            <p data-i18n="prob1D">Un contatto scrive la sera, tu rispondi il giorno dopo. Nel frattempo ha già chiesto un preventivo a qualcun altro.</p>
+          </article>
+          <article class="pcard spot" data-reveal>
+            <span class="pcard__num mono">02</span>
+            <h3 data-i18n="prob2T">Fai a mano lavori da macchina</h3>
+            <p data-i18n="prob2D">Copiare dati, rispondere alle stesse domande, inseguire i follow-up. Ore di lavoro che non portano un euro in più.</p>
+          </article>
+          <article class="pcard spot" data-reveal>
+            <span class="pcard__num mono">03</span>
+            <h3 data-i18n="prob3T">Il sito non vende</h3>
+            <p data-i18n="prob3D">È bello, ma è lento, non si trova su Google e non porta contatti. Una vetrina, non un venditore.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <div class="stage__front">
-          <div class="step step--1">
-            <h2 class="echo" data-echo data-i18n="s1Title">Il sito c'è.<br>I clienti no?</h2>
-            <ul class="mono step__txt problems" data-i18n="s1Txt">
-              <li>Carica lento e su Google non si trova.</li>
-              <li>Passi ore a rispondere agli stessi messaggi.</li>
-              <li>I dati dell'azienda vivono in dieci file Excel.</li>
-              <li class="problems__end">Ti suona familiare? Si risolve.</li>
-            </ul>
+    <!-- ============ DEMO ============ -->
+    <section class="section demo" id="demo" aria-labelledby="demo-title">
+      <div class="wrap demo__grid">
+        <div class="demo__copy">
+          <p class="tag" data-i18n="demoTag">La soluzione, dal vivo</p>
+          <h2 id="demo-title" data-split data-i18n="demoTitle">Un agente che vende <em>anche alle tre di notte.</em></h2>
+          <p class="lead" data-i18n="demoLead">Risponde in pochi secondi su WhatsApp, Instagram e sul sito, capisce cosa serve al cliente, lo qualifica e fissa l'appuntamento nel tuo calendario. Quando serve una persona, passa la conversazione al tuo team.</p>
+          <ul class="checks" data-i18n="demoList">
+            <li>Risposte in secondi, 24 ore su 24</li>
+            <li>Usa i tuoi listini, documenti e FAQ</li>
+            <li>Salva tutto nel CRM, senza copia e incolla</li>
+          </ul>
+          <a class="btn btn--primary" href="#contatti"><span data-i18n="demoCta">Voglio un agente così</span><i aria-hidden="true">→</i></a>
+        </div>
+        <div class="demo__stage" data-reveal>
+          <div class="chat" aria-label="Demo di conversazione con un agente AI" data-i18n-aria="chatLabel">
+            <div class="chat__head">
+              <span class="chat__avatar" aria-hidden="true">A</span>
+              <div><b data-i18n="chatName">Assistente · Il tuo brand</b><small class="mono"><span class="live-dot"></span><span data-i18n="chatStatus">online ora</span></small></div>
+              <button class="chat__replay mono" type="button" id="chat-replay" data-i18n="chatReplay">↻ Rivedi</button>
+            </div>
+            <div class="chat__body" id="chat-body" role="log" aria-live="polite"></div>
           </div>
-          <div class="step step--2b">
-            <p class="mono step__txt step__txt--center" data-i18n="s2Txt">Partiamo dal tuo problema, non dalla tecnologia. Analisi, design, sviluppo, test e lancio restano nelle stesse mani: niente passaggi di consegna, niente telefono senza fili.</p>
-            <div class="step__chips">
-              <span class="chip">React</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">n8n</span><span class="chip">LLM &amp; RAG</span>
+          <div class="log" aria-label="Cosa succede dietro le quinte" data-i18n-aria="logLabel">
+            <p class="log__title mono" data-i18n="logTitle">Dietro le quinte</p>
+            <ol class="log__list" id="log-list"></ol>
+          </div>
+          <p class="demo__note mono" data-i18n="demoNote">Demo illustrativa · conversazione simulata</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ROI ============ -->
+    <section class="section roi" id="calcolo" aria-labelledby="roi-title">
+      <div class="wrap">
+        <div class="roi__card spot" data-reveal>
+          <div class="roi__copy">
+            <p class="tag" data-i18n="roiTag">Calcola il risparmio</p>
+            <h2 id="roi-title" data-i18n="roiTitle">Quanto tempo ti <em>restituisce</em> l'AI?</h2>
+            <div class="sliders">
+              <label class="slider"><span data-i18n="roiQ1">Richieste e messaggi al giorno</span><output id="o-msg">40</output><input type="range" id="r-msg" min="5" max="300" step="5" value="40"></label>
+              <label class="slider"><span data-i18n="roiQ2">Minuti per gestire ognuno</span><output id="o-min">5</output><input type="range" id="r-min" min="1" max="20" step="1" value="5"></label>
+              <label class="slider"><span data-i18n="roiQ3">Quota che l'AI può gestire</span><output id="o-share">50%</output><input type="range" id="r-share" min="20" max="80" step="5" value="50"></label>
+              <label class="slider"><span data-i18n="roiQ4">Costo orario del personale</span><output id="o-cost">25 €</output><input type="range" id="r-cost" min="10" max="60" step="1" value="25"></label>
             </div>
           </div>
-          <div class="step step--3">
-            <h2 class="echo" data-echo data-i18n="s3Title">Numeri,<br>non<br>promesse</h2>
-            <ul class="stats mono">
-              <li><b data-count="6">6</b><span data-i18n="stat1">anni di esperienza</span></li>
-              <li><b data-count="15" data-suffix="+">15+</b><span data-i18n="stat2">portali enterprise</span></li>
-              <li><b>AA</b><span data-i18n="stat3">accessibilità WCAG 2.1</span></li>
-            </ul>
+          <div class="roi__result">
+            <div class="roi__big"><span class="roi__num" id="roi-hours">0</span><span class="roi__unit" data-i18n="roiHours">ore liberate al mese</span></div>
+            <div class="roi__big roi__big--alt"><span class="roi__num" id="roi-money">0</span><span class="roi__unit" data-i18n="roiMoney">di costo operativo al mese</span></div>
+            <p class="roi__note mono" data-i18n="roiNote">Stima indicativa su 22 giorni lavorativi. Nella call la rifacciamo con i tuoi numeri veri.</p>
+            <a class="btn btn--primary btn--block" href="#contatti"><span data-i18n="roiCta">Verifichiamo i tuoi numeri</span><i aria-hidden="true">→</i></a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============ SERVICES ============ -->
-    <section class="services" id="servizi" aria-labelledby="svc-label">
-      <div class="services__sticky">
-        <div class="services__left">
-          <p class="mono tag"><span id="svc-label" data-i18n="svcTag">Servizi</span> <span class="services__count"><b id="svc-n">01</b> / 03</span></p>
-          <div class="services__heads">
-            <h2 class="echo echo--sm" data-echo data-i18n="svcH1">Cosa c'è<br>dentro</h2>
-            <h2 class="echo echo--sm" data-echo data-i18n="svcH2">Niente template.<br>Niente scorciatoie.</h2>
-            <h2 class="echo echo--sm" data-echo data-i18n="svcH3">Codice solido,<br>ogni volta</h2>
+    <section class="section services" id="servizi" aria-labelledby="svc-title">
+      <div class="wrap">
+        <div class="section__head section__head--split">
+          <div>
+            <p class="tag" data-i18n="svcTag">Servizi</p>
+            <h2 id="svc-title" data-split data-i18n="svcTitle">Tre modi per far lavorare <em>l'AI per te.</em></h2>
           </div>
-          <ol class="svc-list">
-            <li>
-              <span class="svc-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="15" rx="3"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg></span>
-              <div><h3 data-i18n="svc1T">Siti web su misura</h3><p class="mono" data-i18n="svc1D"><b class="svc-for">Per chi ha un sito che non porta contatti.</b> Siti aziendali, portali e landing page veloci, accessibili, fatti per farsi trovare su Google. CMS se vuoi aggiornarlo da solo, codice su misura quando conta ogni millisecondo.</p></div>
-            </li>
-            <li>
-              <span class="svc-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M7.5 12h4l5-5M11.5 12l5 5"/></svg></span>
-              <div><h3 data-i18n="svc2T">Automazioni &amp; AI</h3><p class="mono" data-i18n="svc2D"><b class="svc-for">Per chi risponde tutto il giorno alle stesse domande.</b> Flussi n8n, agenti LLM e chatbot che rispondono su WhatsApp, Instagram e sul sito usando i tuoi documenti. Le richieste delicate passano a una persona.</p></div>
-            </li>
-            <li>
-              <span class="svc-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="5" rx="2"/><rect x="13" y="10" width="8" height="11" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/></svg></span>
-              <div><h3 data-i18n="svc3T">Web app &amp; MVP</h3><p class="mono" data-i18n="svc3D"><b class="svc-for">Per chi gestisce l'azienda tra Excel e app scollegate.</b> Gestionali, SaaS e dashboard con login, ruoli, pagamenti e integrazioni API. Partiamo da un MVP da mostrare ai primi clienti e lo facciamo crescere.</p></div>
-            </li>
+          <p class="lead" data-i18n="svcLead">Partiamo dal problema, non dalla tecnologia. Poi costruiamo solo quello che ti fa guadagnare tempo o clienti.</p>
+        </div>
+        <div class="cards3">
+          <article class="scard spot" data-reveal>
+            <div class="scard__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3.2"/></svg></div>
+            <h3 data-i18n="svc1T">Consulenza e strategia AI</h3>
+            <p data-i18n="svc1D">Analizziamo i tuoi processi e troviamo dove l'AI fa risparmiare davvero. Ne esce una roadmap con priorità, costi e ritorno atteso.</p>
+            <ul class="mono" data-i18n="svc1L"><li>Audit dei processi</li><li>Roadmap AI con priorità</li><li>Stima del ritorno</li></ul>
+          </article>
+          <article class="scard scard--hl spot" data-reveal>
+            <span class="scard__badge mono" data-i18n="svcBadge">Il più richiesto</span>
+            <div class="scard__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="12" rx="3"/><path d="M9 21l3-4 3 4M9 10h.01M15 10h.01M9.5 13.5c1.5 1 3.5 1 5 0"/></svg></div>
+            <h3 data-i18n="svc2T">Agenti AI e automazioni</h3>
+            <p data-i18n="svc2D">Chatbot su WhatsApp, Instagram e sito, agenti che leggono i tuoi documenti, flussi n8n che collegano CRM, email e gestionali.</p>
+            <ul class="mono" data-i18n="svc2L"><li>Agenti su WhatsApp e Instagram</li><li>RAG sui tuoi documenti</li><li>Automazioni n8n e CRM</li></ul>
+          </article>
+          <article class="scard spot" data-reveal>
+            <div class="scard__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="15" rx="2.5"/><path d="M3 9h18M7 13l2.5 2L7 17M12 17h4"/></svg></div>
+            <h3 data-i18n="svc3T">Siti e web app che vendono</h3>
+            <p data-i18n="svc3D">Landing page, siti e piattaforme veloci, accessibili e costruiti per convertire, già collegati ai tuoi strumenti.</p>
+            <ul class="mono" data-i18n="svc3L"><li>Landing e siti aziendali</li><li>Web app e dashboard</li><li>SEO tecnica e WCAG 2.1</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ METHOD ============ -->
+    <section class="section method" id="metodo" aria-labelledby="method-title">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="tag" data-i18n="methodTag">Metodo</p>
+          <h2 id="method-title" data-split data-i18n="methodTitle">Dalla call al lancio, <em>senza sorprese.</em></h2>
+        </div>
+        <div class="steps">
+          <div class="steps__line" aria-hidden="true"><i id="steps-fill"></i></div>
+          <ol class="steps__list">
+            <li data-reveal><span class="steps__n mono">01</span><h3 data-i18n="m1T">Call conoscitiva</h3><p data-i18n="m1D">30 minuti per capire obiettivi, numeri e strumenti che usi già.</p></li>
+            <li data-reveal><span class="steps__n mono">02</span><h3 data-i18n="m2T">Analisi e proposta</h3><p data-i18n="m2D">Ricevi un preventivo scritto con costi, tempi e risultati attesi. Decidi tu.</p></li>
+            <li data-reveal><span class="steps__n mono">03</span><h3 data-i18n="m3T">Sviluppo e test</h3><p data-i18n="m3D">Costruiamo per tappe e vedi i progressi man mano, non solo alla fine.</p></li>
+            <li data-reveal><span class="steps__n mono">04</span><h3 data-i18n="m4T">Lancio e ottimizzazione</h3><p data-i18n="m4D">Misuriamo i risultati, miglioriamo quello che serve e restiamo al tuo fianco.</p></li>
           </ol>
         </div>
-        <div class="services__right" aria-hidden="true">
-          <div class="svc-visual">
-            <div class="mock-browser">
-              <div class="mock-browser__bar"><i></i><i></i><i></i><span class="mono" data-i18n="mockUrl">iltuosito.it</span></div>
-              <div class="mock-browser__body">
-                <div class="mb-hero"><b></b><b></b><span></span></div>
-                <div class="mb-grid"><i></i><i></i><i></i></div>
-                <div class="mb-lines"><i></i><i></i><i></i></div>
-              </div>
-            </div>
-            <div class="score mono"><b>100</b><span data-i18n="mockScore">Lighthouse<br>accessibilità</span></div>
-          </div>
-          <div class="svc-visual">
-            <div class="flowbox">
-              <svg class="flow" viewBox="0 0 400 300">
-                <path class="flow__path" d="M70 150 C130 150 130 70 200 70 S270 150 330 150"/>
-                <path class="flow__path" d="M70 150 C130 150 130 230 200 230 S270 150 330 150"/>
-                <path class="flow__path" d="M200 70 L200 230"/>
-                <circle class="flow__dot" r="5"><animateMotion dur="2.6s" repeatCount="indefinite" path="M70 150 C130 150 130 70 200 70 S270 150 330 150"/></circle>
-                <circle class="flow__dot" r="5"><animateMotion dur="3.1s" begin="1s" repeatCount="indefinite" path="M70 150 C130 150 130 230 200 230 S270 150 330 150"/></circle>
-              </svg>
-              <div class="node node--a"><span>✉︎</span><b class="mono" data-i18n="flowA">Nuovo lead</b></div>
-              <div class="node node--b"><span>✦</span><b class="mono" data-i18n="flowB">Agente AI</b></div>
-              <div class="node node--c"><span>⌗</span><b class="mono">CRM</b></div>
-              <div class="node node--d"><span>✓</span><b class="mono" data-i18n="flowD">Risposta inviata</b></div>
-            </div>
-          </div>
-          <div class="svc-visual">
-            <div class="dash">
-              <div class="dash__side"><i></i><i></i><i></i><i></i></div>
-              <div class="dash__main">
-                <div class="dash__kpis"><div><small class="mono" data-i18n="kpi1">Ordini</small><b>1.284</b></div><div><small class="mono" data-i18n="kpi2">Conversione</small><b>4,7%</b></div><div><small class="mono" data-i18n="kpi3">Tempo risp.</small><b>12s</b></div></div>
-                <div class="dash__chart"><i style="--h:40%"></i><i style="--h:62%"></i><i style="--h:48%"></i><i style="--h:75%"></i><i style="--h:58%"></i><i style="--h:88%"></i><i style="--h:70%"></i><i style="--h:96%"></i></div>
-              </div>
-            </div>
-          </div>
-          <div class="services__pattern"></div>
-        </div>
       </div>
     </section>
 
-    <!-- ============ WORK / SHOWCASE ============ -->
-    <section class="work" id="lavori">
-      <div class="work__intro">
-        <div class="work__collage" aria-hidden="true">
-          <img src="assets/shots/sella.webp" alt="" style="--r:-7deg;--x:-6%;--y:4%" width="1200" height="750">
-          <img src="assets/shots/cheai.webp" alt="" style="--r:5deg;--x:44%;--y:-6%" width="1200" height="750">
-          <img src="assets/shots/scame-emobility.webp" alt="" style="--r:-4deg;--x:58%;--y:46%" width="1200" height="750">
-          <img src="assets/shots/agenzia-entrate.webp" alt="" style="--r:8deg;--x:6%;--y:58%" width="1200" height="750">
-        </div>
-        <div class="work__intro-txt">
-          <h2 class="echo echo--xl" data-echo data-i18n="workTitle">Il lavoro<br>parla meglio<br>di noi</h2>
-          <a class="pill pill--ink" href="#showcase" data-i18n="workCta">Guarda i lavori ↓</a>
-        </div>
-      </div>
-
-      <div class="showcase" id="showcase">
-        <div class="showcase__head">
-          <h2 class="showcase__title">Showcase<sup class="mono" id="work-count">00</sup></h2>
-          <div class="filters" role="group" aria-label="Filtra progetti" data-i18n-aria="filterLabel">
-            <button class="filter is-active" data-filter="all" aria-pressed="true" data-i18n="fAll">Tutti</button>
-            <button class="filter" data-filter="pa" aria-pressed="false" data-i18n="fPa">Pubblica Amministrazione</button>
-            <button class="filter" data-filter="enterprise" aria-pressed="false" data-i18n="fEnt">Sanità &amp; Enterprise</button>
-            <button class="filter" data-filter="business" aria-pressed="false" data-i18n="fBiz">Business &amp; E-commerce</button>
-            <button class="filter" data-filter="product" aria-pressed="false" data-i18n="fProd">Startup &amp; prodotti</button>
+    <!-- ============ CASES ============ -->
+    <section class="section cases" id="casi" aria-labelledby="cases-title">
+      <div class="wrap">
+        <div class="section__head section__head--split">
+          <div>
+            <p class="tag" data-i18n="casesTag">Casi studio</p>
+            <h2 id="cases-title" data-split data-i18n="casesTitle">Progetti reali, <em>non mockup.</em></h2>
           </div>
+          <p class="lead" data-i18n="casesLead">Dal customer service con l'AI ai portali usati ogni giorno da milioni di cittadini.</p>
         </div>
-        <div class="grid" id="grid"></div>
-        <p class="mono showcase__note" data-i18n="workNote">I portali PA ed enterprise li ha sviluppati il nostro fondatore come Senior Frontend Engineer in SMC, lavorando in team di progetto. Gli screenshot mostrano i siti come sono oggi.</p>
-        <div class="showcase__cta">
-          <p data-i18n="workCtaTxt">Vuoi un risultato così per la tua azienda?</p>
-          <a class="pill pill--solid pill--lg" href="#contatti" data-i18n="workCtaBtn">Richiedi un preventivo ↗</a>
+        <div class="featured" id="featured"></div>
+        <div class="plist">
+          <p class="plist__label mono" data-i18n="moreLabel">Altri progetti</p>
+          <ul class="plist__rows" id="plist"></ul>
+          <button class="btn btn--ghost btn--sm plist__more" id="plist-more" type="button" data-i18n="moreBtn">Mostra tutti</button>
         </div>
+        <p class="cases__note mono" data-i18n="casesNote">I portali per PA ed enterprise sono stati sviluppati dal nostro fondatore come Senior Frontend Engineer in SMC, all'interno di team di progetto.</p>
       </div>
+      <div class="hover-preview" id="hover-preview" aria-hidden="true"><img alt=""></div>
     </section>
 
-    <!-- ============ TESTIMONIALS ============ -->
-    <section class="proof" id="recensioni" aria-labelledby="proof-title">
-      <div class="proof__head">
-        <p class="mono tag tag--ink" data-i18n="proofTag">Testimonianze</p>
-        <h2 class="echo echo--ink" id="proof-title" data-echo data-i18n="proofTitle">Fiducia<br>guadagnata</h2>
-        <p class="mono proof__lede" data-i18n="proofLede">Prima di Antipode, il nostro fondatore ha lavorato su portali dove sbagliare costa caro: pubblica amministrazione, sanità, banche. Lo stesso rigore lo mettiamo nei tuoi progetti.</p>
-      </div>
-      <div class="quotes" id="quotes"></div>
-      <div class="logos">
-        <p class="mono logos__label" data-i18n="logosLabel">Portali enterprise su cui ha lavorato il nostro fondatore</p>
-        <ul class="logos__list">
-          <li>Agenzia delle Entrate</li><li>MEF</li><li>AXA</li><li>Banca Sella</li><li>Coop</li><li>ADM</li><li>ASST Nord Milano</li><li>Scame</li><li>UNAR</li><li>MASE</li><li>Agenzia del Demanio</li><li>Veneto Lavoro</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============ JOURNEY (horizontal timeline) ============ -->
-    <section class="journey" id="chi-siamo" aria-labelledby="journey-title">
-      <div class="journey__pin">
-        <div class="journey__sticky">
-          <div class="journey__top">
-            <div class="journey__head">
-              <p class="mono tag tag--ink" data-i18n="aboutTag">Chi siamo</p>
-              <h2 class="echo echo--ink" id="journey-title" data-echo data-i18n="jTitle">Esperienza<br>&amp; mestiere</h2>
-            </div>
-            <div class="journey__side">
-              <p class="mono journey__lede" data-i18n="jLede">Antipode nasce dal percorso del suo fondatore, Antonio De Biase: sei anni a scrivere codice, dai primi siti per clienti privati ai portali dello Stato, fino a una startup AI.</p>
-              <div class="journey__year" aria-hidden="true"><span id="jyear">2020</span></div>
-            </div>
-          </div>
-
-          <div class="jtrack" id="jtrack">
-            <article class="jch" data-year="2020">
-              <span class="jch__year" aria-hidden="true">2020</span>
-              <div class="jch__card jch__card--ink">
-                <div class="jch__visual jv-code"><pre class="mono">const cliente = await brief();
-const sito = design(cliente);
-deploy(sito);
-<span data-i18n="j1code">// v1.0, il primo di tanti</span></pre></div>
-                <div class="jch__body">
-                  <p class="mono jch__meta"><b>01</b><span data-i18n="j1M">Freelance</span></p>
-                  <h3 data-i18n="j1T">Il primo cliente</h3>
-                  <p class="mono" data-i18n="j1D">Siti e piccole web app per professionisti e attività locali. S'impara in fretta quando il cliente ti chiama alle dieci di sera.</p>
-                  <div class="jch__chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">WordPress</span></div>
-                </div>
-              </div>
-            </article>
-
-            <article class="jch" data-year="2022">
-              <span class="jch__year" aria-hidden="true">2022</span>
-              <div class="jch__card jch__card--cobalt">
-                <div class="jch__visual jv-keys" aria-hidden="true"><span>Java</span><span>SQL</span><span>JS</span><span>Git</span><span>REST</span><span>React</span></div>
-                <div class="jch__body">
-                  <p class="mono jch__meta"><b>02</b><span data-i18n="j2M">ITS Incom · Milano</span></p>
-                  <h3 data-i18n="j2T">La formazione</h3>
-                  <p class="mono" data-i18n="j2D">Un percorso post-diploma in Full Stack Development: Java, SQL, JavaScript e progetti in team con le stesse regole di un'azienda vera.</p>
-                  <div class="jch__chips"><span class="chip">Full stack</span><span class="chip">Team work</span><span class="chip">Git</span></div>
-                </div>
-              </div>
-            </article>
-
-            <article class="jch" data-year="2023">
-              <span class="jch__year" aria-hidden="true">2023</span>
-              <div class="jch__card jch__card--white">
-                <div class="jch__visual jv-shot"><img src="assets/shots/agenzia-entrate.webp" alt="Homepage del portale Agenzia delle Entrate" data-i18n-alt="altAE" loading="lazy" width="1200" height="750"></div>
-                <div class="jch__body">
-                  <p class="mono jch__meta"><b>03</b><span>SMC</span></p>
-                  <h3 data-i18n="j3T">Il salto in azienda</h3>
-                  <p class="mono" data-i18n="j3D">Stage da Junior Developer, poi Senior Frontend Engineer: temi Liferay su misura, librerie di componenti riutilizzabili, interfacce drag-and-drop per i clienti.</p>
-                  <div class="jch__chips"><span class="chip">Liferay 7.x</span><span class="chip">React</span><span class="chip">FreeMarker</span></div>
-                </div>
-              </div>
-            </article>
-
-            <article class="jch" data-year="2023–26">
-              <span class="jch__year" aria-hidden="true">15+</span>
-              <div class="jch__card jch__card--lilac">
-                <div class="jch__visual jv-stack" aria-hidden="true">
-                  <img src="assets/shots/unar.webp" alt="" loading="lazy" width="1200" height="750">
-                  <img src="assets/shots/adm.webp" alt="" loading="lazy" width="1200" height="750">
-                  <img src="assets/shots/sella.webp" alt="" loading="lazy" width="1200" height="750">
-                </div>
-                <div class="jch__body">
-                  <p class="mono jch__meta"><b>04</b><span data-i18n="j4M">2023 → 2026</span></p>
-                  <h3 data-i18n="j4T">Portali dove sbagliare costa</h3>
-                  <p class="mono" data-i18n="j4D">Oltre 15 portali per PA, sanità, banche ed e-commerce. Accessibilità WCAG 2.1 AA, migrazioni da Liferay 7.0 a 7.4, demo e formazione direttamente con i clienti.</p>
-                  <div class="jch__chips"><span class="chip">WCAG 2.1 AA</span><span class="chip" data-i18n="chipMig">Migrazioni</span><span class="chip">Enterprise</span></div>
-                </div>
-              </div>
-            </article>
-
-            <article class="jch" data-year="2026">
-              <span class="jch__year" aria-hidden="true">2026</span>
-              <div class="jch__card jch__card--ink">
-                <div class="jch__visual jv-shot"><img src="assets/shots/cheai.webp" alt="Homepage di CHEAI" data-i18n-alt="altCheai" loading="lazy" width="1200" height="750"></div>
-                <div class="jch__body">
-                  <p class="mono jch__meta"><b>05</b><span>Gruppo Automa · CHEAI</span></p>
-                  <h3 data-i18n="j5T">La prima startup</h3>
-                  <p class="mono" data-i18n="j5D">Co-fondazione di Gruppo Automa e lancio di CHEAI: agenti AI, RAG e un customer service che risponde su WhatsApp, Instagram e Messenger.</p>
-                  <div class="jch__chips"><span class="chip">LLM agents</span><span class="chip">RAG</span><span class="chip">SaaS</span></div>
-                </div>
-              </div>
-            </article>
-
-            <article class="jch" data-year="Oggi" data-i18n-year="jToday">
-              <span class="jch__year" aria-hidden="true" data-i18n="jToday">Oggi</span>
-              <div class="jch__card jch__card--lime">
-                <div class="jch__visual jv-clocks" aria-hidden="true">
-                  <div class="clock"><b class="mono">Townsville</b><span class="clock__time" data-tz="Australia/Brisbane">--:--</span><small class="mono">QLD · AU</small></div>
-                  <i>⇄</i>
-                  <div class="clock"><b class="mono">Aversa</b><span class="clock__time" data-tz="Europe/Rome">--:--</span><small class="mono">CE · IT</small></div>
-                </div>
-                <div class="jch__body">
-                  <p class="mono jch__meta"><b>06</b><span>Antipode</span></p>
-                  <h3 data-i18n="j6T">Due città, un solo team</h3>
-                  <p class="mono" data-i18n="j6D">Tutto quello che abbiamo imparato, messo al servizio della tua azienda. Mentre in Italia si dorme, in Australia si lavora sul tuo progetto.</p>
-                  <a class="pill pill--ink" href="#contatti" data-i18n="j6Cta">Lavoriamo insieme ↗</a>
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <div class="jline" aria-hidden="true">
-            <div class="jline__bar"><i id="jfill"></i></div>
-            <ol class="jline__ticks mono"><li>2020</li><li>2022</li><li>2023</li><li>2023–26</li><li>2026</li><li data-i18n="jToday">Oggi</li></ol>
-          </div>
+    <!-- ============ TEAM ============ -->
+    <section class="section team" id="team" aria-labelledby="team-title">
+      <div class="wrap team__grid">
+        <div>
+          <p class="tag" data-i18n="teamTag">Chi siamo</p>
+          <h2 id="team-title" data-split data-i18n="teamTitle">Due città agli antipodi. <em>Un solo team.</em></h2>
+          <p class="lead" data-i18n="teamLead">Antipode nasce dall'esperienza del suo fondatore, Antonio De Biase: sei anni di sviluppo, oltre quindici portali enterprise e la co-fondazione di CHEAI, una piattaforma di customer service con l'AI. Tra Townsville e Aversa ci sono otto ore di differenza: quando tu chiudi l'ufficio, noi stiamo ancora lavorando al tuo progetto.</p>
+          <a class="link-arrow" href="https://www.linkedin.com/in/antonio-de-biase-1097b5235" target="_blank" rel="noopener" data-i18n="teamLink">Il fondatore su LinkedIn ↗</a>
+        </div>
+        <div class="stats">
+          <div class="stat spot" data-reveal><b class="stat__n" data-count="6" data-suffix="+">0</b><span data-i18n="st1">anni di sviluppo software</span></div>
+          <div class="stat spot" data-reveal><b class="stat__n" data-count="15" data-suffix="+">0</b><span data-i18n="st2">portali enterprise e PA</span></div>
+          <div class="stat spot" data-reveal><b class="stat__n">AA</b><span data-i18n="st3">accessibilità WCAG 2.1</span></div>
+          <div class="stat spot" data-reveal><b class="stat__n" data-count="2">0</b><span data-i18n="st4">sedi, due fusi orari</span></div>
         </div>
       </div>
-    </section>
-
-    <!-- ============ WHY ============ -->
-    <section class="why" aria-labelledby="why-title">
-      <div class="why__head">
-        <h2 class="why__title" id="why-title">
-          <span class="hl"><span data-i18n="whyW1">Perché</span><span class="sticker" style="--r:-12deg" data-i18n="whyS1">dettagli</span><svg class="strike" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 26 C80 14 200 30 296 12"/></svg></span>
-          <span class="hl"><span data-i18n="whyW2">il codice</span><span class="sticker sticker--b" style="--r:8deg" data-i18n="whyS2">non solo pixel</span><svg class="strike" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 18 C90 30 210 8 296 22"/></svg></span><br>
-          <span class="hl"><span data-i18n="whyW3">conta</span><span class="sticker sticker--c" style="--r:-6deg" data-i18n="whyS3">sempre</span><svg class="strike" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 24 C70 10 220 34 296 16"/></svg></span>
-        </h2>
-        <p class="mono why__sub" data-i18n="whySub">Un sito bello che carica lento, non compare su Google o non si usa con uno screen reader ti fa perdere clienti ogni giorno.</p>
-      </div>
-      <div class="why__cols">
-        <div class="why__col">
-          <span class="why__ico" aria-hidden="true">♿</span>
-          <h3 class="mono" data-i18n="why1T">Accessibile</h3>
-          <p class="mono" data-i18n="why1D">I portali per la PA li abbiamo sviluppati secondo le WCAG 2.1 AA: si usano da tastiera, si leggono con lo screen reader, funzionano per tutti. Lo stesso standard lo portiamo nel tuo progetto.</p>
-        </div>
-        <div class="why__col">
-          <span class="why__ico" aria-hidden="true">⚡</span>
-          <h3 class="mono" data-i18n="why2T">Veloce</h3>
-          <p class="mono" data-i18n="why2D">Codice leggero, immagini ottimizzate, Core Web Vitals tenuti d'occhio. Le persone non aspettano, e Google nemmeno.</p>
-        </div>
-        <div class="why__col">
-          <span class="why__ico" aria-hidden="true">⌘</span>
-          <h3 class="mono" data-i18n="why3T">Pronto a crescere</h3>
-          <p class="mono" data-i18n="why3D">Componenti riutilizzabili e un'architettura in ordine. Quando arriva la funzione nuova, non si riparte da zero.</p>
-        </div>
-      </div>
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee__track mono">
-          <span>React</span><span>✦</span><span>Next.js</span><span>✦</span><span>TypeScript</span><span>✦</span><span>Liferay 7.x</span><span>✦</span><span>n8n</span><span>✦</span><span>Supabase</span><span>✦</span><span>LLM agents</span><span>✦</span><span>RAG</span><span>✦</span><span>Tailwind</span><span>✦</span><span>Docker</span><span>✦</span><span>REST API</span><span>✦</span><span>WordPress</span><span>✦</span><span>Webflow</span><span>✦</span>
-          <span>React</span><span>✦</span><span>Next.js</span><span>✦</span><span>TypeScript</span><span>✦</span><span>Liferay 7.x</span><span>✦</span><span>n8n</span><span>✦</span><span>Supabase</span><span>✦</span><span>LLM agents</span><span>✦</span><span>RAG</span><span>✦</span><span>Tailwind</span><span>✦</span><span>Docker</span><span>✦</span><span>REST API</span><span>✦</span><span>WordPress</span><span>✦</span><span>Webflow</span><span>✦</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ OFFER ============ -->
-    <section class="offer" aria-labelledby="offer-title">
-      <div class="offer__head">
-        <span class="offer__mark" aria-hidden="true">✦</span>
-        <h2 class="echo echo--lime" id="offer-title" data-echo data-i18n="offerTitle">Costruiamolo<br>insieme</h2>
-        <a class="pill pill--solid" href="#contatti" data-i18n="offerCta">Prenota una call</a>
-      </div>
-      <div class="offer__cards">
-        <article class="ocard">
-          <div class="ocard__top"><span class="chip chip--ink">Web</span><span class="chip chip--ink">CMS / full-code</span></div>
-          <h3 data-i18n="o1T">Sito web<br>su misura</h3>
-          <ul class="mono" data-i18n="o1L"><li>Design pensato per te, niente template</li><li>SEO tecnica e velocità</li><li>Accessibilità WCAG 2.1</li><li>Lo aggiorni da solo</li></ul>
-          <p class="mono ocard__for" data-i18n="o1F">Per: professionisti, PMI, brand</p>
-        </article>
-        <article class="ocard ocard--lilac">
-          <div class="ocard__top"><span class="chip chip--ink">AI</span><span class="chip chip--ink">n8n</span></div>
-          <h3 data-i18n="o2T">Automazioni<br>&amp; agenti AI</h3>
-          <ul class="mono" data-i18n="o2L"><li>Flussi tra gli strumenti che già usi</li><li>Chatbot su WhatsApp, Instagram e sito</li><li>Risposte basate sui tuoi documenti</li><li>Passaggio a una persona quando serve</li></ul>
-          <p class="mono ocard__for" data-i18n="o2F">Per: chi risponde a tanti clienti ogni giorno</p>
-        </article>
-        <article class="ocard ocard--paper">
-          <div class="ocard__top"><span class="chip chip--ink">SaaS</span><span class="chip chip--ink">MVP</span></div>
-          <h3 data-i18n="o3T">Web app<br>&amp; MVP</h3>
-          <ul class="mono" data-i18n="o3L"><li>Gestionali e dashboard</li><li>Integrazioni API e pagamenti</li><li>Login, ruoli, database</li><li>Messa online e manutenzione</li></ul>
-          <p class="mono ocard__for" data-i18n="o3F">Per: startup e processi interni</p>
-        </article>
-      </div>
-      <ol class="process mono">
-        <li><b>01</b><span data-i18n="p1">Call conoscitiva</span></li>
-        <li><b>02</b><span data-i18n="p2">Proposta e preventivo</span></li>
-        <li><b>03</b><span data-i18n="p3">Design e sviluppo</span></li>
-        <li><b>04</b><span data-i18n="p4">Lancio e supporto</span></li>
-      </ol>
+      <div class="wrap quotes" id="quotes"></div>
     </section>
 
     <!-- ============ FAQ ============ -->
-    <section class="faq" id="faq" aria-labelledby="faq-title">
-      <div class="faq__side">
-        <p class="mono tag">FAQ</p>
-        <h2 class="echo echo--sm" id="faq-title" data-echo data-i18n="faqTitle">Domande<br>frequenti</h2>
-        <p class="mono faq__lede" data-i18n="faqLede">Le domande che ci fanno in ogni prima call. Se la tua non c'è, scrivici: rispondiamo noi, non un bot.</p>
-        <a class="pill pill--solid" href="#contatti" data-i18n="faqCta">Fai la tua domanda ↗</a>
-      </div>
-      <div class="faq__list">
-        <details class="qa"><summary><span data-i18n="q1">Quanto costa un progetto?</span><i aria-hidden="true"></i></summary>
-          <div class="qa__a"><p data-i18n="a1">Dipende da cosa ti serve: una landing page e un gestionale sono mondi diversi. Dopo una prima call ti mandiamo un preventivo scritto con costi, tempi e cosa è incluso, prima di iniziare qualsiasi lavoro. Nel modulo qui sotto puoi già indicare un budget indicativo.</p></div></details>
-        <details class="qa"><summary><span data-i18n="q2">Quanto tempo serve?</span><i aria-hidden="true"></i></summary>
-          <div class="qa__a"><p data-i18n="a2">Per un sito vetrina parliamo in genere di settimane, per una web app di mesi. Nel preventivo trovi le tappe con le date, così sai sempre a che punto siamo e cosa vedrai alla consegna successiva.</p></div></details>
-        <details class="qa"><summary><span data-i18n="q3">Come lavorate a distanza, con due fusi orari?</span><i aria-hidden="true"></i></summary>
-          <div class="qa__a"><p data-i18n="a3">Tra Townsville e Aversa ci sono otto o nove ore di differenza. Per te significa che il lavoro va avanti anche mentre dormi. Le call le fissiamo in orari comodi per entrambi, in italiano o in inglese.</p></div></details>
-        <details class="qa"><summary><span data-i18n="q4">Potrò modificare il sito da solo?</span><i aria-hidden="true"></i></summary>
-          <div class="qa__a"><p data-i18n="a4">Sì. Se devi aggiornare testi, foto o articoli usiamo un CMS e ti mostriamo come funziona. Se il progetto è in codice su misura, prepariamo le parti modificabili che ti servono davvero.</p></div></details>
-        <details class="qa"><summary><span data-i18n="q5">Codice, dominio e accessi di chi sono?</span><i aria-hidden="true"></i></summary>
-          <div class="qa__a"><p data-i18n="a5">Tuoi. Dominio, hosting e account sono intestati a te e alla consegna ricevi codice sorgente e credenziali. Se un giorno vuoi cambiare fornitore, puoi farlo senza chiedere permesso a nessuno.</p></div></details>
-        <details class="qa"><summary><span data-i18n="q6">Cosa succede dopo il lancio?</span><i aria-hidden="true"></i></summary>
-          <div class="qa__a"><p data-i18n="a6">Nelle settimane dopo la messa online sistemiamo eventuali problemi. Poi, se vuoi, concordiamo un piano di manutenzione con aggiornamenti, backup e monitoraggio.</p></div></details>
-        <details class="qa"><summary><span data-i18n="q7">I chatbot AI sono sicuri per i dati dei miei clienti?</span><i aria-hidden="true"></i></summary>
-          <div class="qa__a"><p data-i18n="a7">Il chatbot usa solo i documenti che scegli tu e trattiamo i dati secondo il GDPR. Lo istruiamo a dire "non lo so" invece di inventare, e a passare la conversazione a una persona quando serve.</p></div></details>
-        <details class="qa"><summary><span data-i18n="q8">Lavorate anche fuori da Italia e Australia?</span><i aria-hidden="true"></i></summary>
-          <div class="qa__a"><p data-i18n="a8">Sì. Lavoriamo da remoto con clienti ovunque e realizziamo siti in italiano e in inglese.</p></div></details>
+    <section class="section faq" id="faq" aria-labelledby="faq-title">
+      <div class="wrap faq__grid">
+        <div class="faq__side">
+          <p class="tag">FAQ</p>
+          <h2 id="faq-title" data-split data-i18n="faqTitle">Domande <em>frequenti.</em></h2>
+          <p class="lead" data-i18n="faqLead">Non trovi la tua? Scrivici: risponde una persona, non un bot.</p>
+        </div>
+        <div class="faq__list">
+          <details class="qa"><summary><span data-i18n="q1">Quanto costa un progetto?</span><i aria-hidden="true"></i></summary>
+            <div class="qa__a"><p data-i18n="a1">Dipende da cosa serve: un agente su WhatsApp e una piattaforma su misura sono lavori diversi. Dopo la call ricevi un preventivo scritto con costi, tempi e cosa è incluso, prima di iniziare qualsiasi lavoro.</p></div></details>
+          <details class="qa"><summary><span data-i18n="q2">In quanto tempo vedo i risultati?</span><i aria-hidden="true"></i></summary>
+            <div class="qa__a"><p data-i18n="a2">Un primo agente o un'automazione semplice si mette in funzione in poche settimane. Progetti più grandi li dividiamo in tappe, così inizi a usarli prima della fine.</p></div></details>
+          <details class="qa"><summary><span data-i18n="q3">L'AI è sicura per i dati dei miei clienti?</span><i aria-hidden="true"></i></summary>
+            <div class="qa__a"><p data-i18n="a3">L'agente usa solo i documenti che scegli tu e trattiamo i dati secondo il GDPR. Lo configuriamo per dire "non lo so" invece di inventare e per passare la conversazione a una persona quando serve.</p></div></details>
+          <details class="qa"><summary><span data-i18n="q4">Codice, account e dati di chi sono?</span><i aria-hidden="true"></i></summary>
+            <div class="qa__a"><p data-i18n="a4">Tuoi. Domini, account e servizi sono intestati a te e alla consegna ricevi codice e credenziali. Se un giorno vuoi cambiare fornitore, puoi farlo senza chiedere permesso.</p></div></details>
+          <details class="qa"><summary><span data-i18n="q5">Lavorate a distanza? Come funziona?</span><i aria-hidden="true"></i></summary>
+            <div class="qa__a"><p data-i18n="a5">Sì, con clienti in Italia, Australia e altrove. Call in italiano o inglese, aggiornamenti frequenti e un unico referente che conosce il tuo progetto.</p></div></details>
+          <details class="qa"><summary><span data-i18n="q6">Cosa succede dopo il lancio?</span><i aria-hidden="true"></i></summary>
+            <div class="qa__a"><p data-i18n="a6">Monitoriamo i risultati nelle prime settimane e sistemiamo ciò che serve. Poi, se vuoi, concordiamo un piano di manutenzione e miglioramento continuo.</p></div></details>
+        </div>
       </div>
     </section>
 
-    <!-- ============ CONTACT ============ -->
-    <section class="contact" id="contatti" aria-labelledby="contact-title">
-      <div class="contact__left">
-        <h2 class="echo echo--ink echo--sm" id="contact-title" data-echo data-i18n="cTitle">Hai un progetto?<br>Raccontacelo.</h2>
-        <form class="cform" id="cform" novalidate>
-          <div class="cform__row">
-            <label class="field"><span class="mono" data-i18n="cName">Nome</span><input name="nome" autocomplete="name" required></label>
-            <label class="field"><span class="mono">Email</span><input name="email" type="email" autocomplete="email" required></label>
+    <!-- ============ FINAL CTA ============ -->
+    <section class="section cta" id="contatti" aria-labelledby="cta-title">
+      <div class="cta__glow" aria-hidden="true"></div>
+      <div class="wrap cta__grid">
+        <div class="cta__copy">
+          <p class="tag" data-i18n="ctaTag">Contatti</p>
+          <h2 id="cta-title" data-split data-i18n="ctaTitle">Parliamo del tuo <em>prossimo passo.</em></h2>
+          <p class="lead" data-i18n="ctaLead">Raccontaci in due righe cosa vuoi migliorare. Ti rispondiamo personalmente con qualche domanda e una proposta di call.</p>
+          <ol class="next mono" data-i18n="ctaSteps"><li>Ci scrivi</li><li>Ti rispondiamo noi, non un bot</li><li>Call di 30 minuti</li><li>Preventivo scritto</li></ol>
+          <div class="cta__places mono"><span>Townsville · QLD · AU</span><span>Aversa · CE · IT</span></div>
+        </div>
+        <form class="form spot" id="cform" novalidate>
+          <div class="form__row">
+            <label class="field"><span data-i18n="fName">Nome</span><input name="nome" autocomplete="name" required></label>
+            <label class="field"><span>Email</span><input name="email" type="email" autocomplete="email" required></label>
           </div>
-          <fieldset class="cform__types">
-            <legend class="mono" data-i18n="cNeed">Ci serve</legend>
-            <label><input type="checkbox" name="tipo" value="Sito web"><span data-i18n="cT1">Sito web</span></label>
-            <label><input type="checkbox" name="tipo" value="Automazione / AI"><span data-i18n="cT2">Automazione / AI</span></label>
-            <label><input type="checkbox" name="tipo" value="Web app / MVP"><span data-i18n="cT3">Web app / MVP</span></label>
+          <label class="field"><span data-i18n="fCompany">Azienda (facoltativo)</span><input name="azienda" autocomplete="organization"></label>
+          <fieldset class="chips">
+            <legend data-i18n="fNeed">Mi interessa</legend>
+            <label><input type="checkbox" name="tipo" value="Consulenza AI"><span data-i18n="fT1">Consulenza AI</span></label>
+            <label><input type="checkbox" name="tipo" value="Agenti e automazioni"><span data-i18n="fT2">Agenti e automazioni</span></label>
+            <label><input type="checkbox" name="tipo" value="Sito / web app"><span data-i18n="fT3">Sito / web app</span></label>
           </fieldset>
-          <label class="field field--select"><span class="mono" data-i18n="cBudget">Budget indicativo</span>
+          <label class="field"><span data-i18n="fBudget">Budget indicativo</span>
             <select name="budget">
               <option value="" data-i18n="bud0">Non lo so ancora</option>
               <option value="< 2.000 €">&lt; 2.000 €</option>
@@ -480,86 +327,40 @@ deploy(sito);
               <option value="> 15.000 €">&gt; 15.000 €</option>
             </select>
           </label>
-          <label class="field field--area"><span class="mono" data-i18n="cMsg">Di cosa hai bisogno?</span><textarea name="messaggio" rows="3" required></textarea></label>
-          <p class="mono cform__legal" data-i18n="cLegal">Il modulo apre il tuo programma di posta con il messaggio già pronto: il sito non salva nulla. Dettagli nella <a href="privacy.html">privacy policy</a>.</p>
-          <div class="cform__foot">
-            <p class="mono cform__msg" id="cform-msg" role="status"></p>
-            <button class="pill pill--ink pill--lg" type="submit" data-i18n="cSend">Invia ↗</button>
-          </div>
+          <label class="field"><span data-i18n="fMsg">Cosa vorresti migliorare?</span><textarea name="messaggio" rows="3" required></textarea></label>
+          <button class="btn btn--primary btn--block btn--lg" type="submit"><span data-i18n="fSend">Invia la richiesta</span><i aria-hidden="true">→</i></button>
+          <p class="form__msg mono" id="cform-msg" role="status"></p>
+          <p class="form__legal" data-i18n="fLegal">Il modulo apre il tuo programma di posta con il messaggio pronto: questo sito non salva nulla. Leggi la <a href="privacy.html">privacy policy</a>.</p>
         </form>
-      </div>
-      <div class="contact__right">
-        <div class="keys" id="keys" data-i18n="keys" aria-label="Tastiera decorativa" data-i18n-aria="keysLabel">
-          <button class="kc" data-k="C" type="button">C</button><button class="kc" data-k="I" type="button">I</button><button class="kc" data-k="A" type="button">A</button><button class="kc" data-k="O" type="button">O</button>
-          <button class="kc kc--wide kc--lime" data-k="Enter" type="button">invio ⏎</button>
-        </div>
-        <p class="mono contact__hint" data-i18n="keysHint">Prova a scrivere sulla tastiera ↑</p>
-        <ul class="contact__places mono">
-          <li><b>Townsville</b>QLD · Australia</li>
-          <li><b>Aversa</b>CE · Italia</li>
-        </ul>
-        <ul class="contact__links mono">
-          <li><a href="mailto:antoniodebiase2003@gmail.com">antoniodebiase2003@gmail.com</a></li>
-          <li><a href="https://www.linkedin.com/in/antonio-de-biase-1097b5235" target="_blank" rel="noopener" data-i18n="cLinkedin">LinkedIn del fondatore ↗</a></li>
-        </ul>
-        <div class="contact__pattern" aria-hidden="true"></div>
       </div>
     </section>
   </main>
 
+  <!-- ============ FOOTER ============ -->
   <footer class="footer">
-    <div class="footer__big" aria-hidden="true"><span>Antipode</span><span>Antipode</span><span>Antipode</span><span>Antipode</span></div>
-    <div class="footer__cols">
-      <div class="fcol fcol--brand">
-        <b class="footer__logo">Antipode</b>
-        <p class="mono" data-i18n="footTag">Studio digitale tra Townsville e Aversa. Siti web, automazioni e web app per aziende che vogliono meno lavoro manuale e più clienti.</p>
-        <a class="pill pill--solid" href="#contatti" data-i18n="navCta">Preventivo ↗</a>
+    <div class="wrap footer__top">
+      <div class="footer__brand">
+        <a class="brand" href="#top"><svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="10.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="8.6" cy="8.6" r="3" class="brand__dot"/><circle cx="23.4" cy="23.4" r="3" class="brand__dot"/></svg><span class="brand__name">antipode</span></a>
+        <p data-i18n="footTag">Agenzia di consulenza e sviluppo AI tra Townsville e Aversa.</p>
       </div>
-      <nav class="fcol" aria-labelledby="f-svc">
-        <h3 class="mono" id="f-svc" data-i18n="svcTag">Servizi</h3>
-        <ul>
-          <li><a href="#servizi" data-i18n="svc1T">Siti web su misura</a></li>
-          <li><a href="#servizi" data-i18n="svc2T">Automazioni &amp; AI</a></li>
-          <li><a href="#servizi" data-i18n="svc3T">Web app &amp; MVP</a></li>
-        </ul>
-      </nav>
-      <nav class="fcol" aria-labelledby="f-studio">
-        <h3 class="mono" id="f-studio">Studio</h3>
-        <ul>
-          <li><a href="#lavori" data-i18n="navWork">Lavori</a></li>
-          <li><a href="#recensioni" data-i18n="proofTag">Testimonianze</a></li>
-          <li><a href="#chi-siamo" data-i18n="navAbout">Chi siamo</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
-      </nav>
-      <div class="fcol">
-        <h3 class="mono" data-i18n="footContact">Contatti</h3>
-        <ul>
-          <li><a href="mailto:antoniodebiase2003@gmail.com">antoniodebiase2003@gmail.com</a></li>
-          <li>Townsville, QLD · Australia</li>
-          <li>Aversa, CE · <span data-i18n="italy">Italia</span></li>
-          <li><a href="https://www.linkedin.com/in/antonio-de-biase-1097b5235" target="_blank" rel="noopener" data-i18n="cLinkedin">LinkedIn del fondatore ↗</a></li>
-        </ul>
-      </div>
+      <nav class="footer__col" aria-labelledby="f1"><h3 class="mono" id="f1" data-i18n="svcTag">Servizi</h3>
+        <a href="#servizi" data-i18n="svc1T">Consulenza e strategia AI</a><a href="#servizi" data-i18n="svc2T">Agenti AI e automazioni</a><a href="#servizi" data-i18n="svc3T">Siti e web app che vendono</a></nav>
+      <nav class="footer__col" aria-labelledby="f2"><h3 class="mono" id="f2" data-i18n="footStudio">Studio</h3>
+        <a href="#metodo" data-i18n="navMethod">Metodo</a><a href="#casi" data-i18n="navCases">Casi studio</a><a href="#team" data-i18n="teamTag">Chi siamo</a><a href="#faq">FAQ</a></nav>
+      <div class="footer__col"><h3 class="mono" data-i18n="footContact">Contatti</h3>
+        <a href="mailto:antoniodebiase2003@gmail.com">antoniodebiase2003@gmail.com</a><span>Townsville, QLD · Australia</span><span>Aversa, CE · <span data-i18n="italy">Italia</span></span></div>
     </div>
-    <div class="footer__row mono">
+    <div class="footer__word" aria-hidden="true">antipode</div>
+    <div class="wrap footer__bottom mono">
       <span>© 2026 Antipode · <span data-i18n="vat">P.IVA</span> <span class="todo">[da inserire]</span></span>
-      <nav class="footer__links" aria-label="Note legali" data-i18n-aria="legalLabel">
-        <a href="privacy.html">Privacy policy</a>
-        <a href="cookie.html">Cookie policy</a>
-        <a href="#top" data-i18n="footTop">Torna su ↑</a>
-      </nav>
+      <nav class="footer__legal" aria-label="Note legali" data-i18n-aria="legalLabel"><a href="privacy.html">Privacy</a><a href="cookie.html">Cookie</a></nav>
     </div>
   </footer>
-
-  <div class="corner">
-    <button class="corner__btn" id="motion-toggle" aria-pressed="false" aria-label="Metti in pausa le animazioni" data-i18n-aria="motionOff"><span class="eq"><i></i><i></i><i></i></span></button>
-    <a class="corner__btn" href="#top" aria-label="Torna su" data-i18n-aria="toTop">↑</a>
-  </div>
 
   <script src="vendor/gsap.min.js"></script>
   <script src="vendor/ScrollTrigger.min.js"></script>
   <script src="vendor/lenis.min.js"></script>
+  <script src="js/landmask.js"></script>
   <script src="js/i18n.js"></script>
   <script src="js/projects.js"></script>
   <script src="js/testimonials.js"></script>
