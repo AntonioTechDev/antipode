@@ -65,64 +65,12 @@
   gsap.set("[data-reveal]", { opacity: 0, y: 50 });
   ScrollTrigger.batch("[data-reveal]", { start: "top 88%", once: true, onEnter: (els) => gsap.to(els, { opacity: 1, y: 0, duration: 1, stagger: 0.1, ease: "power3.out" }) });
 
-  /* ---------------- hero product shot: tilts flat on scroll ---------------- */
-  gsap.fromTo(".shot .app", { rotateX: 24, scale: 0.92 }, { rotateX: 0, scale: 1, ease: "none", scrollTrigger: { trigger: ".shot", start: "top 92%", end: "top 25%", scrub: true } });
-
-  /* ---------------- hero chat demo ---------------- */
-  const CONVO = {
-    it: [
-      { u: "Ciao! Fate siti per ristoranti? Me ne servirebbe uno con le prenotazioni online 🍝" },
-      { b: "Ciao Marco! Sì, è proprio il nostro lavoro. Hai già un dominio? E quanti coperti gestisci più o meno a sera?", log: ["Nuovo contatto da WhatsApp", "salvato nel CRM"] },
-      { u: "Il dominio sì. Circa 60 coperti, siamo ad Aversa." },
-      { b: "Perfetto. Ti propongo una call di 20 minuti per un preventivo preciso: martedì alle 10:00 o giovedì alle 15:30?", log: ["Contatto qualificato", "ristorante · 60 coperti"] },
-      { u: "Giovedì va benissimo!" },
-      { b: "Fatto ✅ Ti ho mandato l'invito per email. A giovedì!", log: ["Appuntamento fissato", "gio 15:30 · Google Calendar"], booked: true },
-    ],
-    en: [
-      { u: "Hi! Do you build websites for restaurants? I'd need one with online bookings 🍝" },
-      { b: "Hi Marco! Yes, that's exactly what we do. Do you already have a domain? And roughly how many covers a night?", log: ["New lead from WhatsApp", "saved to CRM"] },
-      { u: "Got the domain. Around 60 covers, we're in Townsville." },
-      { b: "Great. How about a 20-minute call for an exact quote: Tuesday at 10:00 or Thursday at 3:30pm?", log: ["Lead qualified", "restaurant · 60 covers"] },
-      { u: "Thursday works!" },
-      { b: "Done ✅ I've emailed you the invite. See you Thursday!", log: ["Meeting booked", "Thu 3:30pm · Google Calendar"], booked: true },
-    ],
-  };
-  const chatBody = $("#chat-body"), logList = $("#log-list"), kpiA = $("#kpi-a"), kpiB = $("#kpi-b");
-  let run = 0, kA = 124, kB = 8;
-  const wait = (ms, id) => new Promise((res, rej) => setTimeout(() => (id === run ? res() : rej("stop")), ms));
-  function bubble(cls, html) {
-    const d = document.createElement("div");
-    d.className = `msg ${cls}`; d.innerHTML = html; chatBody.appendChild(d);
-    gsap.fromTo(d, { opacity: 0, y: 12, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "power3.out" });
-    return d;
-  }
-  function logItem([t, s]) {
-    const li = document.createElement("li");
-    li.innerHTML = `<span>✓</span><span>${esc(t)}<small>${esc(s)}</small></span>`;
-    logList.appendChild(li);
-    gsap.fromTo(li, { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" });
-  }
-  function bump(el, v) { el.textContent = nf.format(v); gsap.fromTo(el, { scale: 1.25 }, { scale: 1, duration: 0.5, ease: "back.out(3)" }); }
-  async function playChat() {
-    const id = ++run;
-    chatBody.innerHTML = ""; logList.innerHTML = "";
-    kA = 124; kB = 8; kpiA.textContent = kA; kpiB.textContent = kB;
-    try {
-      for (const step of CONVO[LANG] || CONVO.it) {
-        if (step.u) { await wait(1000, id); bubble("msg--user", esc(step.u)); continue; }
-        await wait(450, id);
-        const typing = bubble("msg--bot msg--typing", "<i></i><i></i><i></i>");
-        await wait(Math.min(2000, 700 + step.b.length * 11), id);
-        typing.remove();
-        bubble("msg--bot", esc(step.b));
-        bump(kpiA, ++kA);
-        if (step.log) { await wait(350, id); logItem(step.log); }
-        if (step.booked) { await wait(300, id); bump(kpiB, ++kB); }
-      }
-    } catch (e) { /* replay */ }
-  }
-  setTimeout(playChat, 1300);
-  $("#chat-replay").addEventListener("click", playChat);
+  /* ---------------- hero stage: tilts flat, windows spread, chips float ---------------- */
+  gsap.fromTo(".stage", { rotateX: 22, scale: 0.93 }, { rotateX: 0, scale: 1, ease: "none", scrollTrigger: { trigger: ".shot", start: "top 92%", end: "top 25%", scrub: true } });
+  gsap.fromTo(".win--l", { x: 60, rotate: -2 }, { x: 0, rotate: -6, ease: "none", scrollTrigger: { trigger: ".shot", start: "top 92%", end: "top 20%", scrub: true } });
+  gsap.fromTo(".win--r", { x: -60, rotate: 2 }, { x: 0, rotate: 6, ease: "none", scrollTrigger: { trigger: ".shot", start: "top 92%", end: "top 20%", scrub: true } });
+  gsap.fromTo([".float", ".stat"], { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, stagger: 0.1, ease: "back.out(2)", delay: 0.9 });
+  if (!reduceMotion) $$(".float").forEach((f, i) => gsap.to(f, { y: i % 2 ? 8 : -8, duration: 2.4 + i * 0.3, ease: "sine.inOut", repeat: -1, yoyo: true, delay: 1.6 }));
 
   /* ---------------- responsive scroll scenes ---------------- */
   const mm = gsap.matchMedia();
@@ -162,7 +110,7 @@
   // USE CASES: pinned lime band, phone screens + copy switch, progress bar (all sizes)
   const utexts = $$(".utext"), screens = $$(".scr"), dashes = $$(".dashes i");
   const pLabel = $("#phone-label"), pCount = $("#phone-count"), pBar = $("#phone-bar");
-  const labels = [T("u1L", "Risposte automatiche su WhatsApp"), T("u2L", "Commento → messaggio privato"), T("u3L", "Appuntamenti in calendario"), T("u4L", "Sincronizzazione CRM")];
+  const labels = [T("u1L", "Consulenza e strategia AI"), T("u2L", "Software e web app su misura"), T("u3L", "Automazioni e agenti AI"), T("u4L", "Siti e landing che vendono")];
   let ui = 0;
   ScrollTrigger.create({
     trigger: "#uses-pin", start: "top top", end: "bottom bottom",
@@ -174,6 +122,7 @@
       ui = i;
       utexts.forEach((t, k) => { t.classList.toggle("is-active", k === i); t.classList.toggle("is-past", k < i); });
       screens.forEach((s, k) => s.classList.toggle("is-active", k === i));
+      gsap.fromTo(screens[i].children, { opacity: 0, y: 14 }, { opacity: 1, y: 0, stagger: 0.06, duration: 0.45, ease: "power3.out", overwrite: true });
       dashes.forEach((d, k) => d.classList.toggle("on", k === i));
       pLabel.textContent = labels[i];
       pCount.textContent = `${i + 1}/${n}`;
@@ -184,15 +133,15 @@
   gsap.fromTo(".integ__tiles li", { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, stagger: 0.03, duration: 0.5, ease: "back.out(2)", scrollTrigger: { trigger: ".integ__tiles", start: "top 88%" } });
 
   /* ---------------- ROI ---------------- */
-  const R = { msg: $("#r-msg"), min: $("#r-min"), share: $("#r-share"), cost: $("#r-cost") };
-  const O = { msg: $("#o-msg"), min: $("#o-min"), share: $("#o-share"), cost: $("#o-cost") };
+  const R = { ppl: $("#r-ppl"), hrs: $("#r-hrs"), share: $("#r-share"), cost: $("#r-cost") };
+  const O = { ppl: $("#o-ppl"), hrs: $("#o-hrs"), share: $("#o-share"), cost: $("#o-cost") };
   const outH = $("#roi-hours"), outM = $("#roi-money");
   const money = new Intl.NumberFormat(LANG === "en" ? "en-AU" : "it-IT", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
   const shown = { h: 0, m: 0 };
   function calc() {
     Object.values(R).forEach((r) => r.style.setProperty("--p", `${((r.value - r.min) / (r.max - r.min)) * 100}%`));
-    O.msg.textContent = R.msg.value; O.min.textContent = R.min.value; O.share.textContent = `${R.share.value}%`; O.cost.textContent = `${R.cost.value} €`;
-    const hours = (R.msg.value * R.min.value * (R.share.value / 100) * 22) / 60;
+    O.ppl.textContent = R.ppl.value; O.hrs.textContent = R.hrs.value; O.share.textContent = `${R.share.value}%`; O.cost.textContent = `${R.cost.value} €`;
+    const hours = R.ppl.value * R.hrs.value * (R.share.value / 100) * 4.33; // weeks per month
     gsap.to(shown, { h: hours, m: hours * R.cost.value, duration: 0.6, ease: "power3.out", onUpdate: () => { outH.textContent = nf.format(Math.round(shown.h)); outM.textContent = money.format(Math.round(shown.m)); } });
   }
   Object.values(R).forEach((r) => r.addEventListener("input", calc));
