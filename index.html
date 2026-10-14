@@ -44,6 +44,7 @@
         <a href="#servizi" data-i18n="navServices">Servizi</a>
         <a href="#come-lavoriamo" data-i18n="navHow">Come lavoriamo</a>
         <a href="#casi" data-i18n="navCases">Casi studio</a>
+        <a href="#chi-siamo" data-i18n="aboutLink">Chi siamo</a>
         <a href="#faq">FAQ</a>
       </nav>
       <div class="nav__right">
@@ -51,7 +52,7 @@
           <button class="lang__btn" data-lang="it" aria-pressed="true" lang="it">IT</button>
           <button class="lang__btn" data-lang="en" aria-pressed="false" lang="en">EN</button>
         </div>
-        <a class="btn btn--dark btn--sm" href="#contatti" data-i18n="navCta">Prenota una call</a>
+        <a class="btn btn--dark btn--sm" href="#contatti" data-book data-i18n="navCta">Prenota una call</a>
       </div>
     </div>
   </header>
@@ -67,7 +68,7 @@
         <h1 class="hero__title" id="hero-title" data-split data-i18n="heroTitle">Software, AI e automazioni <span class="grad">su misura</span> per la tua azienda.</h1>
         <p class="hero__sub" data-i18n="heroSub">Ti aiutiamo a capire dove la tecnologia può farti crescere, poi progettiamo e sviluppiamo web app, automazioni e agenti AI. Dall'idea al rilascio, con un unico team.</p>
         <div class="hero__ctas">
-          <a class="btn btn--dark btn--lg" href="#contatti" data-i18n="heroCta">Prenota una call di 30 minuti</a>
+          <a class="btn btn--dark btn--lg" href="#contatti" data-book data-i18n="heroCta">Prenota una call di 30 minuti</a>
           <a class="btn btn--light btn--lg" href="#casi" data-i18n="heroCta2">Guarda i progetti</a>
         </div>
         <ul class="assure">
@@ -77,22 +78,19 @@
         </ul>
       </div>
 
-      <!-- hero visual: our real work + what we do -->
+      <!-- hero visual: click to browse every project -->
       <div class="wrap">
         <div class="shot" id="shot">
-          <div class="vcard stage" aria-hidden="true">
+          <div class="vcard stage" id="stage" role="button" tabindex="0" aria-label="Sfoglia tutti i progetti" data-i18n-aria="stageLabel">
             <figure class="win win--l"><div class="win__bar"><i></i><i></i><i></i><span>agenziaentrate.gov.it</span></div><img src="assets/shots/agenzia-entrate.webp" alt="" width="1200" height="750"></figure>
             <figure class="win win--r"><div class="win__bar"><i></i><i></i><i></i><span>emobility-scame.com</span></div><img src="assets/shots/scame-emobility.webp" alt="" width="1200" height="750"></figure>
             <figure class="win win--c"><div class="win__bar"><i></i><i></i><i></i><span>cheai.io</span></div><img src="assets/shots/cheai.webp" alt="" width="1200" height="750"></figure>
-
-            <span class="float f1"><img src="assets/icons/openai.svg" alt=""><span data-i18n="f1">Consulenza AI</span></span>
-            <span class="float f2"><img src="assets/icons/react.svg" alt=""><span data-i18n="f2">Web app su misura</span></span>
-            <span class="float f3"><img src="assets/icons/n8n.svg" alt=""><span data-i18n="f3">Automazioni</span></span>
-            <span class="float f4"><img src="assets/icons/whatsapp.svg" alt=""><span data-i18n="f4">Agenti AI</span></span>
-            <span class="stat s1"><b>15+</b><span data-i18n="s1">portali enterprise</span></span>
-            <span class="stat s2"><b>6</b><span data-i18n="s2">anni di sviluppo</span></span>
+            <span class="float f1" aria-hidden="true"><img src="assets/icons/openai.svg" alt=""><span data-i18n="f1">Consulenza AI</span></span>
+            <span class="float f2" aria-hidden="true"><img src="assets/icons/react.svg" alt=""><span data-i18n="f2">Web app su misura</span></span>
+            <span class="float f3" aria-hidden="true"><img src="assets/icons/n8n.svg" alt=""><span data-i18n="f3">Automazioni</span></span>
+            <span class="float f4" aria-hidden="true"><img src="assets/icons/whatsapp.svg" alt=""><span data-i18n="f4">Agenti AI</span></span>
+            <span class="stage__cta"><span data-i18n="stageCta">Sfoglia tutti i progetti</span><b class="js-pcount">22</b><i aria-hidden="true">→</i></span>
           </div>
-          <p class="shot__note mono" data-i18n="shotNote">Alcuni dei progetti a cui abbiamo lavorato</p>
         </div>
       </div>
 
@@ -162,45 +160,80 @@
                 <div class="utext"><p class="utext__n mono">03</p><h3 data-i18n="u3T">Automazioni e agenti AI</h3><p data-i18n="u3D">Colleghiamo email, CRM, fogli e gestionali con flussi n8n e agenti AI. Il lavoro ripetitivo lo fanno loro, il tuo team si occupa del resto.</p></div>
                 <div class="utext"><p class="utext__n mono">04</p><h3 data-i18n="u4T">Siti e landing che vendono</h3><p data-i18n="u4D">Veloci, accessibili, pensati per farsi trovare su Google e trasformare le visite in contatti. Già collegati ai tuoi strumenti.</p></div>
               </div>
-              <a class="btn btn--dark" href="#contatti" data-i18n="usesCta">Parliamone in una call</a>
+              <a class="btn btn--dark" href="#contatti" data-book data-i18n="usesCta">Parliamone in una call</a>
             </div>
             <div class="phone-wrap">
               <div class="phone" aria-hidden="true">
+                <span class="phone__island"></span>
                 <div class="phone__screen">
-                  <!-- 1: AI roadmap -->
-                  <div class="scr scr--road is-active">
-                    <p class="scr__k mono" data-i18n="r0">Audit AI · la tua azienda</p>
-                    <b class="scr__t" data-i18n="r1">Roadmap in 3 fasi</b>
-                    <div class="rm"><span class="rm__n">1</span><div><b data-i18n="r2">Risposte ai clienti</b><small data-i18n="r3">−60% di tempo · 2 settimane</small><i style="--w:92%"></i></div></div>
-                    <div class="rm"><span class="rm__n">2</span><div><b data-i18n="r4">Preventivi automatici</b><small data-i18n="r5">−8 ore/settimana · 4 settimane</small><i style="--w:68%"></i></div></div>
-                    <div class="rm"><span class="rm__n">3</span><div><b data-i18n="r6">Report mensili</b><small data-i18n="r7">da 1 giorno a 10 minuti</small><i style="--w:45%"></i></div></div>
-                    <span class="scr__file mono">roadmap-ai.pdf</span>
+
+                  <!-- 1 · AI audit report -->
+                  <div class="scr scr--rep is-active">
+                    <div class="sb"><b>9:41</b><span class="sb__i"><i class="sig"></i><i class="wifi"></i><i class="bat"></i></span></div>
+                    <div class="rep__head"><span class="mark">a</span><div><small data-i18n="r0">Antipode · Audit AI</small><b data-i18n="r1">La tua azienda Srl</b></div><span class="rep__date mono">Q4</span></div>
+                    <div class="rep__score">
+                      <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" class="ring-bg"/><circle cx="32" cy="32" r="26" class="ring-fg" pathLength="100" style="--v:78"/></svg>
+                      <div class="rep__num"><b>78</b><small>/100</small></div>
+                      <div class="rep__txt"><b data-i18n="r2">Potenziale AI alto</b><small data-i18n="r3">12 processi analizzati</small><small class="rep__save" data-i18n="r4">fino a 27 h/settimana</small></div>
+                    </div>
+                    <p class="rep__k" data-i18n="r5">Opportunità prioritarie</p>
+                    <div class="opp"><span class="opp__ic"><img src="assets/icons/gmail.svg" alt=""></span><div><b data-i18n="r6">Risposte ai clienti</b><small data-i18n="r7">−14 h a settimana</small></div><span class="lvl lvl--hi" data-i18n="hi">Alta</span></div>
+                    <div class="opp"><span class="opp__ic"><img src="assets/icons/googlesheets.svg" alt=""></span><div><b data-i18n="r8">Preventivi da Excel</b><small data-i18n="r9">−8 h a settimana</small></div><span class="lvl lvl--hi" data-i18n="hi">Alta</span></div>
+                    <div class="opp"><span class="opp__ic"><img src="assets/icons/hubspot.svg" alt=""></span><div><b data-i18n="r10">Aggiornamento CRM</b><small data-i18n="r11">−5 h a settimana</small></div><span class="lvl lvl--md" data-i18n="md">Media</span></div>
+                    <div class="rep__cta"><span>📄</span><span data-i18n="r12">Roadmap completa · PDF</span><i>↓</i></div>
                   </div>
-                  <!-- 2: web app -->
+
+                  <!-- 2 · custom web app -->
                   <div class="scr scr--app">
-                    <div class="appbar"><b>Dashboard</b><span class="avatar">A</span></div>
-                    <div class="kp"><div><small data-i18n="a1">Ordini</small><b>1.284</b><em>+12%</em></div><div><small data-i18n="a2">Clienti</small><b>342</b><em>+8%</em></div></div>
-                    <div class="bars"><i style="--h:38%"></i><i style="--h:52%"></i><i style="--h:44%"></i><i style="--h:66%"></i><i style="--h:58%"></i><i style="--h:80%"></i><i style="--h:94%"></i></div>
-                    <ul class="rows"><li><span>#1042</span><span data-i18n="a3">Spedito</span></li><li><span>#1041</span><span data-i18n="a4">In lavorazione</span></li><li><span>#1040</span><span data-i18n="a3">Spedito</span></li></ul>
+                    <div class="sb"><b>9:41</b><span class="sb__i"><i class="sig"></i><i class="wifi"></i><i class="bat"></i></span></div>
+                    <div class="wa__top"><div><small data-i18n="wa0">Buongiorno,</small><b>Marco 👋</b></div><span class="ava ava--m">MR</span></div>
+                    <div class="wa__card">
+                      <small data-i18n="wa1">Fatturato del mese</small>
+                      <div class="wa__row"><b>€ 48.290</b><em>▲ 12,4%</em></div>
+                      <svg class="wa__chart" viewBox="0 0 200 60" preserveAspectRatio="none"><defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs><path d="M0 48 C 20 44, 30 30, 50 34 S 80 46, 100 30 S 140 20, 160 22 S 185 8, 200 6 L200 60 L0 60Z" fill="url(#ga)"/><path class="wa__line" d="M0 48 C 20 44, 30 30, 50 34 S 80 46, 100 30 S 140 20, 160 22 S 185 8, 200 6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
+                    </div>
+                    <div class="wa__tabs"><span class="on" data-i18n="wa2">Ordini</span><span data-i18n="wa3">Clienti</span><span data-i18n="wa4">Magazzino</span></div>
+                    <ul class="wa__list">
+                      <li><span class="ava ava--1">GF</span><div><b>Giulia Ferri</b><small data-i18n="wa5">#1042 · 3 articoli</small></div><span class="pill pill--ok" data-i18n="wa6">Spedito</span></li>
+                      <li><span class="ava ava--2">LB</span><div><b>Luca Bianchi</b><small data-i18n="wa7">#1041 · 1 articolo</small></div><span class="pill pill--wip" data-i18n="wa8">In lavorazione</span></li>
+                      <li><span class="ava ava--2" style="background:#6366f1">DC</span><div><b>Davide Conte</b><small data-i18n="wa10">#1039 · 2 articoli</small></div><span class="pill pill--ok" data-i18n="wa6">Spedito</span></li>
+                      <li><span class="ava ava--3">SR</span><div><b>Sara Russo</b><small data-i18n="wa9">#1040 · 5 articoli</small></div><span class="pill pill--ok" data-i18n="wa6">Spedito</span></li>
+                    </ul>
+                    <nav class="wa__nav"><i class="on"></i><i></i><i></i><i></i></nav>
                   </div>
-                  <!-- 3: automation flow -->
-                  <div class="scr scr--flow">
-                    <p class="scr__k mono" data-i18n="w0">Flusso automatico</p>
-                    <div class="node"><img src="assets/icons/gmail.svg" alt=""><div><b data-i18n="w1">Nuova richiesta</b><small data-i18n="w2">email o modulo sul sito</small></div></div>
-                    <div class="link"></div>
-                    <div class="node node--ai"><img src="assets/icons/openai.svg" alt=""><div><b data-i18n="w3">L'AI legge e classifica</b><small data-i18n="w4">e prepara la risposta</small></div></div>
-                    <div class="link"></div>
-                    <div class="node"><img src="assets/icons/hubspot.svg" alt=""><div><b data-i18n="w5">CRM aggiornato</b><small data-i18n="w6">contatto e preventivo</small></div></div>
-                    <div class="link"></div>
-                    <div class="node"><img src="assets/icons/slack.svg" alt=""><div><b data-i18n="w7">Team avvisato</b><small data-i18n="w8">solo quando serve</small></div></div>
+
+                  <!-- 3 · automation = lock screen notifications -->
+                  <div class="scr scr--lock">
+                    <div class="sb sb--light"><b>9:41</b><span class="sb__i"><i class="sig"></i><i class="wifi"></i><i class="bat"></i></span></div>
+                    <div class="lock__time"><small data-i18n="lk0">martedì 14 ottobre</small><b>9:41</b></div>
+                    <div class="notif"><span class="notif__ic"><img src="assets/icons/gmail.svg" alt=""></span><div><p><b>Gmail</b><small data-i18n="now">ora</small></p><span data-i18n="lk1">Nuova richiesta di preventivo da Bianchi Srl</span></div></div>
+                    <div class="notif notif--ai"><span class="notif__ic mark">a</span><div><p><b data-i18n="lk2">Automazione Antipode</b><small data-i18n="now">ora</small></p><span data-i18n="lk3">Preventivo #214 preparato e inviato in 38 secondi ⚡</span></div></div>
+                    <div class="notif"><span class="notif__ic"><img src="assets/icons/hubspot.svg" alt=""></span><div><p><b>HubSpot</b><small data-i18n="now">ora</small></p><span data-i18n="lk4">Contatto e opportunità aggiornati · 4.800 €</span></div></div>
+                    <div class="notif"><span class="notif__ic"><img src="assets/icons/slack.svg" alt=""></span><div><p><b>Slack</b><small>1 min</small></p><span data-i18n="lk5">#vendite · nuova opportunità assegnata a Marco</span></div></div>
                   </div>
-                  <!-- 4: website -->
-                  <div class="scr scr--site">
-                    <div class="site__hero"><small class="mono">iltuobrand.it</small><b data-i18n="ws1">Il tuo prodotto, spiegato bene.</b><span data-i18n="ws2">Richiedi un preventivo</span></div>
-                    <p class="scr__k mono">Lighthouse</p>
-                    <div class="lh"><div><b>100</b><small>Performance</small></div><div><b>100</b><small data-i18n="ws3">Accessibilità</small></div><div><b>100</b><small>SEO</small></div></div>
-                    <div class="leads"><small data-i18n="ws4">Contatti dal sito</small><b>+48%</b></div>
+
+                  <!-- 4 · website in a mobile browser -->
+                  <div class="scr scr--web">
+                    <div class="sb"><b>9:41</b><span class="sb__i"><i class="sig"></i><i class="wifi"></i><i class="bat"></i></span></div>
+                    <div class="web__page">
+                      <div class="web__nav"><b>lumen<i>.</i></b><span></span></div>
+                      <div class="web__hero">
+                        <small data-i18n="ws0">Studio dentistico · Napoli</small>
+                        <b data-i18n="ws1">Il sorriso che cerchi, senza attese.</b>
+                        <span class="web__btn" data-i18n="ws2">Prenota una visita</span>
+                        <div class="web__stars">★★★★★ <span data-i18n="ws3">4,9 su Google</span></div>
+                      </div>
+                      <div class="web__svc"><span>🦷<b data-i18n="wsv1">Igiene</b></span><span>✨<b data-i18n="wsv2">Sbiancamento</b></span><span>🩺<b data-i18n="wsv3">Implantologia</b></span></div>
+                      <div class="ps">
+                        <div><b>100</b><small>Performance</small></div>
+                        <div><b>100</b><small data-i18n="ws4">Accessibilità</small></div>
+                        <div><b>100</b><small>SEO</small></div>
+                      </div>
+                    </div>
+                    <div class="toast"><span class="toast__ok">✓</span><div><b data-i18n="ws5">Nuovo contatto dal sito</b><small data-i18n="ws6">Laura M. · richiesta di visita</small></div></div>
+                    <div class="web__url"><span>🔒</span>lumen-studio.it</div>
                   </div>
+
                 </div>
               </div>
               <div class="phone-label"><span id="phone-label" data-i18n="u1L">Consulenza e strategia AI</span><span class="mono" id="phone-count">1/4</span><i id="phone-bar"></i></div>
@@ -219,39 +252,55 @@
             <h2 id="how-title" data-split data-i18n="howTitle">Lavorare con noi è <span class="grad">più semplice</span> di quanto pensi.</h2>
             <p class="lead" data-i18n="howLead">Niente progetti infiniti né gergo tecnico. Tre fasi, un referente, risultati che puoi misurare.</p>
             <ol class="how__steps mono">
-              <li class="is-active"><span>01</span><span data-i18n="how1S">Analisi e consulenza</span></li>
+              <li class="is-active"><span>01</span><span data-i18n="how1S">Call conoscitiva</span></li>
               <li><span>02</span><span data-i18n="how2S">Progettazione e sviluppo</span></li>
-              <li><span>03</span><span data-i18n="how3S">Lancio e crescita</span></li>
+              <li><span>03</span><span data-i18n="how3S">Consegna e crescita</span></li>
             </ol>
           </div>
           <div class="vcard how__card">
+            <!-- 1 · real booking -->
             <div class="how__pane is-active">
-              <div class="ui ui--cal">
-                <div class="ui__row ui__row--head"><b data-i18n="calTitle">Call conoscitiva</b><span class="mono">30 min</span></div>
-                <div class="cal">
-                  <span class="mono">L</span><span class="mono">M</span><span class="mono">M</span><span class="mono">G</span><span class="mono">V</span>
-                  <i>13</i><i class="on">14</i><i>15</i><i class="sel">16</i><i class="on">17</i>
+              <div class="ui ui--book">
+                <div class="book__head"><span class="ic"><img src="assets/icons/googlecalendar.svg" alt=""></span><div><b data-i18n="calTitle">Call conoscitiva · 30 min</b><small data-i18n="calSub">Google Meet · in italiano o inglese</small></div></div>
+                <div class="cal" id="cal" role="group" aria-label="Scegli un giorno" data-i18n-aria="calDays"></div>
+                <div class="slots" id="slots" role="group" aria-label="Scegli un orario" data-i18n-aria="calSlots"><button type="button">10:00</button><button type="button" class="sel">15:30</button><button type="button">17:00</button></div>
+                <button class="btn btn--dark btn--block" type="button" id="book-btn" data-book><span data-i18n="calCta">Prenota questa call</span> →</button>
+              </div>
+              <div class="how__text"><p class="mono">/01</p><h3 data-i18n="how1T">Call conoscitiva</h3><p data-i18n="how1D">Scegli giorno e ora: in 30 minuti capiamo obiettivi, processi e strumenti che usi. Poi ricevi un preventivo scritto con costi, tempi e risultati attesi.</p></div>
+            </div>
+            <!-- 2 · timeline -->
+            <div class="how__pane">
+              <div class="ui ui--tl">
+                <p class="tl__k mono" data-i18n="tlK">Esempio: una web app di media complessità</p>
+                <ol class="tl">
+                  <li style="--i:0"><span class="tl__ic"><img src="assets/icons/notion.svg" alt=""></span><div><b data-i18n="tl1">Workshop e requisiti</b><small data-i18n="tl1w">Settimana 1</small></div></li>
+                  <li style="--i:1"><span class="tl__ic"><img src="assets/icons/figma.svg" alt=""></span><div><b data-i18n="tl2">UX/UI e prototipo cliccabile</b><small data-i18n="tl2w">Settimane 2–3 · lo approvi tu</small></div></li>
+                  <li style="--i:2"><span class="tl__ic"><img src="assets/icons/nextdotjs.svg" alt=""></span><div><b data-i18n="tl3">Sviluppo frontend</b><small data-i18n="tl3w">Settimane 3–6 · React, Next.js</small></div></li>
+                  <li style="--i:3"><span class="tl__ic"><img src="assets/icons/supabase.svg" alt=""></span><div><b data-i18n="tl4">Backend, database e integrazioni</b><small data-i18n="tl4w">Settimane 4–7</small></div></li>
+                  <li style="--i:4"><span class="tl__ic"><img src="assets/icons/n8n.svg" alt=""></span><div><b data-i18n="tl5">AI e automazioni</b><small data-i18n="tl5w">Settimane 6–8</small></div></li>
+                  <li style="--i:5"><span class="tl__ic tl__ic--ok">✓</span><div><b data-i18n="tl6">Test, collaudo e rilascio</b><small data-i18n="tl6w">Settimana 8</small></div></li>
+                </ol>
+              </div>
+              <div class="how__text"><p class="mono">/02</p><h3 data-i18n="how2T">Progettazione e sviluppo</h3><p data-i18n="how2D">Lavoriamo per tappe e ti mostriamo i progressi ogni settimana. Approvi il design prima di scrivere una riga di codice.</p></div>
+            </div>
+            <!-- 3 · handover -->
+            <div class="how__pane">
+              <div class="ui ui--launch">
+                <p class="tl__k mono" data-i18n="dlK">Alla consegna ricevi</p>
+                <ul class="dl" data-i18n="dlList">
+                  <li>Il software online, sul tuo dominio</li>
+                  <li>Codice, account e accessi intestati a te</li>
+                  <li>Formazione al tuo team</li>
+                  <li>Documentazione e guida d'uso</li>
+                </ul>
+                <p class="tl__k mono" data-i18n="afK">Dopo il lancio, se vuoi</p>
+                <div class="after">
+                  <div><span>📈</span><b data-i18n="af1">Report mensile</b><small data-i18n="af1d">risultati misurati</small></div>
+                  <div><span>🛡️</span><b data-i18n="af2">Manutenzione</b><small data-i18n="af2d">aggiornamenti e backup</small></div>
+                  <div><span>✨</span><b data-i18n="af3">Nuove funzioni</b><small data-i18n="af3d">quando servono</small></div>
                 </div>
-                <div class="slots"><span>10:00</span><span class="sel">15:30 ✓</span><span>17:00</span></div>
               </div>
-              <div class="how__text"><p class="mono">/01</p><h3 data-i18n="how1T">Analisi e consulenza</h3><p data-i18n="how1D">In una call di 30 minuti capiamo obiettivi, processi e strumenti che usi. Poi ricevi un preventivo scritto con costi, tempi e risultati attesi.</p></div>
-            </div>
-            <div class="how__pane">
-              <div class="ui ui--list">
-                <div class="ui__row"><span class="ic"><img src="assets/icons/figma.svg" alt=""></span><div><b data-i18n="d1">Design e prototipo</b><small>Figma</small></div><span class="ok">✓</span></div>
-                <div class="ui__row ui__row--hl"><span class="ic"><img src="assets/icons/nextdotjs.svg" alt=""></span><div><b data-i18n="d2">Sviluppo frontend</b><small>React · Next.js · TypeScript</small></div><span class="prog"><i style="--w:72%"></i></span></div>
-                <div class="ui__row"><span class="ic"><img src="assets/icons/supabase.svg" alt=""></span><div><b data-i18n="d3">Backend e database</b><small>Node.js · Supabase · PostgreSQL</small></div><span class="ok">✓</span></div>
-                <div class="ui__row"><span class="ic"><img src="assets/icons/n8n.svg" alt=""></span><div><b data-i18n="d4">AI e automazioni</b><small>n8n · OpenAI · Claude</small></div><span class="ok">✓</span></div>
-              </div>
-              <div class="how__text"><p class="mono">/02</p><h3 data-i18n="how2T">Progettazione e sviluppo</h3><p data-i18n="how2D">Disegniamo, sviluppiamo e testiamo per tappe. Vedi i progressi ogni settimana, non solo alla fine.</p></div>
-            </div>
-            <div class="how__pane">
-              <div class="ui ui--msg">
-                <div class="msgrow"><span class="ic ic--brand">A</span><div><b data-i18n="upd0">Aggiornamento di progetto</b> <small class="mono">18:00</small>
-                  <ul data-i18n="updList"><li>✓ Versione 1.0 online</li><li>✓ Tutti i test superati</li><li>✓ Formazione al tuo team completata</li><li>→ Prossimo passo: report automatici</li></ul>
-                  <span class="chip-file mono">handover.pdf</span></div></div>
-              </div>
-              <div class="how__text"><p class="mono">/03</p><h3 data-i18n="how3T">Lancio e crescita</h3><p data-i18n="how3D">Mettiamo online, formiamo il tuo team e misuriamo i risultati. Poi continuiamo a migliorare, se vuoi.</p></div>
+              <div class="how__text"><p class="mono">/03</p><h3 data-i18n="how3T">Consegna e crescita</h3><p data-i18n="how3D">Mettiamo online il progetto, formiamo il tuo team e ti consegniamo tutto. Poi, se vuoi, restiamo al tuo fianco per farlo crescere.</p></div>
             </div>
           </div>
         </div>
@@ -269,7 +318,7 @@
             <li><img src="assets/icons/react.svg" alt="">React</li><li><img src="assets/icons/nextdotjs.svg" alt="">Next.js</li><li><img src="assets/icons/typescript.svg" alt="">TypeScript</li><li><img src="assets/icons/nodedotjs.svg" alt="">Node.js</li><li><img src="assets/icons/python.svg" alt="">Python</li><li><img src="assets/icons/supabase.svg" alt="">Supabase</li><li><img src="assets/icons/postgresql.svg" alt="">PostgreSQL</li><li><img src="assets/icons/docker.svg" alt="">Docker</li>
             <li><img src="assets/icons/whatsapp.svg" alt="">WhatsApp</li><li><img src="assets/icons/instagram.svg" alt="">Instagram</li><li><img src="assets/icons/gmail.svg" alt="">Gmail</li><li><img src="assets/icons/googlesheets.svg" alt="">Google Sheets</li><li><img src="assets/icons/hubspot.svg" alt="">HubSpot</li><li><img src="assets/icons/salesforce.svg" alt="">Salesforce</li><li><img src="assets/icons/notion.svg" alt="">Notion</li><li><img src="assets/icons/slack.svg" alt="">Slack</li><li><img src="assets/icons/stripe.svg" alt="">Stripe</li><li><img src="assets/icons/shopify.svg" alt="">Shopify</li><li><img src="assets/icons/wordpress.svg" alt="">WordPress</li><li><img src="assets/icons/webflow.svg" alt="">Webflow</li>
           </ul>
-          <p class="integ__more mono" data-i18n="integMore">… e qualsiasi strumento con un'API</p>
+          <p class="integ__more mono" data-i18n="integMore">… e qualsiasi altro strumento</p>
         </div>
       </div>
     </section>
@@ -283,15 +332,20 @@
             <h2 id="roi-title" data-i18n="roiTitle">Quanto vale <span class="grad">automatizzare</span> il lavoro ripetitivo?</h2>
             <div class="sliders">
               <label class="slider"><span data-i18n="roiQ1">Persone che fanno lavoro ripetitivo</span><output id="o-ppl">5</output><input type="range" id="r-ppl" min="1" max="50" step="1" value="5"></label>
-              <label class="slider"><span data-i18n="roiQ2">Ore a settimana a persona</span><output id="o-hrs">6</output><input type="range" id="r-hrs" min="1" max="20" step="1" value="6"></label>
-              <label class="slider"><span data-i18n="roiQ3">Quota automatizzabile</span><output id="o-share">50%</output><input type="range" id="r-share" min="20" max="80" step="5" value="50"></label>
-              <label class="slider"><span data-i18n="roiQ4">Costo orario medio</span><output id="o-cost">25 €</output><input type="range" id="r-cost" min="10" max="60" step="1" value="25"></label>
+              <label class="slider"><span data-i18n="roiQ2">Ore a settimana a persona su quelle attività</span><output id="o-hrs">6</output><input type="range" id="r-hrs" min="1" max="20" step="1" value="6"></label>
+              <label class="slider"><span data-i18n="roiQ3">Quota che si può automatizzare</span><output id="o-share">50%</output><input type="range" id="r-share" min="20" max="80" step="5" value="50"></label>
+              <label class="slider"><span data-i18n="roiQ4">Costo orario medio di una persona</span><output id="o-cost">25 €</output><input type="range" id="r-cost" min="10" max="60" step="1" value="25"></label>
             </div>
           </div>
           <div class="vcard roi__result">
             <div><span class="roi__num" id="roi-hours">0</span><span class="roi__unit" data-i18n="roiHours">ore liberate al mese</span></div>
-            <div><span class="roi__num" id="roi-money">0</span><span class="roi__unit" data-i18n="roiMoney">di costo operativo al mese</span></div>
-            <p class="roi__note mono" data-i18n="roiNote">Stima indicativa. Nella call la rifacciamo sui tuoi processi reali.</p>
+            <div><span class="roi__num" id="roi-money">0</span><span class="roi__unit" data-i18n="roiMoney">di costo del lavoro risparmiato al mese</span></div>
+            <div class="roi__how">
+              <p class="mono" data-i18n="roiHow">Come lo calcoliamo</p>
+              <p id="roi-f1"></p>
+              <p id="roi-f2"></p>
+              <small data-i18n="roiNote">4,33 sono le settimane medie in un mese. La quota automatizzabile dipende dal processo: nell'audit la misuriamo attività per attività.</small>
+            </div>
             <a class="btn btn--white btn--block" href="#contatti" data-i18n="roiCta">Verifichiamo i tuoi numeri</a>
           </div>
         </div>
@@ -304,33 +358,46 @@
         <p class="tag" data-i18n="casesTag">Casi studio</p>
         <h2 id="cases-title" data-split data-i18n="casesTitle">Progetti reali, non mockup.</h2>
         <div class="stories" id="stories"></div>
-        <div class="plist">
-          <button class="plist__toggle" id="plist-toggle" type="button" aria-expanded="false" aria-controls="plist"><span data-i18n="moreBtn">Vedi tutti i progetti</span> <b id="plist-n"></b><i aria-hidden="true">↓</i></button>
-          <ul class="plist__rows" id="plist" hidden></ul>
+        <div class="gal__head">
+          <h3 data-i18n="galTitle">Tutti i progetti</h3>
+          <div class="gal__filters" id="gal-filters" role="group" aria-label="Filtra progetti" data-i18n-aria="filterLabel"></div>
         </div>
+        <div class="gal" id="gal"></div>
         <p class="cases__note mono" data-i18n="casesNote">I portali per PA ed enterprise sono stati sviluppati dal nostro fondatore come Senior Frontend Engineer in SMC, all'interno di team di progetto.</p>
       </div>
-      <div class="hover-preview" id="hover-preview" aria-hidden="true"><img alt=""></div>
     </section>
 
-    <!-- ============ FOUNDER ============ -->
-    <section class="section founder" id="chi-siamo" aria-labelledby="founder-title">
-      <div class="wrap">
-        <div class="vcard fcard" data-reveal>
-          <div class="fcard__bigA" aria-hidden="true">A</div>
-          <div class="fcard__copy">
-            <p class="fcard__badge mono"><span>Townsville <b class="js-clock" data-tz="Australia/Brisbane">--:--</b></span><span>Aversa <b class="js-clock" data-tz="Europe/Rome">--:--</b></span></p>
-            <h2 id="founder-title" class="fcard__quote" data-i18n="founderQuote">“La tecnologia giusta non è la più complicata. È quella che ti fa lavorare meglio dal primo giorno.”</h2>
-            <p class="fcard__who"><b>Antonio De Biase</b><span data-i18n="founderRole">Fondatore di Antipode · co-founder di CHEAI</span></p>
-            <p class="fcard__bio" data-i18n="founderBio">Sei anni di sviluppo software, oltre quindici portali enterprise per PA, sanità e banche, e una piattaforma di customer service con l'AI. Tra Townsville e Aversa ci sono otto ore: quando tu chiudi l'ufficio, noi lavoriamo ancora al tuo progetto.</p>
-          </div>
-          <div class="fcard__stats">
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section exp" id="chi-siamo" aria-labelledby="exp-title">
+      <div class="wrap exp__grid">
+        <div class="vcard exp__card" data-reveal>
+          <p class="fcard__badge mono"><span>Townsville <b class="js-clock" data-tz="Australia/Brisbane">--:--</b></span><span>Aversa <b class="js-clock" data-tz="Europe/Rome">--:--</b></span></p>
+          <h2 id="exp-title" data-i18n="expTitle">L'esperienza dietro Antipode.</h2>
+          <div class="exp__who"><span class="exp__ava">AD</span><div><b>Antonio De Biase</b><small data-i18n="expRole">Fondatore · Software engineer</small></div></div>
+          <p class="exp__bio" data-i18n="expBio">Sviluppo software da sei anni. Ho lavorato su oltre quindici portali enterprise per PA, sanità e banche e ho co-fondato una piattaforma di customer service con l'AI. Oggi metto questa esperienza al servizio delle aziende, tra Italia e Australia.</p>
+          <div class="exp__stats">
             <div><b data-count="6" data-suffix="+">0</b><span data-i18n="st1">anni di sviluppo</span></div>
             <div><b data-count="15" data-suffix="+">0</b><span data-i18n="st2">portali enterprise</span></div>
-            <div><b data-count="2">0</b><span data-i18n="st3">sedi, due fusi orari</span></div>
-            <a class="fcard__li" href="https://www.linkedin.com/in/antonio-de-biase-1097b5235" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+            <div><b data-count="22">0</b><span data-i18n="st3">progetti nel portfolio</span></div>
           </div>
+          <a class="btn btn--white btn--sm" href="https://www.linkedin.com/in/antonio-de-biase-1097b5235" target="_blank" rel="noopener" data-i18n="expLi">Profilo LinkedIn ↗</a>
         </div>
+        <ol class="xp">
+          <li data-reveal><span class="xp__when mono" data-i18n="x1w">2026 → oggi</span><div><b data-i18n="x1t">Fondatore · Antipode</b><small>Townsville &amp; Aversa</small><p data-i18n="x1d">Consulenza AI, software e automazioni su misura per aziende in Italia e Australia.</p></div></li>
+          <li data-reveal><span class="xp__when mono" data-i18n="x2w">2026 → oggi</span><div><b data-i18n="x2t">Co-founder e Product Engineer</b><small>Gruppo Automa · CHEAI</small><p data-i18n="x2d">Piattaforma AI per il customer service multicanale: architettura, agenti AI con RAG, connettori e automazioni.</p><span class="xp__chips"><i>LLM agents</i><i>RAG</i><i>SaaS</i></span></div></li>
+          <li data-reveal><span class="xp__when mono">2023 → 2026</span><div><b>Senior Frontend Engineer</b><small data-i18n="x3s">SMC · Milano</small><p data-i18n="x3d">Oltre 15 portali enterprise per PA, sanità, banche ed e-commerce. Temi e librerie di componenti, accessibilità WCAG 2.1 AA, migrazioni Liferay 7.0 → 7.4, demo e formazione ai clienti.</p><span class="xp__chips"><i>Liferay 7.x</i><i>React</i><i>WCAG 2.1 AA</i></span></div></li>
+          <li data-reveal><span class="xp__when mono">2023</span><div><b data-i18n="x4t">Junior Software Developer (stage)</b><small data-i18n="x3s">SMC · Milano</small><p data-i18n="x4d">Il primo progetto enterprise in team: applicazioni web, Git e processi di sviluppo strutturati.</p></div></li>
+          <li data-reveal><span class="xp__when mono">2022 → 2023</span><div><b data-i18n="x5t">Full Stack Development</b><small data-i18n="x5s">ITS Incom · Milano</small><p data-i18n="x5d">Percorso post-diploma: Java, SQL, JavaScript e progetti in team.</p></div></li>
+          <li data-reveal><span class="xp__when mono" data-i18n="x6w">2020 → oggi</span><div><b data-i18n="x6t">Sviluppatore freelance</b><small data-i18n="x6s">Clienti privati</small><p data-i18n="x6d">Siti, web app, automazioni, scraping e integrazioni API.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ FEEDBACK (only real quotes are shown online) ============ -->
+    <section class="section feedback" id="feedback" aria-labelledby="fb-title" hidden>
+      <div class="wrap">
+        <p class="tag" data-i18n="fbTag">Feedback</p>
+        <h2 id="fb-title" data-split data-i18n="fbTitle">Cosa dicono di noi.</h2>
         <div class="quotes" id="quotes"></div>
       </div>
     </section>
@@ -350,7 +417,7 @@
           <details class="qa"><summary><span data-i18n="q3">Lavorate anche su software esistenti?</span><i aria-hidden="true"></i></summary>
             <div class="qa__a"><p data-i18n="a3">Sì. Possiamo partire da un audit di quello che hai, migliorarlo, collegarlo a nuovi strumenti o migrarlo. Non serve ripartire da zero.</p></div></details>
           <details class="qa"><summary><span data-i18n="q4">L'AI è sicura per i dati della mia azienda?</span><i aria-hidden="true"></i></summary>
-            <div class="qa__a"><p data-i18n="a4">Usiamo solo i dati che scegli tu e li trattiamo secondo il GDPR. Ti spieghiamo quali servizi usiamo, dove passano i dati e come proteggerli prima di iniziare.</p></div></details>
+            <div class="qa__a"><p data-i18n="a4">Usiamo solo i dati che scegli tu e li trattiamo secondo il GDPR. Prima di iniziare ti spieghiamo quali servizi usiamo, dove passano i dati e come li proteggiamo.</p></div></details>
           <details class="qa"><summary><span data-i18n="q5">Codice, account e dati di chi sono?</span><i aria-hidden="true"></i></summary>
             <div class="qa__a"><p data-i18n="a5">Tuoi. Domini, account e servizi sono intestati a te e alla consegna ricevi codice e credenziali. Se un giorno vuoi cambiare fornitore, puoi farlo senza chiedere permesso.</p></div></details>
           <details class="qa"><summary><span data-i18n="q6">Lavorate a distanza? Come funziona?</span><i aria-hidden="true"></i></summary>
@@ -406,7 +473,7 @@
         <div class="footer__brand">
           <a class="brand brand--light" href="#top"><svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="10.5" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="8.6" cy="8.6" r="3.2" class="brand__dot"/><circle cx="23.4" cy="23.4" r="3.2" class="brand__dot"/></svg><span class="brand__name">antipode</span></a>
           <p data-i18n="footTag">Consulenza AI e sviluppo software su misura, tra Townsville e Aversa.</p>
-          <a class="btn btn--white btn--sm" href="#contatti" data-i18n="navCta">Prenota una call</a>
+          <a class="btn btn--white btn--sm" href="#contatti" data-book data-i18n="navCta">Prenota una call</a>
         </div>
         <nav class="footer__col" aria-labelledby="f1"><h3 id="f1" data-i18n="navServices">Servizi</h3>
           <a href="#servizi" data-i18n="u1T">Consulenza e strategia AI</a><a href="#servizi" data-i18n="u2T">Software e web app su misura</a><a href="#servizi" data-i18n="u3T">Automazioni e agenti AI</a><a href="#servizi" data-i18n="u4T">Siti e landing che vendono</a></nav>
@@ -424,9 +491,47 @@
     </div>
   </footer>
 
+  <!-- ============ PROJECT VIEWER (modal slider) ============ -->
+  <div class="pv" id="pv" hidden role="dialog" aria-modal="true" aria-labelledby="pv-title">
+    <div class="pv__backdrop" data-close></div>
+    <div class="pv__panel">
+      <header class="pv__head">
+        <div class="pv__filters" id="pv-filters" role="group" aria-label="Filtra progetti" data-i18n-aria="filterLabel"></div>
+        <button class="pv__close" type="button" data-close aria-label="Chiudi" data-i18n-aria="close">✕</button>
+      </header>
+      <div class="pv__body">
+        <button class="pv__arrow pv__arrow--prev" id="pv-prev" type="button" aria-label="Progetto precedente" data-i18n-aria="prev">←</button>
+        <div class="pv__media">
+          <div class="win__bar"><i></i><i></i><i></i><span id="pv-url"></span></div>
+          <div class="pv__img" id="pv-img"></div>
+        </div>
+        <div class="pv__info">
+          <p class="pv__cat mono" id="pv-cat"></p>
+          <h3 id="pv-title"></h3>
+          <p class="pv__desc" id="pv-desc"></p>
+          <div class="pv__tags" id="pv-tags"></div>
+          <a class="btn btn--dark" id="pv-link" target="_blank" rel="noopener"><span data-i18n="visit">Visita il sito</span> ↗</a>
+          <p class="pv__count mono" id="pv-count"></p>
+        </div>
+        <button class="pv__arrow pv__arrow--next" id="pv-next" type="button" aria-label="Progetto successivo" data-i18n-aria="next">→</button>
+      </div>
+      <div class="pv__thumbs" id="pv-thumbs"></div>
+    </div>
+  </div>
+
+  <!-- ============ BOOKING (Google Calendar) ============ -->
+  <div class="bk" id="bk" hidden role="dialog" aria-modal="true" aria-labelledby="bk-title">
+    <div class="pv__backdrop" data-close></div>
+    <div class="bk__panel">
+      <header class="bk__head"><div><img src="assets/icons/googlecalendar.svg" alt=""><h3 id="bk-title" data-i18n="bkTitle">Prenota una call di 30 minuti</h3></div><button class="pv__close" type="button" data-close aria-label="Chiudi" data-i18n-aria="close">✕</button></header>
+      <div class="bk__body" id="bk-body"></div>
+    </div>
+  </div>
+
   <script src="vendor/gsap.min.js"></script>
   <script src="vendor/ScrollTrigger.min.js"></script>
   <script src="vendor/lenis.min.js"></script>
+  <script src="js/config.js"></script>
   <script src="js/i18n.js"></script>
   <script src="js/projects.js"></script>
   <script src="js/testimonials.js"></script>

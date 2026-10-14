@@ -6,11 +6,13 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const LANG = window.I18N?.lang || "it";
+  const LOCALE = LANG === "en" ? "en-AU" : "it-IT";
   const T = (k, fallback) => window.I18N?.t(k) ?? fallback;
+  const fill = (tpl, vars) => tpl.replace(/\{(\w+)\}/g, (_, k) => vars[k]);
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const canHover = matchMedia("(hover: hover)").matches;
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-  const nf = new Intl.NumberFormat(LANG === "en" ? "en-AU" : "it-IT");
+  const nf = new Intl.NumberFormat(LOCALE);
+  const CFG = window.ANTIPODE_CONFIG || {};
 
   /* ---------------- smooth scroll + anchors ---------------- */
   if ("scrollRestoration" in history) history.scrollRestoration = "manual";
@@ -30,6 +32,7 @@
     scrollTo({ top: y, behavior: opts.immediate ? "auto" : "smooth" });
   };
   $$('a[href^="#"]').forEach((a) => a.addEventListener("click", (e) => {
+    if (CFG.bookingUrl && a.hasAttribute("data-book")) return; // handled by the booking modal
     const id = a.getAttribute("href");
     const el = id === "#top" ? 0 : $(id);
     if (el === null) return;
@@ -65,11 +68,11 @@
   gsap.set("[data-reveal]", { opacity: 0, y: 50 });
   ScrollTrigger.batch("[data-reveal]", { start: "top 88%", once: true, onEnter: (els) => gsap.to(els, { opacity: 1, y: 0, duration: 1, stagger: 0.1, ease: "power3.out" }) });
 
-  /* ---------------- hero stage: tilts flat, windows spread, chips float ---------------- */
+  /* ---------------- hero stage ---------------- */
   gsap.fromTo(".stage", { rotateX: 22, scale: 0.93 }, { rotateX: 0, scale: 1, ease: "none", scrollTrigger: { trigger: ".shot", start: "top 92%", end: "top 25%", scrub: true } });
   gsap.fromTo(".win--l", { x: 60, rotate: -2 }, { x: 0, rotate: -6, ease: "none", scrollTrigger: { trigger: ".shot", start: "top 92%", end: "top 20%", scrub: true } });
   gsap.fromTo(".win--r", { x: -60, rotate: 2 }, { x: 0, rotate: 6, ease: "none", scrollTrigger: { trigger: ".shot", start: "top 92%", end: "top 20%", scrub: true } });
-  gsap.fromTo([".float", ".stat"], { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, stagger: 0.1, ease: "back.out(2)", delay: 0.9 });
+  gsap.fromTo([".float", ".stage__cta"], { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, stagger: 0.1, ease: "back.out(2)", delay: 0.9 });
   if (!reduceMotion) $$(".float").forEach((f, i) => gsap.to(f, { y: i % 2 ? 8 : -8, duration: 2.4 + i * 0.3, ease: "sine.inOut", repeat: -1, yoyo: true, delay: 1.6 }));
 
   /* ---------------- responsive scroll scenes ---------------- */
@@ -79,17 +82,15 @@
   gsap.set(scribble, { strokeDasharray: sLen, strokeDashoffset: sLen });
 
   mm.add("(min-width: 861px)", () => {
-    // BEFORE/AFTER: the "after" card slides over the "before" card, then the scribble draws
     const before = $("#ba-before"), after = $("#ba-after");
     const dx = () => (after.offsetWidth + 24) / 2;
-    const tl = gsap.timeline({ scrollTrigger: { trigger: "#ba-pin", start: "top top", end: "bottom bottom", scrub: 0.6, invalidateOnRefresh: true } });
-    tl.to(after, { x: () => -dx(), rotate: -1.5, ease: "power2.inOut", duration: 1 }, 0.15)
+    gsap.timeline({ scrollTrigger: { trigger: "#ba-pin", start: "top top", end: "bottom bottom", scrub: 0.6, invalidateOnRefresh: true } })
+      .to(after, { x: () => -dx(), rotate: -1.5, ease: "power2.inOut", duration: 1 }, 0.15)
       .to(before, { x: () => dx() * 0.92, scale: 0.86, rotate: -4, opacity: 0.5, ease: "power2.inOut", duration: 1 }, 0.15)
       .to(after, { rotate: 0, duration: 0.3 }, 1.15)
       .to(scribble, { strokeDashoffset: 0, ease: "power2.out", duration: 0.6 }, 1.1)
       .to({}, { duration: 0.3 });
 
-    // HOW IT WORKS: sticky, 3 panes switched by scroll
     const panes = $$(".how__pane"), steps = $$(".how__steps li");
     let hi = -1;
     ScrollTrigger.create({
@@ -105,9 +106,14 @@
   });
   mm.add("(max-width: 860px)", () => {
     ScrollTrigger.create({ trigger: "#ba-after", start: "top 70%", once: true, onEnter: () => gsap.to(scribble, { strokeDashoffset: 0, duration: 1, ease: "power2.out" }) });
+    // all panes visible on mobile: animate each timeline when it enters
+    $$(".how__pane").forEach((p) => {
+      p.classList.remove("is-active");
+      ScrollTrigger.create({ trigger: p, start: "top 80%", once: true, onEnter: () => p.classList.add("is-active") });
+    });
   });
 
-  // USE CASES: pinned lime band, phone screens + copy switch, progress bar (all sizes)
+  // SERVICES: pinned lime band, phone screens + copy switch
   const utexts = $$(".utext"), screens = $$(".scr"), dashes = $$(".dashes i");
   const pLabel = $("#phone-label"), pCount = $("#phone-count"), pBar = $("#phone-bar");
   const labels = [T("u1L", "Consulenza e strategia AI"), T("u2L", "Software e web app su misura"), T("u3L", "Automazioni e agenti AI"), T("u4L", "Siti e landing che vendono")];
@@ -122,94 +128,212 @@
       ui = i;
       utexts.forEach((t, k) => { t.classList.toggle("is-active", k === i); t.classList.toggle("is-past", k < i); });
       screens.forEach((s, k) => s.classList.toggle("is-active", k === i));
-      gsap.fromTo(screens[i].children, { opacity: 0, y: 14 }, { opacity: 1, y: 0, stagger: 0.06, duration: 0.45, ease: "power3.out", overwrite: true });
+      gsap.fromTo([...screens[i].children].filter((c) => !c.classList.contains("sb")), { opacity: 0, y: 14 }, { opacity: 1, y: 0, stagger: 0.07, duration: 0.45, ease: "power3.out", overwrite: true });
       dashes.forEach((d, k) => d.classList.toggle("on", k === i));
       pLabel.textContent = labels[i];
       pCount.textContent = `${i + 1}/${n}`;
     },
   });
 
-  /* ---------------- integrations tiles ---------------- */
+  /* ---------------- integrations ---------------- */
   gsap.fromTo(".integ__tiles li", { opacity: 0, y: 20, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, stagger: 0.03, duration: 0.5, ease: "back.out(2)", scrollTrigger: { trigger: ".integ__tiles", start: "top 88%" } });
+
+  /* ---------------- modal helpers ---------------- */
+  let lastFocus = null;
+  function openModal(el) {
+    lastFocus = document.activeElement;
+    el.hidden = false;
+    document.documentElement.style.overflow = "hidden";
+    lenis?.stop();
+    gsap.fromTo(el.lastElementChild, { opacity: 0, y: 30, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: "power3.out" });
+    gsap.fromTo(el.firstElementChild, { opacity: 0 }, { opacity: 1, duration: 0.3 });
+    setTimeout(() => $(".pv__close", el)?.focus(), 50);
+  }
+  function closeModal(el) {
+    el.hidden = true;
+    document.documentElement.style.overflow = "";
+    lenis?.start();
+    lastFocus?.focus?.();
+  }
+  $$(".pv, .bk").forEach((m) => {
+    m.addEventListener("click", (e) => { if (e.target.closest("[data-close]")) closeModal(m); });
+  });
+
+  /* ---------------- BOOKING (Google Calendar appointment page) ---------------- */
+  const calEl = $("#cal"), slotEls = $$("#slots button");
+  const pick = { day: null, slot: "15:30" };
+  const days = [];
+  for (let d = new Date(), n = 0; n < 5;) {
+    d = new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1);
+    if (d.getDay() !== 0 && d.getDay() !== 6) { days.push(d); n++; }
+  }
+  const dow = new Intl.DateTimeFormat(LOCALE, { weekday: "short" });
+  const longDay = new Intl.DateTimeFormat(LOCALE, { weekday: "long", day: "numeric", month: "long" });
+  calEl.innerHTML = days.map((d, i) => `<button type="button" class="day${i === 1 ? " sel" : ""}" data-i="${i}" aria-pressed="${i === 1}"><small>${esc(dow.format(d).replace(".", ""))}</small><b>${d.getDate()}</b></button>`).join("");
+  pick.day = days[1];
+  $$(".day", calEl).forEach((b) => b.addEventListener("click", () => {
+    $$(".day", calEl).forEach((x) => { x.classList.toggle("sel", x === b); x.setAttribute("aria-pressed", x === b); });
+    pick.day = days[+b.dataset.i];
+  }));
+  slotEls.forEach((b) => b.addEventListener("click", () => {
+    slotEls.forEach((x) => x.classList.toggle("sel", x === b));
+    pick.slot = b.textContent.trim();
+  }));
+  const pickedText = () => `${longDay.format(pick.day)} · ${pick.slot} (${T("itTime", "ora italiana")})`;
+
+  const bk = $("#bk"), bkBody = $("#bk-body");
+  function openBooking() {
+    const u = new URL(CFG.bookingUrl);
+    if (u.hostname.endsWith("google.com")) u.searchParams.set("gv", "true");
+    bkBody.innerHTML = `<iframe src="${esc(u.toString())}" title="${esc(T("bkTitle", "Prenota una call di 30 minuti"))}" loading="lazy"></iframe>`;
+    openModal(bk);
+  }
+  $$("[data-book]").forEach((b) => b.addEventListener("click", (e) => {
+    if (CFG.bookingUrl) { e.preventDefault(); openBooking(); return; }
+    if (b.id === "book-btn") {
+      // no booking page configured yet: propose the chosen slot through the contact form
+      e.preventDefault();
+      const ta = $('#cform textarea[name="messaggio"]');
+      ta.value = fill(T("bkPrefill", "Vorrei prenotare una call conoscitiva: {when}."), { when: pickedText() });
+      scrollToY($("#contatti"), { offset: -60, duration: 1.4 });
+      setTimeout(() => $('#cform input[name="nome"]').focus({ preventScroll: true }), 1500);
+    }
+  }));
+  if (!CFG.bookingUrl) $("#book-btn span").textContent = T("calCtaAlt", "Proponi questo orario");
 
   /* ---------------- ROI ---------------- */
   const R = { ppl: $("#r-ppl"), hrs: $("#r-hrs"), share: $("#r-share"), cost: $("#r-cost") };
   const O = { ppl: $("#o-ppl"), hrs: $("#o-hrs"), share: $("#o-share"), cost: $("#o-cost") };
-  const outH = $("#roi-hours"), outM = $("#roi-money");
-  const money = new Intl.NumberFormat(LANG === "en" ? "en-AU" : "it-IT", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
+  const outH = $("#roi-hours"), outM = $("#roi-money"), f1 = $("#roi-f1"), f2 = $("#roi-f2");
+  const money = new Intl.NumberFormat(LOCALE, { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
   const shown = { h: 0, m: 0 };
   function calc() {
     Object.values(R).forEach((r) => r.style.setProperty("--p", `${((r.value - r.min) / (r.max - r.min)) * 100}%`));
     O.ppl.textContent = R.ppl.value; O.hrs.textContent = R.hrs.value; O.share.textContent = `${R.share.value}%`; O.cost.textContent = `${R.cost.value} €`;
-    const hours = R.ppl.value * R.hrs.value * (R.share.value / 100) * 4.33; // weeks per month
-    gsap.to(shown, { h: hours, m: hours * R.cost.value, duration: 0.6, ease: "power3.out", onUpdate: () => { outH.textContent = nf.format(Math.round(shown.h)); outM.textContent = money.format(Math.round(shown.m)); } });
+    const hours = Math.round(R.ppl.value * R.hrs.value * (R.share.value / 100) * 4.33);
+    const eur = hours * R.cost.value;
+    f1.innerHTML = fill(T("roiF1", "{p} persone × {h} h a settimana × {s}% × 4,33 settimane = <b>{r} ore al mese</b>"), { p: R.ppl.value, h: R.hrs.value, s: R.share.value, r: nf.format(hours) });
+    f2.innerHTML = fill(T("roiF2", "{r} ore × {c} €/ora = <b>{m} al mese</b>"), { r: nf.format(hours), c: R.cost.value, m: money.format(eur) });
+    gsap.to(shown, { h: hours, m: eur, duration: 0.6, ease: "power3.out", onUpdate: () => { outH.textContent = nf.format(Math.round(shown.h)); outM.textContent = money.format(Math.round(shown.m)); } });
   }
   Object.values(R).forEach((r) => r.addEventListener("input", calc));
   calc();
 
-  /* ---------------- counters + clocks ---------------- */
-  $$("[data-count]").forEach((el) => {
-    const end = +el.dataset.count, suf = el.dataset.suffix || "", o = { v: 0 };
-    ScrollTrigger.create({ trigger: el, start: "top 92%", once: true, onEnter: () => gsap.to(o, { v: end, duration: 1.6, ease: "power3.out", onUpdate: () => { el.textContent = Math.round(o.v) + suf; } }) });
-  });
+  /* ---------------- clocks ---------------- */
   const clocks = $$(".js-clock");
-  const tick = () => { const now = new Date(); clocks.forEach((el) => { el.textContent = new Intl.DateTimeFormat(LANG === "en" ? "en-AU" : "it-IT", { timeZone: el.dataset.tz, hour: "2-digit", minute: "2-digit", hour12: false }).format(now); }); };
+  const tick = () => { const now = new Date(); clocks.forEach((el) => { el.textContent = new Intl.DateTimeFormat(LOCALE, { timeZone: el.dataset.tz, hour: "2-digit", minute: "2-digit", hour12: false }).format(now); }); };
   tick(); setInterval(tick, 20000);
 
-  /* ---------------- case studies ---------------- */
+  /* ---------------- PROJECTS: groups, viewer, gallery ---------------- */
+  const PROJECTS = window.PROJECTS || [];
+  $$(".js-pcount").forEach((el) => { el.textContent = PROJECTS.length; });
+  const groupOf = (p) => (p.cat === "pa" ? "pa" : p.cat === "product" ? "product" : "corp");
+  const GROUPS = ["all", "pa", "corp", "product"];
+  const GLABEL = { all: T("gAll", "Tutti"), pa: T("gPa", "Pubblica Amministrazione"), corp: T("gCorp", "Enterprise e aziende"), product: T("gProd", "Startup e prodotti") };
   const CAT = { pa: T("catPa", "Pubblica Amministrazione"), enterprise: T("catEnt", "Sanità & Enterprise"), business: T("catBiz", "Business & E-commerce"), product: T("catProd", "Startup & prodotti") };
-  const whenLabel = (w) => (w === "client" ? T("_client", "Cliente") : w === "library" ? T("_library", "Libreria") : w);
-  const newTab = T("_newTab", "apre in una nuova scheda");
+  const whenLabel = (w) => (w === "client" ? T("_client", "Cliente") : w === "library" ? T("_library", "Libreria") : w === "SMC" ? T("viaSmc", "con SMC") : w);
+  const inGroup = (g) => PROJECTS.filter((p) => g === "all" || groupOf(p) === g);
+  const host = (u) => { try { return new URL(u).host.replace(/^www\./, ""); } catch { return T("_private", "progetto privato"); } };
+  const media = (p, cls = "") => (p.img
+    ? `<img src="assets/shots/${p.img}" alt="" loading="lazy" decoding="async" width="1200" height="750">`
+    : `<div class="cover cover--${groupOf(p)} ${cls}"><span>${esc(p.title)}</span></div>`);
+  const chipsHTML = (active) => GROUPS.map((g) => `<button type="button" class="fchip${g === active ? " on" : ""}" data-g="${g}" aria-pressed="${g === active}">${esc(GLABEL[g])}<small>${inGroup(g).length}</small></button>`).join("");
+
+  // viewer
+  const pv = $("#pv");
+  const V = { group: "all", list: PROJECTS, i: 0 };
+  function vSet(group, title) {
+    V.group = group; V.list = inGroup(group);
+    V.i = Math.max(0, title ? V.list.findIndex((p) => p.title === title) : 0);
+    $("#pv-filters").innerHTML = chipsHTML(group);
+    $("#pv-thumbs").innerHTML = V.list.map((p, k) => `<button type="button" data-k="${k}" aria-label="${esc(p.title)}">${media(p)}</button>`).join("");
+    vRender(false);
+  }
+  function vRender(animate = true) {
+    const p = V.list[V.i];
+    $("#pv-img").innerHTML = media(p);
+    $("#pv-url").textContent = host(p.url);
+    $("#pv-cat").textContent = `${CAT[p.cat]} · ${whenLabel(p.when)}`;
+    $("#pv-title").textContent = p.title;
+    $("#pv-desc").textContent = p.desc[LANG] || p.desc.it;
+    $("#pv-tags").innerHTML = p.tags.map((t) => `<span>${esc(t)}</span>`).join("");
+    const link = $("#pv-link");
+    link.hidden = !p.url;
+    if (p.url) link.href = p.url;
+    $("#pv-count").textContent = `${V.i + 1} / ${V.list.length}`;
+    $$("#pv-thumbs button").forEach((b, k) => b.classList.toggle("on", k === V.i));
+    $$("#pv-thumbs button")[V.i]?.scrollIntoView({ block: "nearest", inline: "center", behavior: animate ? "smooth" : "auto" });
+    if (animate) gsap.fromTo([".pv__media", ".pv__info"], { opacity: 0, x: 24 }, { opacity: 1, x: 0, duration: 0.4, stagger: 0.05, ease: "power3.out" });
+  }
+  const vGo = (d) => { V.i = (V.i + d + V.list.length) % V.list.length; vRender(); };
+  function openViewer(group = "all", title) { vSet(group, title); openModal(pv); }
+  $("#pv-prev").addEventListener("click", () => vGo(-1));
+  $("#pv-next").addEventListener("click", () => vGo(1));
+  $("#pv-thumbs").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { V.i = +b.dataset.k; vRender(); } });
+  $("#pv-filters").addEventListener("click", (e) => { const b = e.target.closest(".fchip"); if (b) vSet(b.dataset.g); });
+  let sx = null;
+  $(".pv__media").addEventListener("pointerdown", (e) => { sx = e.clientX; });
+  $(".pv__media").addEventListener("pointerup", (e) => { if (sx !== null && Math.abs(e.clientX - sx) > 40) vGo(e.clientX < sx ? 1 : -1); sx = null; });
+  addEventListener("keydown", (e) => {
+    if (!pv.hidden) {
+      if (e.key === "ArrowRight") vGo(1);
+      if (e.key === "ArrowLeft") vGo(-1);
+    }
+    if (e.key === "Escape") { if (!pv.hidden) closeModal(pv); if (!bk.hidden) closeModal(bk); }
+  });
+
+  // hero stage opens the viewer
+  const stage = $("#stage");
+  stage.addEventListener("click", () => openViewer("all"));
+  stage.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openViewer("all"); } });
+
+  // category cards
   const STORIES = [
-    { img: "cheai.webp", url: "https://cheai.io", k: T("st1k", "Startup · 2026"), big: T("st1b", "4 canali. Un solo assistente AI."), t: T("st1t", "CHEAI: customer service con l'AI"), d: T("st1d", "La piattaforma che abbiamo co-fondato: CRM, campagne e un assistente che risponde su WhatsApp, Instagram, TikTok e Messenger."), chips: [T("st1c1", "Agenti LLM + RAG"), T("st1c2", "Co-fondata da noi")] },
-    { img: "agenzia-entrate.webp", url: "https://www.agenziaentrate.gov.it", k: T("st2k", "Pubblica Amministrazione"), big: T("st2b", "15+ portali. Zero barriere."), t: T("st2t", "Portali usati da milioni di cittadini"), d: T("st2d", "Agenzia delle Entrate, MEF, ADM, UNAR e altri: interfacce accessibili secondo le WCAG 2.1 AA, migrazioni e componenti su misura."), chips: ["WCAG 2.1 AA", "Liferay 7.x"] },
-    { img: "scame-emobility.webp", url: "https://www.emobility-scame.com", k: T("st3k", "Enterprise · E-commerce"), big: T("st3b", "Banche, industria, e-commerce."), t: T("st3t", "Siti per aziende che vendono nel mondo"), d: T("st3d", "Scame, Banca Sella, AXA: siti di prodotto e portali clienti multilingua, veloci e integrati con i sistemi aziendali."), chips: [T("st3c1", "Multilingua"), T("st3c2", "Performance")] },
+    { g: "product", img: "cheai.webp", k: T("st1k", "Startup e prodotti"), big: T("st1b", "4 canali. Un solo assistente AI."), t: T("st1t", "CHEAI e i nostri prodotti"), d: T("st1d", "La piattaforma di customer service con l'AI che abbiamo co-fondato, più progetti e librerie sviluppati in proprio."), chips: [T("st1c1", "Agenti LLM + RAG"), "SaaS"] },
+    { g: "pa", img: "agenzia-entrate.webp", k: T("st2k", "Pubblica Amministrazione"), big: T("st2b", "Portali usati da milioni di cittadini."), t: T("st2t", "Agenzia delle Entrate, MEF, ADM e altri"), d: T("st2d", "Interfacce accessibili secondo le WCAG 2.1 AA, migrazioni e componenti su misura per ministeri e agenzie."), chips: ["WCAG 2.1 AA", "Liferay 7.x"] },
+    { g: "corp", img: "scame-emobility.webp", k: T("st3k", "Enterprise e aziende"), big: T("st3b", "Banche, sanità, industria, retail."), t: T("st3t", "Scame, Banca Sella, AXA, Coop e altri"), d: T("st3d", "Siti di prodotto e portali clienti multilingua, veloci e integrati con i sistemi aziendali."), chips: [T("st3c1", "Multilingua"), "Performance"] },
   ];
-  $("#stories").innerHTML = STORIES.map((s) => `
-    <a class="story" href="${s.url}" target="_blank" rel="noopener" data-reveal aria-label="${esc(s.t)} (${newTab})">
-      <div class="vcard story__top"><span class="story__k">${esc(s.k)}</span><span class="story__big">${esc(s.big)}</span><img class="story__img" src="assets/shots/${s.img}" alt="" loading="lazy" width="1200" height="750"></div>
+  $("#stories").innerHTML = STORIES.map((s) => {
+    const n = inGroup(s.g).length;
+    return `<button type="button" class="story" data-g="${s.g}" data-reveal>
+      <div class="vcard story__top"><span class="story__count">${n} ${esc(T("projectsWord", "progetti"))}</span><span class="story__k">${esc(s.k)}</span><span class="story__big">${esc(s.big)}</span><img class="story__img" src="assets/shots/${s.img}" alt="" loading="lazy" width="1200" height="750"></div>
       <h3>${esc(s.t)}</h3><p>${esc(s.d)}</p>
       <div class="story__chips">${s.chips.map((c) => `<span>${esc(c)}</span>`).join("")}</div>
-      <span class="story__link">${esc(T("visit", "Visita il sito"))} ↗</span>
-    </a>`).join("");
+      <span class="story__link">${esc(fill(T("seeN", "Vedi i {n} progetti"), { n }))} →</span>
+    </button>`;
+  }).join("");
+  $$(".story").forEach((b) => b.addEventListener("click", () => openViewer(b.dataset.g)));
   gsap.set("#stories [data-reveal]", { opacity: 0, y: 50 });
   ScrollTrigger.batch("#stories [data-reveal]", { start: "top 88%", once: true, onEnter: (els) => gsap.to(els, { opacity: 1, y: 0, duration: 1, stagger: 0.1, ease: "power3.out" }) });
 
-  const all = window.PROJECTS || [];
-  $("#plist-n").textContent = `(${all.length})`;
-  $("#plist").innerHTML = all.map((p) => {
-    const inner = `<span class="prow__t">${esc(p.title)}</span><span class="prow__c">${esc(CAT[p.cat])}</span><span class="prow__y mono">${esc(whenLabel(p.when))}</span><span class="prow__a" aria-hidden="true">${p.url ? "↗" : ""}</span>`;
-    return `<li>${p.url ? `<a class="prow" href="${p.url}" target="_blank" rel="noopener" data-img="${p.img || ""}" aria-label="${esc(p.title)} (${newTab})">${inner}</a>` : `<div class="prow" data-img="${p.img || ""}">${inner}</div>`}</li>`;
-  }).join("");
-  const toggle = $("#plist-toggle"), plist = $("#plist");
-  toggle.addEventListener("click", () => {
-    const open = toggle.getAttribute("aria-expanded") !== "true";
-    toggle.setAttribute("aria-expanded", open);
-    plist.hidden = !open;
-    if (open) gsap.fromTo($$("li", plist), { opacity: 0, y: 10 }, { opacity: 1, y: 0, stagger: 0.02, duration: 0.4 });
+  // full gallery
+  let galGroup = "all";
+  $("#gal-filters").innerHTML = chipsHTML("all");
+  $("#gal").innerHTML = PROJECTS.map((p) => `<button type="button" class="gcard" data-g="${groupOf(p)}" data-title="${esc(p.title)}"><div class="gcard__img">${media(p)}</div><b>${esc(p.title)}</b><small>${esc(CAT[p.cat])}</small></button>`).join("");
+  $("#gal-filters").addEventListener("click", (e) => {
+    const b = e.target.closest(".fchip"); if (!b) return;
+    galGroup = b.dataset.g;
+    $$("#gal-filters .fchip").forEach((x) => { x.classList.toggle("on", x === b); x.setAttribute("aria-pressed", x === b); });
+    const shown = $$(".gcard").filter((c) => { const on = galGroup === "all" || c.dataset.g === galGroup; c.hidden = !on; return on; });
+    gsap.fromTo(shown, { opacity: 0, y: 16 }, { opacity: 1, y: 0, stagger: 0.025, duration: 0.4 });
     ScrollTrigger.refresh();
   });
-  if (canHover) {
-    const prev = $("#hover-preview"), prevImg = $("img", prev);
-    const px = gsap.quickTo(prev, "x", { duration: 0.45, ease: "power3.out" });
-    const py = gsap.quickTo(prev, "y", { duration: 0.45, ease: "power3.out" });
-    plist.addEventListener("pointermove", (e) => { px(e.clientX + 24); py(e.clientY - 90); });
-    $$(".prow", plist).forEach((row) => {
-      row.addEventListener("pointerenter", () => { if (!row.dataset.img) return prev.classList.remove("is-on"); prevImg.src = `assets/shots/${row.dataset.img}`; prev.classList.add("is-on"); });
-      row.addEventListener("pointerleave", () => prev.classList.remove("is-on"));
-    });
-  }
+  $("#gal").addEventListener("click", (e) => { const c = e.target.closest(".gcard"); if (c) openViewer(galGroup, c.dataset.title); });
+  gsap.fromTo(".gcard", { opacity: 0, y: 30 }, { opacity: 1, y: 0, stagger: 0.03, duration: 0.6, ease: "power3.out", scrollTrigger: { trigger: "#gal", start: "top 88%" } });
 
-  /* ---------------- testimonials (real only; placeholders on localhost) ---------------- */
+  /* ---------------- feedback (real only; placeholders on localhost) ---------------- */
   const isDev = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
   const realQ = (window.TESTIMONIALS || []).filter((t) => !t.placeholder);
   const quotes = realQ.length ? realQ : isDev ? window.TESTIMONIALS || [] : [];
-  $("#quotes").innerHTML = quotes.map((t) => `
-    <figure class="quote${t.placeholder ? " quote--todo" : ""}">
-      ${t.placeholder ? `<span class="quote__todo mono">${T("_todo", "da compilare")}</span>` : ""}
-      <blockquote>“${esc(t.quote[LANG] || t.quote.it)}”</blockquote>
-      <figcaption><b>${esc(t.name)}</b><span>${esc(t.role[LANG] || t.role.it)}</span></figcaption>
-    </figure>`).join("");
+  if (quotes.length) {
+    $("#feedback").hidden = false;
+    $("#quotes").innerHTML = quotes.map((t) => `
+      <figure class="quote${t.placeholder ? " quote--todo" : ""}">
+        ${t.placeholder ? `<span class="quote__todo mono">${T("_todo", "da compilare")}</span>` : ""}
+        <blockquote>“${esc(t.quote[LANG] || t.quote.it)}”</blockquote>
+        <figcaption><b>${esc(t.name)}</b><span>${esc(t.role[LANG] || t.role.it)}</span></figcaption>
+      </figure>`).join("");
+  }
 
   /* ---------------- FAQ ---------------- */
   const qas = $$(".qa");
@@ -240,6 +364,13 @@
     location.href = `mailto:antoniodebiase2003@gmail.com?subject=${encodeURIComponent(T("_mailSubject") + " — " + (azienda || nome))}&body=${encodeURIComponent(body)}`;
     msg.textContent = T("_formOk");
   });
+
+  /* ---------------- counters (created last, after every section is rendered) ---------------- */
+  $$("[data-count]").forEach((el) => {
+    const end = +el.dataset.count, suf = el.dataset.suffix || "", o = { v: 0 };
+    ScrollTrigger.create({ trigger: el, start: "top 95%", once: true, onEnter: () => gsap.to(o, { v: end, duration: 1.6, ease: "power3.out", onUpdate: () => { el.textContent = Math.round(o.v) + suf; } }) });
+  });
+  ScrollTrigger.refresh();
 
   addEventListener("load", () => {
     ScrollTrigger.refresh();
