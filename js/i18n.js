@@ -176,7 +176,7 @@
     _tbd: "to be defined",
     _newTab: "opens in a new tab",
     _client: "Client", _library: "Library",
-    calCtaAlt: "Suggest this time", itTime: "Italian time",
+    calCtaAlt: "Suggest this time", calCtaLive: "See available times", itTime: "Italian time",
     bkPrefill: "I'd like to book an intro call: {when}.",
     roiF1: "{p} people × {h} h a week × {s}% × 4.33 weeks = <b>{r} hours a month</b>",
     roiF2: "{r} hours × €{c}/hour = <b>{m} a month</b>",

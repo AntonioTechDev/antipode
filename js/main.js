@@ -200,6 +200,12 @@
     }
   }));
   if (!CFG.bookingUrl) $("#book-btn span").textContent = T("calCtaAlt", "Proponi questo orario");
+  else {
+    // real availability comes from Google Calendar: days open the booking page, sample slots are hidden
+    $("#slots").hidden = true;
+    $("#book-btn span").textContent = T("calCtaLive", "Vedi gli orari disponibili");
+    $$(".day", calEl).forEach((b) => b.addEventListener("click", openBooking));
+  }
 
   /* ---------------- ROI ---------------- */
   const R = { ppl: $("#r-ppl"), hrs: $("#r-hrs"), share: $("#r-share"), cost: $("#r-cost") };

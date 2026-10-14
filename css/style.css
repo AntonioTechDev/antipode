@@ -822,3 +822,4 @@ html[data-lang="it"] :is(.legal, .legal-foot) [lang="en"], html[data-lang="en"] 
 .pv__panel { grid-template-columns: minmax(0, 1fr); overflow-x: hidden; }
 .pv__head > *, .pv__filters, .pv__thumbs, .pv__media, .pv__info { min-width: 0; }
 @media (max-width: 860px) { .pv__body { grid-template-columns: minmax(0, 1fr); } }
+.slots[hidden] { display: none; }

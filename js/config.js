@@ -5,5 +5,6 @@
    Save → "Share" → copy the booking page link. Paste it here, between the quotes.
    Empty = the "Prenota" buttons fall back to the contact form. */
 window.ANTIPODE_CONFIG = {
-  bookingUrl: "",
+  // full link (the calendar.app.google short link can't be embedded)
+  bookingUrl: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2Sl1MKN7JpERfBi0kC3p5_DBoBltO_jV5OAuE0xUyD1SduBWD8S_KgsEMepdKkzyO0v_Bqkt3d",
 };
