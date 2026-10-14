@@ -4,16 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Antipode — Agenzia AI: agenti, automazioni e siti che vendono</title>
-  <meta name="description" content="Antipode è un'agenzia di consulenza e sviluppo AI tra Townsville (Australia) e Aversa (Italia). Agenti AI che rispondono e qualificano i clienti, automazioni e siti che convertono.">
-  <meta name="theme-color" content="#07080B">
+  <meta name="description" content="Antipode è un'agenzia di consulenza e sviluppo AI tra Townsville (Australia) e Aversa (Italia). Agenti AI che rispondono ai clienti, qualificano i contatti e fissano appuntamenti. Automazioni e siti che convertono.">
+  <meta name="theme-color" content="#FAF6F2">
   <meta property="og:title" content="Antipode — Agenzia AI · Townsville & Aversa">
   <meta property="og:description" content="Più vendite, meno lavoro manuale. Agenti AI, automazioni e siti che convertono.">
   <meta property="og:type" content="website">
-  <link rel="preload" href="fonts/Geist-normal-300-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/pjs-n400-l.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2307080B'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%23F2F3F5' stroke-width='3'/%3E%3Ccircle cx='20' cy='20' r='5' fill='%23C6FF3D'/%3E%3Ccircle cx='44' cy='44' r='5' fill='%23C6FF3D'/%3E%3C/svg%3E">
-  <script type="importmap">{ "imports": { "three": "./vendor/three.module.min.js" } }</script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233B22C9'/%3E%3Cstop offset='1' stop-color='%239C7BFF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ccircle cx='32' cy='32' r='16' fill='none' stroke='white' stroke-width='3.5'/%3E%3Ccircle cx='20.5' cy='20.5' r='5' fill='%23D4FF3A'/%3E%3Ccircle cx='43.5' cy='43.5' r='5' fill='%23D4FF3A'/%3E%3C/svg%3E">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -27,32 +26,33 @@
       { "@type": "PostalAddress", "addressLocality": "Aversa", "addressRegion": "CE", "addressCountry": "IT" }
     ],
     "areaServed": ["IT", "AU"],
-    "knowsAbout": ["AI agents", "LLM", "RAG", "n8n", "Automation", "React", "Next.js", "TypeScript", "WCAG 2.1 AA"]
+    "knowsAbout": ["AI agents", "LLM", "RAG", "n8n", "Automation", "WhatsApp Business API", "React", "Next.js", "WCAG 2.1 AA"]
   }
   </script>
 </head>
 <body>
   <a class="skip" href="#main" data-i18n="skip">Vai al contenuto</a>
-  <div class="noise" aria-hidden="true"></div>
 
   <!-- ============ NAV ============ -->
   <header class="nav" id="nav">
-    <a class="brand" href="#top" aria-label="Antipode, torna all'inizio" data-i18n-aria="brandLabel">
-      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="10.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="8.6" cy="8.6" r="3" class="brand__dot"/><circle cx="23.4" cy="23.4" r="3" class="brand__dot"/></svg>
-      <span class="brand__name">antipode</span>
-    </a>
-    <nav class="nav__links" aria-label="Sezioni" data-i18n-aria="navLabel">
-      <a href="#servizi" data-i18n="navServices">Servizi</a>
-      <a href="#metodo" data-i18n="navMethod">Metodo</a>
-      <a href="#casi" data-i18n="navCases">Casi studio</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <div class="nav__right">
-      <div class="lang" role="group" aria-label="Lingua / Language">
-        <button class="lang__btn" data-lang="it" aria-pressed="true" lang="it">IT</button>
-        <button class="lang__btn" data-lang="en" aria-pressed="false" lang="en">EN</button>
+    <div class="nav__bar">
+      <a class="brand" href="#top" aria-label="Antipode, torna all'inizio" data-i18n-aria="brandLabel">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="10.5" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="8.6" cy="8.6" r="3.2" class="brand__dot"/><circle cx="23.4" cy="23.4" r="3.2" class="brand__dot"/></svg>
+        <span class="brand__name">antipode</span>
+      </a>
+      <nav class="nav__links" aria-label="Sezioni" data-i18n-aria="navLabel">
+        <a href="#come-funziona" data-i18n="navHow">Come funziona</a>
+        <a href="#cosa-fa" data-i18n="navWhat">Cosa fa l'AI</a>
+        <a href="#casi" data-i18n="navCases">Casi studio</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav__right">
+        <div class="lang" role="group" aria-label="Lingua / Language">
+          <button class="lang__btn" data-lang="it" aria-pressed="true" lang="it">IT</button>
+          <button class="lang__btn" data-lang="en" aria-pressed="false" lang="en">EN</button>
+        </div>
+        <a class="btn btn--dark btn--sm" href="#contatti" data-i18n="navCta">Prenota una call</a>
       </div>
-      <a class="btn btn--primary btn--sm" href="#contatti"><span data-i18n="navCta">Prenota una call</span><i aria-hidden="true">→</i></a>
     </div>
   </header>
 
@@ -61,117 +61,205 @@
 
     <!-- ============ HERO ============ -->
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero__glow" aria-hidden="true"></div>
-      <div class="hero__grid" aria-hidden="true"></div>
-      <canvas class="hero__globe" id="globe" aria-hidden="true"></canvas>
-      <div class="city-tag" data-city="0" aria-hidden="true"><b>Townsville</b><span class="mono"><span class="js-clock" data-tz="Australia/Brisbane">--:--</span> · AU</span></div>
-      <div class="city-tag" data-city="1" aria-hidden="true"><b>Aversa</b><span class="mono"><span class="js-clock" data-tz="Europe/Rome">--:--</span> · IT</span></div>
-
-      <div class="hero__inner wrap">
-        <p class="eyebrow"><span class="dot"></span><span data-i18n="heroEyebrow">Agenzia AI · Townsville &amp; Aversa</span></p>
-        <h1 class="hero__title" id="hero-title" data-split data-i18n="heroTitle">Più vendite.<br>Meno lavoro manuale.<br><em>Con l'AI.</em></h1>
-        <p class="hero__sub" data-i18n="heroSub">Progettiamo agenti AI, automazioni e siti che rispondono ai clienti, qualificano i contatti e fissano appuntamenti al posto tuo. A te resta la parte migliore: chiudere.</p>
+      <div class="hero__haze" aria-hidden="true"></div>
+      <div class="wrap hero__inner">
+        <p class="proof-pill"><span class="proof-pill__flags" aria-hidden="true"><i>AU</i><i>IT</i></span><span data-i18n="heroPill">Agenzia AI · Townsville &amp; Aversa</span></p>
+        <h1 class="hero__title" id="hero-title" data-split data-i18n="heroTitle">Più vendite. Meno lavoro manuale. <span class="grad">Con l'AI.</span></h1>
+        <p class="hero__sub" data-i18n="heroSub">Agenti AI che rispondono ai tuoi clienti, qualificano i contatti e fissano appuntamenti al posto tuo. Su WhatsApp, Instagram e sul tuo sito, anche di notte.</p>
         <div class="hero__ctas">
-          <a class="btn btn--primary btn--lg" href="#contatti"><span data-i18n="heroCta">Prenota una call di 30 minuti</span><i aria-hidden="true">→</i></a>
-          <a class="btn btn--ghost btn--lg" href="#demo"><span data-i18n="heroCta2">Guarda un agente al lavoro</span></a>
+          <a class="btn btn--dark btn--lg" href="#contatti" data-i18n="heroCta">Prenota una call di 30 minuti</a>
+          <a class="btn btn--light btn--lg" href="#calcolo" data-i18n="heroCta2">Calcola quanto risparmi</a>
         </div>
-        <ul class="hero__assure mono">
-          <li data-i18n="assure1">Preventivo scritto prima di iniziare</li>
-          <li data-i18n="assure2">Codice e account intestati a te</li>
-          <li data-i18n="assure3">Italiano &amp; English</li>
+        <ul class="assure">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10l4 4v14H3V3h4zM7 3v5h8V3M7 21v-7h10v7"/></svg><span data-i18n="assure1">Preventivo scritto prima di iniziare</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg><span data-i18n="assure2">Dati trattati secondo il GDPR</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span data-i18n="assure3">Un referente umano, sempre</span></li>
         </ul>
       </div>
-    </section>
 
-    <!-- ============ TRUST ============ -->
-    <section class="trust" aria-label="Esperienza" data-i18n-aria="trustLabel">
-      <p class="trust__label mono" data-i18n="trustLabel2">Il nostro team ha lavorato su progetti per</p>
-      <div class="trust__marquee">
-        <ul class="trust__track">
-          <li>Agenzia delle Entrate</li><li>MEF</li><li>AXA</li><li>Banca Sella</li><li>Coop</li><li>ADM</li><li>Scame</li><li>UNAR</li><li>ASST Nord Milano</li><li>MASE</li><li>Veneto Lavoro</li>
-          <li aria-hidden="true">Agenzia delle Entrate</li><li aria-hidden="true">MEF</li><li aria-hidden="true">AXA</li><li aria-hidden="true">Banca Sella</li><li aria-hidden="true">Coop</li><li aria-hidden="true">ADM</li><li aria-hidden="true">Scame</li><li aria-hidden="true">UNAR</li><li aria-hidden="true">ASST Nord Milano</li><li aria-hidden="true">MASE</li><li aria-hidden="true">Veneto Lavoro</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============ PROBLEM ============ -->
-    <section class="section problem" id="problema" aria-labelledby="problem-title">
+      <!-- product shot: live agent console -->
       <div class="wrap">
-        <div class="section__head">
-          <p class="tag" data-i18n="probTag">Il problema</p>
-          <h2 id="problem-title" data-split data-i18n="probTitle">Ogni giorno perdi clienti <em>senza accorgertene.</em></h2>
-        </div>
-        <div class="cards3">
-          <article class="pcard spot" data-reveal>
-            <span class="pcard__num mono">01</span>
-            <h3 data-i18n="prob1T">Rispondi troppo tardi</h3>
-            <p data-i18n="prob1D">Un contatto scrive la sera, tu rispondi il giorno dopo. Nel frattempo ha già chiesto un preventivo a qualcun altro.</p>
-          </article>
-          <article class="pcard spot" data-reveal>
-            <span class="pcard__num mono">02</span>
-            <h3 data-i18n="prob2T">Fai a mano lavori da macchina</h3>
-            <p data-i18n="prob2D">Copiare dati, rispondere alle stesse domande, inseguire i follow-up. Ore di lavoro che non portano un euro in più.</p>
-          </article>
-          <article class="pcard spot" data-reveal>
-            <span class="pcard__num mono">03</span>
-            <h3 data-i18n="prob3T">Il sito non vende</h3>
-            <p data-i18n="prob3D">È bello, ma è lento, non si trova su Google e non porta contatti. Una vetrina, non un venditore.</p>
-          </article>
+        <div class="shot" id="shot">
+          <div class="app" aria-label="Demo: console di un agente AI" data-i18n-aria="appLabel">
+            <div class="app__bar"><i></i><i></i><i></i><span class="mono">antipode · <span data-i18n="appTitle">agente vendite</span></span></div>
+            <div class="app__grid">
+              <aside class="app__side">
+                <p class="app__label mono" data-i18n="appInbox">Conversazioni</p>
+                <ul class="threads">
+                  <li class="is-active"><span class="av av--wa">M</span><div><b>Marco R.</b><small>WhatsApp · <span data-i18n="now">ora</span></small></div></li>
+                  <li><span class="av av--ig">G</span><div><b>Giulia F.</b><small>Instagram · 2 min</small></div></li>
+                  <li><span class="av av--web">L</span><div><b>Luca P.</b><small data-i18n="siteWeb">Sito web · 9 min</small></div></li>
+                  <li><span class="av av--wa">S</span><div><b>Sara B.</b><small>WhatsApp · 14 min</small></div></li>
+                </ul>
+              </aside>
+              <div class="app__chat">
+                <div class="app__chathead"><span class="av av--wa">M</span><div><b>Marco R.</b><small class="mono"><span class="live"></span><span data-i18n="agentOn">agente AI attivo</span></small></div><button class="replay mono" id="chat-replay" type="button" data-i18n="replay">↻ Rivedi</button></div>
+                <div class="chat" id="chat-body" role="log" aria-live="polite"></div>
+              </div>
+              <aside class="app__log">
+                <p class="app__label mono" data-i18n="logTitle">Dietro le quinte</p>
+                <ol class="log" id="log-list"></ol>
+                <div class="kpis">
+                  <div><small data-i18n="kpi1">Risposte oggi</small><b id="kpi-a">0</b></div>
+                  <div><small data-i18n="kpi2">Appuntamenti</small><b id="kpi-b">0</b></div>
+                </div>
+              </aside>
+            </div>
+          </div>
+          <p class="shot__note mono" data-i18n="demoNote">Demo illustrativa · conversazione simulata</p>
         </div>
       </div>
-    </section>
 
-    <!-- ============ DEMO ============ -->
-    <section class="section demo" id="demo" aria-labelledby="demo-title">
-      <div class="wrap demo__grid">
-        <div class="demo__copy">
-          <p class="tag" data-i18n="demoTag">La soluzione, dal vivo</p>
-          <h2 id="demo-title" data-split data-i18n="demoTitle">Un agente che vende <em>anche alle tre di notte.</em></h2>
-          <p class="lead" data-i18n="demoLead">Risponde in pochi secondi su WhatsApp, Instagram e sul sito, capisce cosa serve al cliente, lo qualifica e fissa l'appuntamento nel tuo calendario. Quando serve una persona, passa la conversazione al tuo team.</p>
-          <ul class="checks" data-i18n="demoList">
-            <li>Risposte in secondi, 24 ore su 24</li>
-            <li>Usa i tuoi listini, documenti e FAQ</li>
-            <li>Salva tutto nel CRM, senza copia e incolla</li>
+      <div class="logos">
+        <p class="logos__label" data-i18n="logosLabel">Il nostro team ha lavorato a progetti per</p>
+        <div class="logos__marquee" aria-hidden="true">
+          <ul class="logos__track">
+            <li>Agenzia delle Entrate</li><li>MEF</li><li>AXA</li><li>Banca Sella</li><li>Coop</li><li>ADM</li><li>Scame</li><li>UNAR</li><li>ASST Nord Milano</li><li>Veneto Lavoro</li>
+            <li>Agenzia delle Entrate</li><li>MEF</li><li>AXA</li><li>Banca Sella</li><li>Coop</li><li>ADM</li><li>Scame</li><li>UNAR</li><li>ASST Nord Milano</li><li>Veneto Lavoro</li>
           </ul>
-          <a class="btn btn--primary" href="#contatti"><span data-i18n="demoCta">Voglio un agente così</span><i aria-hidden="true">→</i></a>
         </div>
-        <div class="demo__stage" data-reveal>
-          <div class="chat" aria-label="Demo di conversazione con un agente AI" data-i18n-aria="chatLabel">
-            <div class="chat__head">
-              <span class="chat__avatar" aria-hidden="true">A</span>
-              <div><b data-i18n="chatName">Assistente · Il tuo brand</b><small class="mono"><span class="live-dot"></span><span data-i18n="chatStatus">online ora</span></small></div>
-              <button class="chat__replay mono" type="button" id="chat-replay" data-i18n="chatReplay">↻ Rivedi</button>
-            </div>
-            <div class="chat__body" id="chat-body" role="log" aria-live="polite"></div>
-          </div>
-          <div class="log" aria-label="Cosa succede dietro le quinte" data-i18n-aria="logLabel">
-            <p class="log__title mono" data-i18n="logTitle">Dietro le quinte</p>
-            <ol class="log__list" id="log-list"></ol>
-          </div>
-          <p class="demo__note mono" data-i18n="demoNote">Demo illustrativa · conversazione simulata</p>
+        <p class="sr-only">Agenzia delle Entrate, MEF, AXA, Banca Sella, Coop, ADM, Scame, UNAR, ASST Nord Milano, Veneto Lavoro</p>
+      </div>
+    </section>
+
+    <!-- ============ BEFORE / AFTER ============ -->
+    <section class="ba" id="prima-dopo" aria-labelledby="ba-title">
+      <div class="wrap ba__head">
+        <span class="emoji" aria-hidden="true">
+          <svg viewBox="0 0 48 48"><circle cx="16" cy="24" r="11" fill="#fff" stroke="#17152B" stroke-width="2.5"/><circle cx="32" cy="24" r="11" fill="#fff" stroke="#17152B" stroke-width="2.5"/><circle cx="19" cy="25" r="4.5" fill="#17152B"/><circle cx="35" cy="25" r="4.5" fill="#17152B"/></svg>
+        </span>
+        <h2 id="ba-title" data-split data-i18n="baTitle">La tua giornata: prima e dopo l'AI.</h2>
+        <p class="lead" data-i18n="baLead">Meno caos nei messaggi, più tempo per chi compra davvero.</p>
+      </div>
+      <div class="ba__pin" id="ba-pin">
+        <div class="ba__stage">
+          <article class="bacard bacard--before" id="ba-before">
+            <p class="bacard__kicker" data-i18n="baBeforeK">Prima</p>
+            <h3 data-i18n="baBeforeT">Tutto lavoro,<br>zero respiro</h3>
+            <ul class="mono" data-i18n="baBeforeL">
+              <li>La stessa risposta copiata 40 volte al giorno</li>
+              <li>Contatti persi tra DM, email e telefono</li>
+              <li>Vendite che sfumano mentre dormi</li>
+              <li>Fogli Excel aggiornati a mano</li>
+            </ul>
+          </article>
+          <article class="bacard bacard--after" id="ba-after">
+            <p class="bacard__kicker" data-i18n="baAfterK">Con Antipode</p>
+            <h3><span class="scribble-wrap"><span data-i18n="baAfterT">Meno fatica,<br>più vendite</span><svg class="scribble" viewBox="0 0 320 130" preserveAspectRatio="none" aria-hidden="true"><path d="M60 20 C 150 2, 290 10, 306 52 C 320 96, 210 124, 120 118 C 40 112, 6 86, 16 58 C 26 30, 90 14, 170 12"/></svg></span></h3>
+            <ul class="mono" data-i18n="baAfterL">
+              <li>L'AI risponde alle domande frequenti in secondi</li>
+              <li>Contatti ordinati e qualificati nel CRM</li>
+              <li>Appuntamenti fissati anche di notte</li>
+              <li>Dati sincronizzati in automatico</li>
+            </ul>
+            <a class="btn btn--white btn--block" href="#contatti" data-i18n="baCta">Voglio il dopo</a>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ============ ROI ============ -->
-    <section class="section roi" id="calcolo" aria-labelledby="roi-title">
-      <div class="wrap">
-        <div class="roi__card spot" data-reveal>
-          <div class="roi__copy">
-            <p class="tag" data-i18n="roiTag">Calcola il risparmio</p>
-            <h2 id="roi-title" data-i18n="roiTitle">Quanto tempo ti <em>restituisce</em> l'AI?</h2>
-            <div class="sliders">
-              <label class="slider"><span data-i18n="roiQ1">Richieste e messaggi al giorno</span><output id="o-msg">40</output><input type="range" id="r-msg" min="5" max="300" step="5" value="40"></label>
-              <label class="slider"><span data-i18n="roiQ2">Minuti per gestire ognuno</span><output id="o-min">5</output><input type="range" id="r-min" min="1" max="20" step="1" value="5"></label>
-              <label class="slider"><span data-i18n="roiQ3">Quota che l'AI può gestire</span><output id="o-share">50%</output><input type="range" id="r-share" min="20" max="80" step="5" value="50"></label>
-              <label class="slider"><span data-i18n="roiQ4">Costo orario del personale</span><output id="o-cost">25 €</output><input type="range" id="r-cost" min="10" max="60" step="1" value="25"></label>
+    <!-- ============ HOW IT WORKS (sticky) ============ -->
+    <section class="how" id="come-funziona" aria-labelledby="how-title">
+      <div class="how__pin" id="how-pin">
+        <div class="how__sticky wrap">
+          <div class="how__copy">
+            <p class="tag" data-i18n="howTag">Come funziona</p>
+            <h2 id="how-title" data-split data-i18n="howTitle">Lavorare con noi è <span class="grad">più semplice</span> di quanto pensi.</h2>
+            <p class="lead" data-i18n="howLead">Niente progetti infiniti né gergo tecnico. Tre passi, un referente, risultati che puoi misurare.</p>
+            <ol class="how__steps mono">
+              <li class="is-active"><span>01</span><span data-i18n="how1S">Ci conosciamo</span></li>
+              <li><span>02</span><span data-i18n="how2S">Costruiamo il tuo agente</span></li>
+              <li><span>03</span><span data-i18n="how3S">L'AI lavora, tu vendi</span></li>
+            </ol>
+          </div>
+          <div class="vcard how__card">
+            <div class="how__pane is-active">
+              <div class="ui ui--cal">
+                <div class="ui__row ui__row--head"><b data-i18n="calTitle">Call conoscitiva</b><span class="mono">30 min</span></div>
+                <div class="cal">
+                  <span class="mono">L</span><span class="mono">M</span><span class="mono">M</span><span class="mono">G</span><span class="mono">V</span>
+                  <i></i><i class="on"></i><i></i><i class="sel">16</i><i class="on"></i>
+                </div>
+                <div class="slots"><span>10:00</span><span class="sel">15:30 ✓</span><span>17:00</span></div>
+              </div>
+              <div class="how__text"><p class="mono">/01</p><h3 data-i18n="how1T">Ci conosciamo</h3><p data-i18n="how1D">In 30 minuti capiamo obiettivi, numeri e strumenti che usi. Poi ricevi un preventivo scritto con costi, tempi e risultati attesi.</p></div>
+            </div>
+            <div class="how__pane">
+              <div class="ui ui--list">
+                <div class="ui__row"><span class="ic ic--wa">W</span><div><b>WhatsApp Business</b><small data-i18n="conn">collegato</small></div><span class="ok">✓</span></div>
+                <div class="ui__row ui__row--hl"><span class="ic ic--cal">C</span><div><b>Google Calendar</b><small data-i18n="conn">collegato</small></div><span class="ok">✓</span></div>
+                <div class="ui__row"><span class="ic ic--crm">H</span><div><b>HubSpot CRM</b><small data-i18n="conn">collegato</small></div><span class="ok">✓</span></div>
+                <div class="ui__row"><span class="ic ic--doc">D</span><div><b data-i18n="docs">Listini, FAQ e documenti</b><small data-i18n="indexed">indicizzati per l'AI</small></div><span class="ok">✓</span></div>
+              </div>
+              <div class="how__text"><p class="mono">/02</p><h3 data-i18n="how2T">Costruiamo il tuo agente</h3><p data-i18n="how2D">Lo colleghiamo ai tuoi canali e strumenti, lo addestriamo sui tuoi documenti e lo testiamo con te prima di andare online.</p></div>
+            </div>
+            <div class="how__pane">
+              <div class="ui ui--msg">
+                <div class="msgrow"><span class="ic ic--brand">A</span><div><b>Agente Antipode</b> <small class="mono">18:00</small><p data-i18n="reportIntro">Ecco il riepilogo di oggi:</p>
+                  <ul data-i18n="reportList"><li>128 conversazioni gestite</li><li>23 contatti qualificati</li><li>9 appuntamenti in calendario</li><li>4 richieste passate al team</li></ul>
+                  <span class="chip-file mono">report-oggi.pdf</span></div></div>
+              </div>
+              <div class="how__text"><p class="mono">/03</p><h3 data-i18n="how3T">L'AI lavora, tu vendi</h3><p data-i18n="how3D">L'agente risponde, qualifica e prenota. Tu ricevi un riepilogo ogni giorno e noi continuiamo a migliorarlo con i dati reali.</p></div>
             </div>
           </div>
-          <div class="roi__result">
-            <div class="roi__big"><span class="roi__num" id="roi-hours">0</span><span class="roi__unit" data-i18n="roiHours">ore liberate al mese</span></div>
-            <div class="roi__big roi__big--alt"><span class="roi__num" id="roi-money">0</span><span class="roi__unit" data-i18n="roiMoney">di costo operativo al mese</span></div>
-            <p class="roi__note mono" data-i18n="roiNote">Stima indicativa su 22 giorni lavorativi. Nella call la rifacciamo con i tuoi numeri veri.</p>
-            <a class="btn btn--primary btn--block" href="#contatti"><span data-i18n="roiCta">Verifichiamo i tuoi numeri</span><i aria-hidden="true">→</i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ USE CASES (lime, pinned phone) ============ -->
+    <section class="uses" id="cosa-fa" aria-labelledby="uses-title">
+      <div class="wrap uses__head">
+        <span class="emoji" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M8 12h32v20H22l-9 8v-8H8z" fill="#D4FF3A" stroke="#17152B" stroke-width="2.5" stroke-linejoin="round"/><circle cx="17" cy="22" r="2.4" fill="#17152B"/><circle cx="24" cy="22" r="2.4" fill="#17152B"/><circle cx="31" cy="22" r="2.4" fill="#17152B"/></svg></span>
+        <h2 id="uses-title" data-split data-i18n="usesTitle">Un agente, mille conversazioni.</h2>
+        <p class="lead" data-i18n="usesLead">Ecco cosa fa ogni giorno al posto del tuo team.</p>
+      </div>
+      <div class="uses__pin" id="uses-pin">
+        <div class="uses__sticky">
+          <div class="uses__grid wrap">
+            <div class="uses__copy">
+              <div class="dashes" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+              <div class="uses__texts">
+                <div class="utext is-active"><h3 data-i18n="u1T">Rispondi a ogni messaggio in pochi secondi</h3><p data-i18n="u1D">Prezzi, orari, disponibilità: l'agente risponde su WhatsApp con le tue informazioni, di giorno e di notte.</p></div>
+                <div class="utext"><h3 data-i18n="u2T">Trasforma i commenti in clienti</h3><p data-i18n="u2D">Qualcuno scrive "INFO" sotto un post? Parte un messaggio privato con il link giusto e il contatto finisce nel CRM.</p></div>
+                <div class="utext"><h3 data-i18n="u3T">Qualifica e fissa appuntamenti</h3><p data-i18n="u3D">Fa le domande giuste, capisce chi è pronto a comprare e prenota la call nel tuo calendario.</p></div>
+                <div class="utext"><h3 data-i18n="u4T">Tutto nel CRM, in automatico</h3><p data-i18n="u4D">Nome, esigenze e budget finiscono dove servono, senza copia e incolla. Con flussi n8n costruiti su misura.</p></div>
+              </div>
+              <a class="btn btn--dark" href="#contatti" data-i18n="usesCta">Voglio questi risultati</a>
+            </div>
+            <div class="phone-wrap">
+              <div class="phone" aria-hidden="true">
+                <div class="phone__screen">
+                  <!-- 1: WhatsApp -->
+                  <div class="scr scr--wa is-active">
+                    <div class="scr__top"><span class="av av--wa">B</span><b data-i18n="biz">Il tuo brand</b></div>
+                    <div class="bub in" data-i18n="p1a">Ciao! Siete aperti domenica a pranzo?</div>
+                    <div class="bub out" data-i18n="p1b">Ciao! Sì, dalle 12:30 alle 15:00 🍝 Vuoi che ti prenoti un tavolo?</div>
+                    <div class="bub in" data-i18n="p1c">Sì, per 4 persone alle 13</div>
+                    <div class="bub out" data-i18n="p1d">Fatto ✅ Tavolo per 4, domenica alle 13:00. A presto!</div>
+                  </div>
+                  <!-- 2: Instagram comment → DM -->
+                  <div class="scr scr--ig">
+                    <div class="post"><div class="post__img"></div><p class="post__cap" data-i18n="p2cap">Nuova collezione online ✨ Scrivi INFO per il link</p></div>
+                    <div class="cmt"><span class="av av--ig">G</span><p><b>giulia.f</b> INFO 🙋‍♀️</p></div>
+                    <div class="bub out" data-i18n="p2dm">Ciao Giulia! Ecco il link alla collezione 👉 shop.tuobrand.it — ti serve una taglia in particolare?</div>
+                  </div>
+                  <!-- 3: booking -->
+                  <div class="scr scr--book">
+                    <div class="bub out" data-i18n="p3a">Per proporti la soluzione giusta: quante persone lavorano nel tuo team?</div>
+                    <div class="bub in" data-i18n="p3b">Siamo in 12</div>
+                    <div class="bub out" data-i18n="p3c">Perfetto. Scegli un orario per una call con il nostro esperto:</div>
+                    <div class="slotgrid"><span>Mar 10:00</span><span class="sel">Gio 15:30</span><span>Ven 11:00</span></div>
+                  </div>
+                  <!-- 4: CRM -->
+                  <div class="scr scr--crm">
+                    <div class="crm"><p class="mono" data-i18n="p4h">Nuovo contatto</p><b>Luca Paolini</b>
+                      <dl><dt data-i18n="p4a">Fonte</dt><dd>Instagram</dd><dt data-i18n="p4b">Interesse</dt><dd data-i18n="p4c">Sito + chatbot</dd><dt>Budget</dt><dd>5–15k €</dd><dt data-i18n="p4d">Stato</dt><dd><span class="pill-ok" data-i18n="p4e">Qualificato</span></dd></dl></div>
+                    <div class="flow mono"><span>Instagram</span><i>→</i><span>AI</span><i>→</i><span>HubSpot</span><i>→</i><span>Slack</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="phone-label"><span id="phone-label" data-i18n="u1L">Risposte automatiche su WhatsApp</span><span class="mono" id="phone-count">1/4</span><i id="phone-bar"></i></div>
+            </div>
           </div>
         </div>
       </div>
@@ -180,52 +268,62 @@
     <!-- ============ SERVICES ============ -->
     <section class="section services" id="servizi" aria-labelledby="svc-title">
       <div class="wrap">
-        <div class="section__head section__head--split">
-          <div>
-            <p class="tag" data-i18n="svcTag">Servizi</p>
-            <h2 id="svc-title" data-split data-i18n="svcTitle">Tre modi per far lavorare <em>l'AI per te.</em></h2>
-          </div>
-          <p class="lead" data-i18n="svcLead">Partiamo dal problema, non dalla tecnologia. Poi costruiamo solo quello che ti fa guadagnare tempo o clienti.</p>
-        </div>
-        <div class="cards3">
-          <article class="scard spot" data-reveal>
-            <div class="scard__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3.2"/></svg></div>
+        <p class="tag" data-i18n="svcTag">Servizi</p>
+        <h2 id="svc-title" data-split data-i18n="svcTitle">Cosa facciamo per te.</h2>
+        <div class="svc-grid">
+          <article class="scard" data-reveal>
+            <div class="vcard scard__vis" aria-hidden="true">
+              <div class="mini mini--road"><span style="--w:92%" data-i18n="road1">Chatbot WhatsApp</span><span style="--w:70%" data-i18n="road2">Automazione preventivi</span><span style="--w:48%" data-i18n="road3">Report automatici</span></div>
+            </div>
             <h3 data-i18n="svc1T">Consulenza e strategia AI</h3>
             <p data-i18n="svc1D">Analizziamo i tuoi processi e troviamo dove l'AI fa risparmiare davvero. Ne esce una roadmap con priorità, costi e ritorno atteso.</p>
-            <ul class="mono" data-i18n="svc1L"><li>Audit dei processi</li><li>Roadmap AI con priorità</li><li>Stima del ritorno</li></ul>
           </article>
-          <article class="scard scard--hl spot" data-reveal>
-            <span class="scard__badge mono" data-i18n="svcBadge">Il più richiesto</span>
-            <div class="scard__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="12" rx="3"/><path d="M9 21l3-4 3 4M9 10h.01M15 10h.01M9.5 13.5c1.5 1 3.5 1 5 0"/></svg></div>
+          <article class="scard" data-reveal>
+            <div class="vcard scard__vis" aria-hidden="true">
+              <div class="mini mini--agent"><span class="b1" data-i18n="ag1">Quanto costa la consegna?</span><span class="b2" data-i18n="ag2">Gratis sopra i 50 €, arriva in 24–48 ore 📦</span></div>
+            </div>
             <h3 data-i18n="svc2T">Agenti AI e automazioni</h3>
             <p data-i18n="svc2D">Chatbot su WhatsApp, Instagram e sito, agenti che leggono i tuoi documenti, flussi n8n che collegano CRM, email e gestionali.</p>
-            <ul class="mono" data-i18n="svc2L"><li>Agenti su WhatsApp e Instagram</li><li>RAG sui tuoi documenti</li><li>Automazioni n8n e CRM</li></ul>
           </article>
-          <article class="scard spot" data-reveal>
-            <div class="scard__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="15" rx="2.5"/><path d="M3 9h18M7 13l2.5 2L7 17M12 17h4"/></svg></div>
+          <article class="scard" data-reveal>
+            <div class="vcard scard__vis" aria-hidden="true">
+              <div class="mini mini--site"><div class="mini__browser"><i></i><i></i><i></i></div><div class="mini__chart"><i style="--h:30%"></i><i style="--h:42%"></i><i style="--h:38%"></i><i style="--h:60%"></i><i style="--h:72%"></i><i style="--h:94%"></i></div></div>
+            </div>
             <h3 data-i18n="svc3T">Siti e web app che vendono</h3>
             <p data-i18n="svc3D">Landing page, siti e piattaforme veloci, accessibili e costruiti per convertire, già collegati ai tuoi strumenti.</p>
-            <ul class="mono" data-i18n="svc3L"><li>Landing e siti aziendali</li><li>Web app e dashboard</li><li>SEO tecnica e WCAG 2.1</li></ul>
           </article>
+        </div>
+        <div class="vcard integ" data-reveal>
+          <p class="integ__k mono" data-i18n="integK">Integrazioni</p>
+          <h3 data-i18n="integT">Si collega agli strumenti che usi già.</h3>
+          <ul class="integ__tiles">
+            <li>WhatsApp</li><li>Instagram</li><li>Messenger</li><li>Telegram</li><li>Gmail</li><li>Google Calendar</li><li>Google Sheets</li><li>HubSpot</li><li>Salesforce</li><li>Notion</li><li>Slack</li><li>Shopify</li><li>WooCommerce</li><li>Stripe</li><li>n8n</li><li>OpenAI</li><li>Claude</li>
+          </ul>
+          <p class="integ__more mono" data-i18n="integMore">… e qualsiasi strumento con un'API</p>
         </div>
       </div>
     </section>
 
-    <!-- ============ METHOD ============ -->
-    <section class="section method" id="metodo" aria-labelledby="method-title">
+    <!-- ============ ROI ============ -->
+    <section class="section roi" id="calcolo" aria-labelledby="roi-title">
       <div class="wrap">
-        <div class="section__head">
-          <p class="tag" data-i18n="methodTag">Metodo</p>
-          <h2 id="method-title" data-split data-i18n="methodTitle">Dalla call al lancio, <em>senza sorprese.</em></h2>
-        </div>
-        <div class="steps">
-          <div class="steps__line" aria-hidden="true"><i id="steps-fill"></i></div>
-          <ol class="steps__list">
-            <li data-reveal><span class="steps__n mono">01</span><h3 data-i18n="m1T">Call conoscitiva</h3><p data-i18n="m1D">30 minuti per capire obiettivi, numeri e strumenti che usi già.</p></li>
-            <li data-reveal><span class="steps__n mono">02</span><h3 data-i18n="m2T">Analisi e proposta</h3><p data-i18n="m2D">Ricevi un preventivo scritto con costi, tempi e risultati attesi. Decidi tu.</p></li>
-            <li data-reveal><span class="steps__n mono">03</span><h3 data-i18n="m3T">Sviluppo e test</h3><p data-i18n="m3D">Costruiamo per tappe e vedi i progressi man mano, non solo alla fine.</p></li>
-            <li data-reveal><span class="steps__n mono">04</span><h3 data-i18n="m4T">Lancio e ottimizzazione</h3><p data-i18n="m4D">Misuriamo i risultati, miglioriamo quello che serve e restiamo al tuo fianco.</p></li>
-          </ol>
+        <div class="roi__card" data-reveal>
+          <div class="roi__copy">
+            <p class="tag" data-i18n="roiTag">Calcola il risparmio</p>
+            <h2 id="roi-title" data-i18n="roiTitle">Quanto tempo ti <span class="grad">restituisce</span> l'AI?</h2>
+            <div class="sliders">
+              <label class="slider"><span data-i18n="roiQ1">Richieste e messaggi al giorno</span><output id="o-msg">40</output><input type="range" id="r-msg" min="5" max="300" step="5" value="40"></label>
+              <label class="slider"><span data-i18n="roiQ2">Minuti per gestire ognuno</span><output id="o-min">5</output><input type="range" id="r-min" min="1" max="20" step="1" value="5"></label>
+              <label class="slider"><span data-i18n="roiQ3">Quota che l'AI può gestire</span><output id="o-share">50%</output><input type="range" id="r-share" min="20" max="80" step="5" value="50"></label>
+              <label class="slider"><span data-i18n="roiQ4">Costo orario del personale</span><output id="o-cost">25 €</output><input type="range" id="r-cost" min="10" max="60" step="1" value="25"></label>
+            </div>
+          </div>
+          <div class="vcard roi__result">
+            <div><span class="roi__num" id="roi-hours">0</span><span class="roi__unit" data-i18n="roiHours">ore liberate al mese</span></div>
+            <div><span class="roi__num" id="roi-money">0</span><span class="roi__unit" data-i18n="roiMoney">di costo operativo al mese</span></div>
+            <p class="roi__note mono" data-i18n="roiNote">Stima indicativa su 22 giorni lavorativi. Nella call la rifacciamo con i tuoi numeri veri.</p>
+            <a class="btn btn--white btn--block" href="#contatti" data-i18n="roiCta">Verifichiamo i tuoi numeri</a>
+          </div>
         </div>
       </div>
     </section>
@@ -233,102 +331,96 @@
     <!-- ============ CASES ============ -->
     <section class="section cases" id="casi" aria-labelledby="cases-title">
       <div class="wrap">
-        <div class="section__head section__head--split">
-          <div>
-            <p class="tag" data-i18n="casesTag">Casi studio</p>
-            <h2 id="cases-title" data-split data-i18n="casesTitle">Progetti reali, <em>non mockup.</em></h2>
-          </div>
-          <p class="lead" data-i18n="casesLead">Dal customer service con l'AI ai portali usati ogni giorno da milioni di cittadini.</p>
-        </div>
-        <div class="featured" id="featured"></div>
+        <p class="tag" data-i18n="casesTag">Casi studio</p>
+        <h2 id="cases-title" data-split data-i18n="casesTitle">Progetti reali, non mockup.</h2>
+        <div class="stories" id="stories"></div>
         <div class="plist">
-          <p class="plist__label mono" data-i18n="moreLabel">Altri progetti</p>
-          <ul class="plist__rows" id="plist"></ul>
-          <button class="btn btn--ghost btn--sm plist__more" id="plist-more" type="button" data-i18n="moreBtn">Mostra tutti</button>
+          <button class="plist__toggle" id="plist-toggle" type="button" aria-expanded="false" aria-controls="plist"><span data-i18n="moreBtn">Vedi tutti i progetti</span> <b id="plist-n"></b><i aria-hidden="true">↓</i></button>
+          <ul class="plist__rows" id="plist" hidden></ul>
         </div>
         <p class="cases__note mono" data-i18n="casesNote">I portali per PA ed enterprise sono stati sviluppati dal nostro fondatore come Senior Frontend Engineer in SMC, all'interno di team di progetto.</p>
       </div>
       <div class="hover-preview" id="hover-preview" aria-hidden="true"><img alt=""></div>
     </section>
 
-    <!-- ============ TEAM ============ -->
-    <section class="section team" id="team" aria-labelledby="team-title">
-      <div class="wrap team__grid">
-        <div>
-          <p class="tag" data-i18n="teamTag">Chi siamo</p>
-          <h2 id="team-title" data-split data-i18n="teamTitle">Due città agli antipodi. <em>Un solo team.</em></h2>
-          <p class="lead" data-i18n="teamLead">Antipode nasce dall'esperienza del suo fondatore, Antonio De Biase: sei anni di sviluppo, oltre quindici portali enterprise e la co-fondazione di CHEAI, una piattaforma di customer service con l'AI. Tra Townsville e Aversa ci sono otto ore di differenza: quando tu chiudi l'ufficio, noi stiamo ancora lavorando al tuo progetto.</p>
-          <a class="link-arrow" href="https://www.linkedin.com/in/antonio-de-biase-1097b5235" target="_blank" rel="noopener" data-i18n="teamLink">Il fondatore su LinkedIn ↗</a>
+    <!-- ============ FOUNDER ============ -->
+    <section class="section founder" id="chi-siamo" aria-labelledby="founder-title">
+      <div class="wrap">
+        <div class="vcard fcard" data-reveal>
+          <div class="fcard__bigA" aria-hidden="true">A</div>
+          <div class="fcard__copy">
+            <p class="fcard__badge mono"><span>Townsville <b class="js-clock" data-tz="Australia/Brisbane">--:--</b></span><span>Aversa <b class="js-clock" data-tz="Europe/Rome">--:--</b></span></p>
+            <h2 id="founder-title" class="fcard__quote" data-i18n="founderQuote">“Non ti vendiamo l'intelligenza artificiale. Ti restituiamo il tempo per il lavoro che conta.”</h2>
+            <p class="fcard__who"><b>Antonio De Biase</b><span data-i18n="founderRole">Fondatore di Antipode · co-founder di CHEAI</span></p>
+            <p class="fcard__bio" data-i18n="founderBio">Sei anni di sviluppo software, oltre quindici portali enterprise per PA, sanità e banche, e una piattaforma di customer service con l'AI. Tra Townsville e Aversa ci sono otto ore: quando tu chiudi l'ufficio, noi lavoriamo ancora al tuo progetto.</p>
+          </div>
+          <div class="fcard__stats">
+            <div><b data-count="6" data-suffix="+">0</b><span data-i18n="st1">anni di sviluppo</span></div>
+            <div><b data-count="15" data-suffix="+">0</b><span data-i18n="st2">portali enterprise</span></div>
+            <div><b data-count="2">0</b><span data-i18n="st3">sedi, due fusi orari</span></div>
+            <a class="fcard__li" href="https://www.linkedin.com/in/antonio-de-biase-1097b5235" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          </div>
         </div>
-        <div class="stats">
-          <div class="stat spot" data-reveal><b class="stat__n" data-count="6" data-suffix="+">0</b><span data-i18n="st1">anni di sviluppo software</span></div>
-          <div class="stat spot" data-reveal><b class="stat__n" data-count="15" data-suffix="+">0</b><span data-i18n="st2">portali enterprise e PA</span></div>
-          <div class="stat spot" data-reveal><b class="stat__n">AA</b><span data-i18n="st3">accessibilità WCAG 2.1</span></div>
-          <div class="stat spot" data-reveal><b class="stat__n" data-count="2">0</b><span data-i18n="st4">sedi, due fusi orari</span></div>
-        </div>
+        <div class="quotes" id="quotes"></div>
       </div>
-      <div class="wrap quotes" id="quotes"></div>
     </section>
 
     <!-- ============ FAQ ============ -->
     <section class="section faq" id="faq" aria-labelledby="faq-title">
       <div class="wrap faq__grid">
-        <div class="faq__side">
-          <p class="tag">FAQ</p>
-          <h2 id="faq-title" data-split data-i18n="faqTitle">Domande <em>frequenti.</em></h2>
+        <div>
+          <h2 id="faq-title" data-split data-i18n="faqTitle">Le domande che ci fanno più spesso.</h2>
           <p class="lead" data-i18n="faqLead">Non trovi la tua? Scrivici: risponde una persona, non un bot.</p>
         </div>
         <div class="faq__list">
-          <details class="qa"><summary><span data-i18n="q1">Quanto costa un progetto?</span><i aria-hidden="true"></i></summary>
+          <details class="qa" open><summary><span data-i18n="q1">Quanto costa un progetto?</span><i aria-hidden="true"></i></summary>
             <div class="qa__a"><p data-i18n="a1">Dipende da cosa serve: un agente su WhatsApp e una piattaforma su misura sono lavori diversi. Dopo la call ricevi un preventivo scritto con costi, tempi e cosa è incluso, prima di iniziare qualsiasi lavoro.</p></div></details>
           <details class="qa"><summary><span data-i18n="q2">In quanto tempo vedo i risultati?</span><i aria-hidden="true"></i></summary>
-            <div class="qa__a"><p data-i18n="a2">Un primo agente o un'automazione semplice si mette in funzione in poche settimane. Progetti più grandi li dividiamo in tappe, così inizi a usarli prima della fine.</p></div></details>
+            <div class="qa__a"><p data-i18n="a2">Un primo agente o un'automazione semplice si mette in funzione in poche settimane. I progetti più grandi li dividiamo in tappe, così inizi a usarli prima della fine.</p></div></details>
           <details class="qa"><summary><span data-i18n="q3">L'AI è sicura per i dati dei miei clienti?</span><i aria-hidden="true"></i></summary>
             <div class="qa__a"><p data-i18n="a3">L'agente usa solo i documenti che scegli tu e trattiamo i dati secondo il GDPR. Lo configuriamo per dire "non lo so" invece di inventare e per passare la conversazione a una persona quando serve.</p></div></details>
-          <details class="qa"><summary><span data-i18n="q4">Codice, account e dati di chi sono?</span><i aria-hidden="true"></i></summary>
-            <div class="qa__a"><p data-i18n="a4">Tuoi. Domini, account e servizi sono intestati a te e alla consegna ricevi codice e credenziali. Se un giorno vuoi cambiare fornitore, puoi farlo senza chiedere permesso.</p></div></details>
-          <details class="qa"><summary><span data-i18n="q5">Lavorate a distanza? Come funziona?</span><i aria-hidden="true"></i></summary>
-            <div class="qa__a"><p data-i18n="a5">Sì, con clienti in Italia, Australia e altrove. Call in italiano o inglese, aggiornamenti frequenti e un unico referente che conosce il tuo progetto.</p></div></details>
-          <details class="qa"><summary><span data-i18n="q6">Cosa succede dopo il lancio?</span><i aria-hidden="true"></i></summary>
-            <div class="qa__a"><p data-i18n="a6">Monitoriamo i risultati nelle prime settimane e sistemiamo ciò che serve. Poi, se vuoi, concordiamo un piano di manutenzione e miglioramento continuo.</p></div></details>
+          <details class="qa"><summary><span data-i18n="q4">Sembrerà un robot?</span><i aria-hidden="true"></i></summary>
+            <div class="qa__a"><p data-i18n="a4">No. Lo addestriamo sul tuo tono di voce e sulle risposte che dai già oggi. Prima del lancio lo proviamo insieme e lo correggiamo finché non ti suona naturale.</p></div></details>
+          <details class="qa"><summary><span data-i18n="q5">Codice, account e dati di chi sono?</span><i aria-hidden="true"></i></summary>
+            <div class="qa__a"><p data-i18n="a5">Tuoi. Domini, account e servizi sono intestati a te e alla consegna ricevi codice e credenziali. Se un giorno vuoi cambiare fornitore, puoi farlo senza chiedere permesso.</p></div></details>
+          <details class="qa"><summary><span data-i18n="q6">Lavorate a distanza? Come funziona?</span><i aria-hidden="true"></i></summary>
+            <div class="qa__a"><p data-i18n="a6">Sì, con clienti in Italia, Australia e altrove. Call in italiano o inglese, aggiornamenti frequenti e un unico referente che conosce il tuo progetto.</p></div></details>
         </div>
       </div>
     </section>
 
     <!-- ============ FINAL CTA ============ -->
-    <section class="section cta" id="contatti" aria-labelledby="cta-title">
-      <div class="cta__glow" aria-hidden="true"></div>
-      <div class="wrap cta__grid">
-        <div class="cta__copy">
-          <p class="tag" data-i18n="ctaTag">Contatti</p>
-          <h2 id="cta-title" data-split data-i18n="ctaTitle">Parliamo del tuo <em>prossimo passo.</em></h2>
-          <p class="lead" data-i18n="ctaLead">Raccontaci in due righe cosa vuoi migliorare. Ti rispondiamo personalmente con qualche domanda e una proposta di call.</p>
-          <ol class="next mono" data-i18n="ctaSteps"><li>Ci scrivi</li><li>Ti rispondiamo noi, non un bot</li><li>Call di 30 minuti</li><li>Preventivo scritto</li></ol>
-          <div class="cta__places mono"><span>Townsville · QLD · AU</span><span>Aversa · CE · IT</span></div>
-        </div>
-        <form class="form spot" id="cform" novalidate>
+    <section class="cta" id="contatti" aria-labelledby="cta-title">
+      <div class="cta__haze" aria-hidden="true"></div>
+      <div class="wrap cta__inner">
+        <p class="proof-pill"><span class="live"></span><span data-i18n="ctaPill">Rispondiamo personalmente, niente bot</span></p>
+        <h2 id="cta-title" data-split data-i18n="ctaTitle">Parti oggi. <span class="grad">L'AI lavora per te.</span></h2>
+        <p class="lead" data-i18n="ctaLead">Raccontaci in due righe cosa vuoi migliorare. Ti rispondiamo con qualche domanda e una proposta di call.</p>
+        <form class="form" id="cform" novalidate data-reveal>
           <div class="form__row">
             <label class="field"><span data-i18n="fName">Nome</span><input name="nome" autocomplete="name" required></label>
             <label class="field"><span>Email</span><input name="email" type="email" autocomplete="email" required></label>
           </div>
-          <label class="field"><span data-i18n="fCompany">Azienda (facoltativo)</span><input name="azienda" autocomplete="organization"></label>
+          <div class="form__row">
+            <label class="field"><span data-i18n="fCompany">Azienda (facoltativo)</span><input name="azienda" autocomplete="organization"></label>
+            <label class="field"><span data-i18n="fBudget">Budget indicativo</span>
+              <select name="budget">
+                <option value="" data-i18n="bud0">Non lo so ancora</option>
+                <option value="< 2.000 €">&lt; 2.000 €</option>
+                <option value="2.000–5.000 €">2.000–5.000 €</option>
+                <option value="5.000–15.000 €">5.000–15.000 €</option>
+                <option value="> 15.000 €">&gt; 15.000 €</option>
+              </select>
+            </label>
+          </div>
           <fieldset class="chips">
             <legend data-i18n="fNeed">Mi interessa</legend>
             <label><input type="checkbox" name="tipo" value="Consulenza AI"><span data-i18n="fT1">Consulenza AI</span></label>
             <label><input type="checkbox" name="tipo" value="Agenti e automazioni"><span data-i18n="fT2">Agenti e automazioni</span></label>
             <label><input type="checkbox" name="tipo" value="Sito / web app"><span data-i18n="fT3">Sito / web app</span></label>
           </fieldset>
-          <label class="field"><span data-i18n="fBudget">Budget indicativo</span>
-            <select name="budget">
-              <option value="" data-i18n="bud0">Non lo so ancora</option>
-              <option value="< 2.000 €">&lt; 2.000 €</option>
-              <option value="2.000–5.000 €">2.000–5.000 €</option>
-              <option value="5.000–15.000 €">5.000–15.000 €</option>
-              <option value="> 15.000 €">&gt; 15.000 €</option>
-            </select>
-          </label>
           <label class="field"><span data-i18n="fMsg">Cosa vorresti migliorare?</span><textarea name="messaggio" rows="3" required></textarea></label>
-          <button class="btn btn--primary btn--block btn--lg" type="submit"><span data-i18n="fSend">Invia la richiesta</span><i aria-hidden="true">→</i></button>
+          <button class="btn btn--dark btn--lg btn--block" type="submit" data-i18n="fSend">Invia la richiesta</button>
           <p class="form__msg mono" id="cform-msg" role="status"></p>
           <p class="form__legal" data-i18n="fLegal">Il modulo apre il tuo programma di posta con il messaggio pronto: questo sito non salva nulla. Leggi la <a href="privacy.html">privacy policy</a>.</p>
         </form>
@@ -338,32 +430,35 @@
 
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
-    <div class="wrap footer__top">
-      <div class="footer__brand">
-        <a class="brand" href="#top"><svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="10.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="8.6" cy="8.6" r="3" class="brand__dot"/><circle cx="23.4" cy="23.4" r="3" class="brand__dot"/></svg><span class="brand__name">antipode</span></a>
-        <p data-i18n="footTag">Agenzia di consulenza e sviluppo AI tra Townsville e Aversa.</p>
+    <div class="footer__card">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a class="brand brand--light" href="#top"><svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="10.5" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="8.6" cy="8.6" r="3.2" class="brand__dot"/><circle cx="23.4" cy="23.4" r="3.2" class="brand__dot"/></svg><span class="brand__name">antipode</span></a>
+          <p data-i18n="footTag">Agenzia di consulenza e sviluppo AI tra Townsville e Aversa.</p>
+          <a class="btn btn--white btn--sm" href="#contatti" data-i18n="navCta">Prenota una call</a>
+        </div>
+        <nav class="footer__col" aria-labelledby="f1"><h3 id="f1" data-i18n="svcTag">Servizi</h3>
+          <a href="#servizi" data-i18n="svc1T">Consulenza e strategia AI</a><a href="#servizi" data-i18n="svc2T">Agenti AI e automazioni</a><a href="#servizi" data-i18n="svc3T">Siti e web app che vendono</a></nav>
+        <nav class="footer__col" aria-labelledby="f2"><h3 id="f2">Antipode</h3>
+          <a href="#come-funziona" data-i18n="navHow">Come funziona</a><a href="#casi" data-i18n="navCases">Casi studio</a><a href="#chi-siamo" data-i18n="aboutLink">Chi siamo</a><a href="#faq">FAQ</a></nav>
+        <div class="footer__col"><h3 data-i18n="footContact">Contatti</h3>
+          <a href="mailto:antoniodebiase2003@gmail.com">antoniodebiase2003@gmail.com</a><span>Townsville, QLD · Australia</span><span>Aversa, CE · <span data-i18n="italy">Italia</span></span>
+          <a href="https://www.linkedin.com/in/antonio-de-biase-1097b5235" target="_blank" rel="noopener">LinkedIn ↗</a></div>
       </div>
-      <nav class="footer__col" aria-labelledby="f1"><h3 class="mono" id="f1" data-i18n="svcTag">Servizi</h3>
-        <a href="#servizi" data-i18n="svc1T">Consulenza e strategia AI</a><a href="#servizi" data-i18n="svc2T">Agenti AI e automazioni</a><a href="#servizi" data-i18n="svc3T">Siti e web app che vendono</a></nav>
-      <nav class="footer__col" aria-labelledby="f2"><h3 class="mono" id="f2" data-i18n="footStudio">Studio</h3>
-        <a href="#metodo" data-i18n="navMethod">Metodo</a><a href="#casi" data-i18n="navCases">Casi studio</a><a href="#team" data-i18n="teamTag">Chi siamo</a><a href="#faq">FAQ</a></nav>
-      <div class="footer__col"><h3 class="mono" data-i18n="footContact">Contatti</h3>
-        <a href="mailto:antoniodebiase2003@gmail.com">antoniodebiase2003@gmail.com</a><span>Townsville, QLD · Australia</span><span>Aversa, CE · <span data-i18n="italy">Italia</span></span></div>
-    </div>
-    <div class="footer__word" aria-hidden="true">antipode</div>
-    <div class="wrap footer__bottom mono">
-      <span>© 2026 Antipode · <span data-i18n="vat">P.IVA</span> <span class="todo">[da inserire]</span></span>
-      <nav class="footer__legal" aria-label="Note legali" data-i18n-aria="legalLabel"><a href="privacy.html">Privacy</a><a href="cookie.html">Cookie</a></nav>
+      <div class="footer__bottom mono">
+        <span>© 2026 Antipode · <span data-i18n="vat">P.IVA</span> <span class="todo">[da inserire]</span></span>
+        <nav class="footer__legal" aria-label="Note legali" data-i18n-aria="legalLabel"><a href="privacy.html">Privacy policy</a><a href="cookie.html">Cookie policy</a></nav>
+      </div>
+      <div class="footer__word" aria-hidden="true">antipode</div>
     </div>
   </footer>
 
   <script src="vendor/gsap.min.js"></script>
   <script src="vendor/ScrollTrigger.min.js"></script>
   <script src="vendor/lenis.min.js"></script>
-  <script src="js/landmask.js"></script>
   <script src="js/i18n.js"></script>
   <script src="js/projects.js"></script>
   <script src="js/testimonials.js"></script>
-  <script type="module" src="js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
