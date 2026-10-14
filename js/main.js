@@ -92,15 +92,25 @@
       .to({}, { duration: 0.3 });
 
     const panes = $$(".how__pane"), steps = $$(".how__steps li");
-    let hi = -1;
+    gsap.set(panes, { autoAlpha: 0 });
+    gsap.set(panes[0], { autoAlpha: 1 });
+    let hi = 0, swap = null;
+    const showPane = (i) => {
+      const dir = i > hi ? 1 : -1, from = panes[hi], to = panes[i];
+      hi = i;
+      swap?.progress(1).kill();
+      panes.forEach((p, k) => p.classList.toggle("is-active", k === i));
+      steps.forEach((s, k) => s.classList.toggle("is-active", k === i));
+      swap = gsap.timeline()
+        .to(from, { autoAlpha: 0, y: -16 * dir, duration: 0.22, ease: "power2.in" })
+        .fromTo(to, { autoAlpha: 0, y: 22 * dir }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" })
+        .fromTo($$(".ui > *", to), { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.4, stagger: 0.05, ease: "power2.out" }, "<0.05");
+    };
     ScrollTrigger.create({
       trigger: "#how-pin", start: "top top", end: "bottom bottom",
       onUpdate: (st) => {
         const i = Math.min(panes.length - 1, Math.floor(st.progress * panes.length));
-        if (i === hi) return;
-        hi = i;
-        panes.forEach((p, k) => p.classList.toggle("is-active", k === i));
-        steps.forEach((s, k) => s.classList.toggle("is-active", k === i));
+        if (i !== hi) showPane(i);
       },
     });
   });
@@ -113,11 +123,19 @@
     });
   });
 
-  // SERVICES: pinned lime band, phone screens + copy switch
+  // SERVICES: pinned lime band — one screen leaves, the next arrives, its items build in order
   const utexts = $$(".utext"), screens = $$(".scr"), dashes = $$(".dashes i");
   const pLabel = $("#phone-label"), pCount = $("#phone-count"), pBar = $("#phone-bar");
   const labels = [T("u1L", "Consulenza e strategia AI"), T("u2L", "Software e web app su misura"), T("u3L", "Automazioni e agenti AI"), T("u4L", "Siti e landing che vendono")];
-  let ui = 0;
+  gsap.set([...screens, ...utexts], { autoAlpha: 0 });
+  gsap.set([screens[0], utexts[0]], { autoAlpha: 1 });
+  let ui = 0, uswap = null;
+  const buildScreen = (scr) => {
+    const items = $$("[data-a]", scr);
+    const lock = scr.classList.contains("scr--lock");
+    return gsap.fromTo(items, { autoAlpha: 0, y: 14, scale: 0.98 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.45, ease: "power3.out", stagger: lock ? 0.32 : 0.06 });
+  };
+  ScrollTrigger.create({ trigger: "#uses-pin", start: "top 60%", once: true, onEnter: () => buildScreen(screens[0]) });
   ScrollTrigger.create({
     trigger: "#uses-pin", start: "top top", end: "bottom bottom",
     onUpdate: (st) => {
@@ -125,13 +143,21 @@
       const i = Math.min(n - 1, Math.floor(f));
       pBar.style.width = `${Math.min(1, f - i) * 100}%`;
       if (i === ui) return;
+      const dir = i > ui ? 1 : -1, prevS = screens[ui], prevT = utexts[ui];
       ui = i;
-      utexts.forEach((t, k) => { t.classList.toggle("is-active", k === i); t.classList.toggle("is-past", k < i); });
+      uswap?.progress(1).kill();
       screens.forEach((s, k) => s.classList.toggle("is-active", k === i));
-      gsap.fromTo([...screens[i].children].filter((c) => !c.classList.contains("sb")), { opacity: 0, y: 14 }, { opacity: 1, y: 0, stagger: 0.07, duration: 0.45, ease: "power3.out", overwrite: true });
+      utexts.forEach((t, k) => t.classList.toggle("is-active", k === i));
       dashes.forEach((d, k) => d.classList.toggle("on", k === i));
       pLabel.textContent = labels[i];
       pCount.textContent = `${i + 1}/${n}`;
+      gsap.set($$("[data-a]", screens[i]), { autoAlpha: 0 });
+      uswap = gsap.timeline()
+        .to([prevS, prevT], { autoAlpha: 0, y: -18 * dir, duration: 0.22, ease: "power2.in" })
+        .set(prevS, { y: 0 })
+        .fromTo(utexts[i], { autoAlpha: 0, y: 26 * dir }, { autoAlpha: 1, y: 0, duration: 0.5, ease: "power3.out" })
+        .fromTo(screens[i], { autoAlpha: 0, y: 18 * dir }, { autoAlpha: 1, y: 0, duration: 0.45, ease: "power3.out" }, "<")
+        .add(buildScreen(screens[i]), "<0.1");
     },
   });
 
@@ -171,6 +197,7 @@
   const longDay = new Intl.DateTimeFormat(LOCALE, { weekday: "long", day: "numeric", month: "long" });
   calEl.innerHTML = days.map((d, i) => `<button type="button" class="day${i === 1 ? " sel" : ""}" data-i="${i}" aria-pressed="${i === 1}"><small>${esc(dow.format(d).replace(".", ""))}</small><b>${d.getDate()}</b></button>`).join("");
   pick.day = days[1];
+  $("#cal-month").textContent = new Intl.DateTimeFormat(LOCALE, { month: "long", year: "numeric" }).format(days[0]);
   $$(".day", calEl).forEach((b) => b.addEventListener("click", () => {
     $$(".day", calEl).forEach((x) => { x.classList.toggle("sel", x === b); x.setAttribute("aria-pressed", x === b); });
     pick.day = days[+b.dataset.i];
