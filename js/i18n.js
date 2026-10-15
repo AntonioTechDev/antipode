@@ -206,6 +206,10 @@
     prNote: "Prices exclude GST. The final price depends on pages, content and integrations: you'll find it in the written quote, before any work starts.",
     a1: "You'll find starting prices in the Pricing section: for example a landing page starts from <b data-price=\"landing\"></b> and a simple automation from <b data-price=\"auto\"></b>. After the call you get a fixed written quote with costs, timeline and what's included, before any work starts.",
     p2v: "A$48,290", p3c1: "New deal · A$4,800",
+
+    /* v10.1 timings */
+    pr1W: "Up to 4 days", pr2W: "7–10 days", pr3W: "14 days", pr4W: "5 days", pr5W: "14 days", pr6W: "2–6 weeks",
+    a2: "A landing page is ready in a few days, a business website in 7–10 days, a simple automation in about 5 days. A web app usually takes 2 to 6 weeks. We work in stages, so you see progress and start using the software before the end.",
     /* strings used from JS */
     _title: "Antipode — AI consulting, custom software and automation",
     _desc: "Antipode is an AI consulting and software development agency based in Townsville (Australia) and Aversa (Italy). We design and build web apps, automations, AI agents and websites, from idea to launch.",

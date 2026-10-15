@@ -816,18 +816,19 @@ html[data-lang="it"] :is(.legal, .legal-foot) [lang="en"], html[data-lang="en"] 
 .gt__h small { font-size: .74rem; color: var(--muted); }
 .gt { display: grid; gap: 7px; margin-top: 4px; }
 .gt__wk, .gt__row { display: grid; grid-template-columns: 150px 1fr; align-items: center; gap: 10px; }
-.gt__wk > div { display: grid; grid-template-columns: repeat(8, 1fr); }
+.gt { --wk: 6; }
+.gt__wk > div { display: grid; grid-template-columns: repeat(var(--wk), 1fr); }
 .gt__wk i { font: 600 .62rem/1 var(--mono); font-style: normal; color: var(--soft); text-align: center; }
 .gt__l { display: flex; align-items: center; gap: 8px; min-width: 0; font-size: .8rem; font-weight: 600; }
 .gt__l > span:last-child { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .gt__l img { width: 16px; height: 16px; flex: none; }
 .gt__ok { width: 16px; height: 16px; border-radius: 5px; display: grid; place-items: center; background: var(--lime); flex: none; }
 .gt__ok svg { width: 11px; height: 11px; stroke-width: 3; }
-.gt__tr { position: relative; height: 28px; border-radius: 8px; background: repeating-linear-gradient(90deg, #f4f2f9 0 calc(12.5% - 2px), transparent calc(12.5% - 2px) 12.5%); }
-.gt__bar { position: absolute; top: 5px; bottom: 5px; left: calc(var(--s) * 12.5%); width: calc((var(--e) - var(--s)) * 12.5% - 2px); border-radius: 6px; background: linear-gradient(90deg, #5536ee, #9c7dff); transform: scaleX(0); transform-origin: left; transition: transform .7s var(--ease) calc(var(--r) * .12s + .15s); }
+.gt__tr { position: relative; height: 28px; border-radius: 8px; background: repeating-linear-gradient(90deg, #f4f2f9 0 calc(100% / var(--wk) - 2px), transparent calc(100% / var(--wk) - 2px) calc(100% / var(--wk))); }
+.gt__bar { position: absolute; top: 5px; bottom: 5px; left: calc(var(--s) * 100% / var(--wk)); width: calc((var(--e) - var(--s)) * 100% / var(--wk) - 2px); border-radius: 6px; background: linear-gradient(90deg, #5536ee, #9c7dff); transform: scaleX(0); transform-origin: left; transition: transform .7s var(--ease) calc(var(--r) * .12s + .15s); }
 .gt__bar--go { background: var(--lime); }
 .how__pane.is-active .gt__bar { transform: scaleX(1); }
-.gt__ms { position: absolute; top: 50%; left: calc(var(--at) * 12.5% - 2px); width: 10px; height: 10px; background: var(--ink); border: 2px solid #fff; rotate: 45deg; translate: -50% -50%; opacity: 0; transition: opacity .3s .7s; }
+.gt__ms { position: absolute; top: 50%; left: calc(var(--at) * 100% / var(--wk) - 2px); width: 10px; height: 10px; background: var(--ink); border: 2px solid #fff; rotate: 45deg; translate: -50% -50%; opacity: 0; transition: opacity .3s .7s; }
 .how__pane.is-active .gt__ms { opacity: 1; }
 .gt__legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 2px; font-size: .74rem; color: var(--muted); }
 .gt__legend > span { display: inline-flex; align-items: center; gap: 7px; }
