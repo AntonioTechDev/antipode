@@ -960,3 +960,56 @@ html[data-lang="it"] :is(.legal, .legal-foot) [lang="en"], html[data-lang="en"] 
   .prices { grid-template-columns: 1fr; }
   .pcard__d { min-height: 0; }
 }
+
+/* =========================================================
+   v11 — premium motion & mobile UX
+   ========================================================= */
+/* scroll progress */
+.progress { position: fixed; z-index: 70; left: 0; right: 0; top: 0; height: 3px; pointer-events: none; }
+.progress i { display: block; height: 100%; background: linear-gradient(90deg, var(--v2), var(--v3) 60%, var(--lime)); transform-origin: left; transform: scaleX(0); }
+
+/* nav hides while scrolling down (mobile), comes back on scroll up */
+.nav { transition: translate .45s var(--ease); }
+.nav.is-hidden { translate: 0 calc(-100% - 20px); }
+
+/* touch feedback */
+@media (hover: none) {
+  .btn, .story, .gcard, .pcard, .fchip, .day, .slots button, .qa summary, .lang__btn, .plist__toggle, .recur > div {
+    -webkit-tap-highlight-color: transparent; transition: transform .35s var(--ease), scale .35s var(--ease), background .2s, color .2s, box-shadow .3s;
+  }
+  .btn:active, .fchip:active, .day:active, .slots button:active, .lang__btn:active { transform: scale(.95); }
+  .story:active, .gcard:active, .pcard:active, .recur > div:active { scale: .975; }
+  .qa summary:active { transform: scale(.985); }
+}
+
+/* experience timeline progress line */
+.xp__fill { position: absolute; left: 6px; top: 20px; bottom: 20px; width: 2px; background: linear-gradient(var(--v2), var(--v3)); transform-origin: top; transform: scaleY(0); z-index: 0; }
+.xp li::before { z-index: 1; }
+
+/* carousels (mobile only) */
+.snapbar { display: none; }
+@media (max-width: 860px) {
+  .snap { display: flex !important; gap: 12px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none;
+    margin-inline: calc(var(--gutter) * -1); padding: 8px var(--gutter) 14px; scroll-padding-inline: var(--gutter); -webkit-overflow-scrolling: touch; }
+  .snap::-webkit-scrollbar { display: none; }
+  .snap > * { flex: 0 0 84%; scroll-snap-align: center; scale: var(--s, 1); opacity: var(--o, 1); transform-origin: 50% 60%; }
+  .snap--2 { display: grid !important; grid-auto-flow: column; grid-template-rows: repeat(2, auto); grid-template-columns: none; grid-auto-columns: 46%; gap: 10px; }
+  .snap--2 > * { scroll-snap-align: start; }
+  .snapbar { display: flex; align-items: center; gap: 12px; margin-top: 2px; }
+  .snapbar__track { flex: 1; height: 3px; border-radius: 3px; background: rgba(23,21,43,.1); overflow: hidden; }
+  .snapbar__track i { display: block; height: 100%; width: 100%; border-radius: inherit; background: var(--v2); transform-origin: left; transform: scaleX(.1); }
+  .snapbar__n { font: 600 .74rem/1 var(--mono); color: var(--muted); min-width: 3.4em; text-align: right; }
+  .snapbar__hint { font: 600 .72rem/1 var(--sans); color: var(--v2); display: inline-flex; align-items: center; gap: 4px; }
+  .stories { margin-top: 30px; }
+  .prices .pcard { padding: 20px; }
+
+  /* stacked sticky cards: before/after and "how we work" */
+  .ba__stage { display: block; padding-top: 30px; }
+  .bacard { position: sticky; top: 86px; margin: 0 auto 18px; transform-origin: 50% 0; }
+  .bacard--after { top: 100px; }
+  .how__card.vcard { display: block; overflow: visible; }
+  .how__pane { position: sticky; margin-bottom: 16px; transform-origin: 50% 0; box-shadow: 0 -10px 30px -18px rgba(23,21,43,.35); }
+  .how__pane:nth-child(1) { top: 78px; }
+  .how__pane:nth-child(2) { top: 92px; }
+  .how__pane:nth-child(3) { top: 106px; margin-bottom: 0; }
+}

@@ -79,8 +79,14 @@
     ScrollTrigger.create({ trigger: h, start: "top 86%", once: true, onEnter: () => gsap.to(words, { yPercent: 0, duration: 1, stagger: 0.035, ease: "power4.out" }) });
   });
 
-  gsap.set("[data-reveal]", { opacity: 0, y: 50 });
-  ScrollTrigger.batch("[data-reveal]", { start: "top 88%", once: true, onEnter: (els) => gsap.to(els, { opacity: 1, y: 0, duration: 1, stagger: 0.1, ease: "power3.out" }) });
+  // reveal: rise + a touch of scale, long expo ease; transforms are cleared afterwards so tap feedback works
+  const reveal = (sel, start = "top 90%") => {
+    const els = typeof sel === "string" ? $$(sel) : sel;
+    if (!els.length) return;
+    gsap.set(els, { opacity: 0, y: 46, scale: 0.97 });
+    ScrollTrigger.batch(els, { start, once: true, onEnter: (batch) => gsap.to(batch, { opacity: 1, y: 0, scale: 1, duration: 1.15, stagger: 0.09, ease: "expo.out", clearProps: "transform" }) });
+  };
+  reveal("[data-reveal]");
 
   /* ---------------- hero stage ---------------- */
   gsap.fromTo(".stage", { rotateX: 22, scale: 0.93 }, { rotateX: 0, scale: 1, ease: "none", scrollTrigger: { trigger: ".shot", start: "top 92%", end: "top 25%", scrub: true } });
@@ -351,8 +357,7 @@
     </button>`;
   }).join("");
   $$(".story").forEach((b) => b.addEventListener("click", () => openViewer(b.dataset.g)));
-  gsap.set("#stories [data-reveal]", { opacity: 0, y: 50 });
-  ScrollTrigger.batch("#stories [data-reveal]", { start: "top 88%", once: true, onEnter: (els) => gsap.to(els, { opacity: 1, y: 0, duration: 1, stagger: 0.1, ease: "power3.out" }) });
+  reveal("#stories [data-reveal]");
 
   // full gallery
   let galGroup = "all";
@@ -367,7 +372,7 @@
     ScrollTrigger.refresh();
   });
   $("#gal").addEventListener("click", (e) => { const c = e.target.closest(".gcard"); if (c) openViewer(galGroup, c.dataset.title); });
-  gsap.fromTo(".gcard", { opacity: 0, y: 30 }, { opacity: 1, y: 0, stagger: 0.03, duration: 0.6, ease: "power3.out", scrollTrigger: { trigger: "#gal", start: "top 88%" } });
+  gsap.fromTo(".gcard", { opacity: 0, y: 30, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, stagger: 0.03, duration: 0.8, ease: "expo.out", clearProps: "transform", scrollTrigger: { trigger: "#gal", start: "top 88%" } });
 
   /* ---------------- feedback (real only; placeholders on localhost) ---------------- */
   const isDev = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
@@ -411,6 +416,101 @@
     const body = `${T("_mailHello")}\n\n${testo}\n\n${T("_mailNeed")}: ${tipi}\n${T("_budget")}: ${budget}\n\n${nome}${azienda ? " · " + azienda : ""}\n${email}`;
     location.href = `mailto:antoniodebiase2003@gmail.com?subject=${encodeURIComponent(T("_mailSubject") + " — " + (azienda || nome))}&body=${encodeURIComponent(body)}`;
     msg.textContent = T("_formOk");
+  });
+
+  /* ---------------- PREMIUM MOTION ---------------- */
+  // scroll progress bar
+  gsap.to("#progress", { scaleX: 1, ease: "none", scrollTrigger: { start: 0, end: "max", scrub: 0.3 } });
+
+  // extra reveals for supporting copy
+  reveal(".ba__head .lead, .uses__head .lead, .price__head .lead, .cases .tag, .gal__head, .recur > div, .price__note, .cases__note, .faq .lead, .qa, .cta .lead");
+
+  // lime band opens from a rounded card to full bleed; integrations card grows in
+  gsap.fromTo(".uses__sticky", { clipPath: "inset(2.5% 3.5% round 40px)" }, { clipPath: "inset(0% 0% round 0px)", ease: "none", scrollTrigger: { trigger: "#uses-pin", start: "top 90%", end: "top top", scrub: true } });
+  gsap.fromTo(".integ", { scale: 0.9, borderRadius: 48 }, { scale: 1, borderRadius: 30, ease: "none", scrollTrigger: { trigger: ".integ", start: "top 95%", end: "top 45%", scrub: true } });
+
+  // hero chips drift at different speeds (yPercent, so the idle bobbing on y keeps working)
+  $$(".float").forEach((f, i) => gsap.to(f, { yPercent: [-90, -40, -130, -60][i] || -60, ease: "none", scrollTrigger: { trigger: ".shot", start: "top 70%", end: "bottom top", scrub: true } }));
+
+  // experience: timeline line fills as you read
+  const xp = $(".xp");
+  if (xp) {
+    const fillEl = document.createElement("i");
+    fillEl.className = "xp__fill";
+    xp.prepend(fillEl);
+    gsap.to(fillEl, { scaleY: 1, ease: "none", scrollTrigger: { trigger: xp, start: "top 70%", end: "bottom 60%", scrub: true } });
+  }
+
+  // footer wordmark rises letter by letter
+  const word = $(".footer__word");
+  if (word) {
+    word.innerHTML = [...word.textContent].map((c) => `<span style="display:inline-block">${esc(c)}</span>`).join("");
+    gsap.fromTo($$("span", word), { yPercent: 70, opacity: 0 }, { yPercent: 0, opacity: 1, stagger: 0.05, duration: 1, ease: "expo.out", scrollTrigger: { trigger: word, start: "top 98%" } });
+  }
+
+  // mobile-only: nav auto-hide, stacked sticky cards, swipe carousels
+  mm.add("(max-width: 860px)", () => {
+    const navEl = $("#nav");
+    const navST = ScrollTrigger.create({
+      start: 0, end: "max",
+      onUpdate: (st) => navEl.classList.toggle("is-hidden", st.direction === 1 && st.scroll() > 500 && pv.hidden && bk.hidden),
+    });
+
+    // stacks: the card underneath shrinks and dims while the next one slides over it
+    const stack = (cards) => cards.slice(0, -1).map((c, k) => gsap.to(c, {
+      scale: 0.9, opacity: 0.55, ease: "none",
+      scrollTrigger: { trigger: cards[k + 1], start: "top 92%", end: "top 30%", scrub: true },
+    }));
+    const tweens = [...stack([$("#ba-before"), $("#ba-after")]), ...stack($$(".how__pane"))];
+
+    return () => { navST.kill(); navEl.classList.remove("is-hidden"); tweens.forEach((t) => { t.scrollTrigger?.kill(); t.kill(); }); gsap.set([$("#ba-before"), ...$$(".how__pane")], { clearProps: "scale,opacity,transform" }); };
+  });
+
+  // carousels: progress bar + counter, neighbours shrink, a one-time swipe nudge
+  $$(".snap").forEach((track) => {
+    const two = track.classList.contains("snap--2");
+    const bar = document.createElement("div");
+    bar.className = "snapbar";
+    bar.innerHTML = `<span class="snapbar__track"><i></i></span><span class="snapbar__n mono"></span>`;
+    track.after(bar);
+    const fillI = $("i", bar), num = $(".snapbar__n", bar);
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      if (getComputedStyle(track).overflowX !== "auto") return; // desktop: plain grid
+      const items = [...track.children].filter((c) => !c.hidden);
+      const max = track.scrollWidth - track.clientWidth;
+      const pr = max > 0 ? track.scrollLeft / max : 1;
+      const visible = track.clientWidth / (track.scrollWidth || 1);
+      fillI.style.transform = `translateX(${pr * (1 - visible) * 100}%) scaleX(${Math.max(visible, 0.08)})`;
+      const mid = track.scrollLeft + track.clientWidth / 2;
+      let best = 0, bestD = Infinity;
+      items.forEach((c, k) => {
+        const cMid = c.offsetLeft + c.offsetWidth / 2;
+        const d = Math.abs(cMid - mid);
+        if (d < bestD) { bestD = d; best = k; }
+        if (!two) {
+          const t = Math.min(1, d / c.offsetWidth);
+          c.style.setProperty("--s", (1 - t * 0.07).toFixed(3));
+          c.style.setProperty("--o", (1 - t * 0.35).toFixed(3));
+        }
+      });
+      num.textContent = two ? `${Math.round(pr * 100)}%` : `${best + 1} / ${items.length}`;
+      if (two) num.textContent = `${Math.min(items.length, Math.round(pr * Math.max(0, items.length - 4)) + 4)} / ${items.length}`;
+    };
+    const queue = () => { if (!raf) raf = requestAnimationFrame(update); };
+    track.addEventListener("scroll", queue, { passive: true });
+    addEventListener("resize", queue);
+    new MutationObserver(queue).observe(track, { attributes: true, subtree: true, attributeFilter: ["hidden"] });
+    update();
+    ScrollTrigger.create({
+      trigger: track, start: "top 75%", once: true,
+      onEnter: () => {
+        if (getComputedStyle(track).overflowX !== "auto" || reduceMotion) return;
+        setTimeout(() => track.scrollBy({ left: 70, behavior: "smooth" }), 500);
+        setTimeout(() => track.scrollBy({ left: -70, behavior: "smooth" }), 1100);
+      },
+    });
   });
 
   /* ---------------- counters (created last, after every section is rendered) ---------------- */

@@ -32,6 +32,7 @@
 </head>
 <body>
   <a class="skip" href="#main" data-i18n="skip">Vai al contenuto</a>
+  <div class="progress" aria-hidden="true"><i id="progress"></i></div>
 
   <!-- ============ NAV ============ -->
   <header class="nav" id="nav">
@@ -380,12 +381,12 @@
       <div class="wrap">
         <p class="tag" data-i18n="casesTag">Casi studio</p>
         <h2 id="cases-title" data-split data-i18n="casesTitle">Progetti reali, non mockup.</h2>
-        <div class="stories" id="stories"></div>
+        <div class="stories snap" id="stories"></div>
         <div class="gal__head">
           <h3 data-i18n="galTitle">Tutti i progetti</h3>
           <div class="gal__filters" id="gal-filters" role="group" aria-label="Filtra progetti" data-i18n-aria="filterLabel"></div>
         </div>
-        <div class="gal" id="gal"></div>
+        <div class="gal snap snap--2" id="gal"></div>
         <p class="cases__note mono" data-i18n="casesNote">I portali per PA ed enterprise sono stati sviluppati dal nostro fondatore come Senior Frontend Engineer in SMC, all'interno di team di progetto.</p>
       </div>
     </section>
@@ -433,7 +434,7 @@
           <h2 id="price-title" data-split data-i18n="prTitle">Prezzi chiari, <span class="grad">prima di iniziare.</span></h2>
           <p class="lead" data-i18n="prLead">Questi sono i prezzi di partenza. Dopo la call ricevi un preventivo scritto e fisso, costruito sul tuo progetto.</p>
         </div>
-        <div class="prices">
+        <div class="prices snap" id="prices">
           <article class="pcard" data-reveal>
             <div class="pcard__top"><span class="pcard__ic"><svg viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="16" rx="2.5"/><path d="M3.5 9h17M8 13h8M8 16.5h5"/></svg></span><h3 data-i18n="pr1T">Landing page</h3></div>
             <p class="pcard__d" data-i18n="pr1D">Una pagina pensata per presentare un servizio o una campagna e raccogliere contatti.</p>
