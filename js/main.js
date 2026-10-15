@@ -13,6 +13,20 @@
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const nf = new Intl.NumberFormat(LOCALE);
   const CFG = window.ANTIPODE_CONFIG || {};
+  // Australia sees AUD, Italy sees EUR
+  const CUR = LANG === "en" ? "aud" : "eur";
+  const group = (n, sep) => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, sep); // always group, also 4-digit numbers
+  const money0 = (n) => (CUR === "aud" ? `A$${group(n, ",")}` : `${group(n, ".")} €`);
+  const PRICES = (CFG.prices || {})[CUR] || {};
+  $$("[data-price]").forEach((el) => { const v = PRICES[el.dataset.price]; if (v != null) el.textContent = money0(v); });
+  const budget = $("#budget");
+  if (budget) {
+    const ranges = CUR === "aud" ? [[0, 2000], [2000, 5000], [5000, 15000], [15000, 0]] : [[0, 1000], [1000, 3000], [3000, 10000], [10000, 0]];
+    ranges.forEach(([a, b]) => {
+      const label = !a ? `< ${money0(b)}` : !b ? `> ${money0(a)}` : `${money0(a)} – ${money0(b)}`;
+      budget.insertAdjacentHTML("beforeend", `<option value="${esc(label)}">${esc(label)}</option>`);
+    });
+  }
 
   /* ---------------- smooth scroll + anchors ---------------- */
   if ("scrollRestoration" in history) history.scrollRestoration = "manual";
@@ -238,15 +252,16 @@
   const R = { ppl: $("#r-ppl"), hrs: $("#r-hrs"), share: $("#r-share"), cost: $("#r-cost") };
   const O = { ppl: $("#o-ppl"), hrs: $("#o-hrs"), share: $("#o-share"), cost: $("#o-cost") };
   const outH = $("#roi-hours"), outM = $("#roi-money"), f1 = $("#roi-f1"), f2 = $("#roi-f2");
-  const money = new Intl.NumberFormat(LOCALE, { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
+  if (CUR === "aud") { R.cost.min = 25; R.cost.max = 100; R.cost.value = 45; }
+  const money = { format: money0 };
   const shown = { h: 0, m: 0 };
   function calc() {
     Object.values(R).forEach((r) => r.style.setProperty("--p", `${((r.value - r.min) / (r.max - r.min)) * 100}%`));
-    O.ppl.textContent = R.ppl.value; O.hrs.textContent = R.hrs.value; O.share.textContent = `${R.share.value}%`; O.cost.textContent = `${R.cost.value} €`;
+    O.ppl.textContent = R.ppl.value; O.hrs.textContent = R.hrs.value; O.share.textContent = `${R.share.value}%`; O.cost.textContent = money0(R.cost.value);
     const hours = Math.round(R.ppl.value * R.hrs.value * (R.share.value / 100) * 4.33);
     const eur = hours * R.cost.value;
     f1.innerHTML = fill(T("roiF1", "{p} persone × {h} h a settimana × {s}% × 4,33 settimane = <b>{r} ore al mese</b>"), { p: R.ppl.value, h: R.hrs.value, s: R.share.value, r: nf.format(hours) });
-    f2.innerHTML = fill(T("roiF2", "{r} ore × {c} €/ora = <b>{m} al mese</b>"), { r: nf.format(hours), c: R.cost.value, m: money.format(eur) });
+    f2.innerHTML = fill(T("roiF2", "{r} ore × {c}/ora = <b>{m} al mese</b>"), { r: nf.format(hours), c: money0(R.cost.value), m: money.format(eur) });
     gsap.to(shown, { h: hours, m: eur, duration: 0.6, ease: "power3.out", onUpdate: () => { outH.textContent = nf.format(Math.round(shown.h)); outM.textContent = money.format(Math.round(shown.m)); } });
   }
   Object.values(R).forEach((r) => r.addEventListener("input", calc));

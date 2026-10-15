@@ -44,6 +44,7 @@
         <a href="#servizi" data-i18n="navServices">Servizi</a>
         <a href="#come-lavoriamo" data-i18n="navHow">Come lavoriamo</a>
         <a href="#casi" data-i18n="navCases">Casi studio</a>
+        <a href="#prezzi" data-i18n="prTag">Prezzi</a>
         <a href="#chi-siamo" data-i18n="aboutLink">Chi siamo</a>
         <a href="#faq">FAQ</a>
       </nav>
@@ -192,7 +193,7 @@
                     <div class="ah ah--app" data-a><div><small data-i18n="p2g">Buongiorno</small><b>Marco Rossi</b></div><span class="ava ava--m">MR</span></div>
                     <div class="wa__card" data-a>
                       <small data-i18n="p2k">Fatturato · ottobre</small>
-                      <div class="wa__row"><b>€ 48.290</b><em>+12,4%</em></div>
+                      <div class="wa__row"><b data-i18n="p2v">€ 48.290</b><em>+12,4%</em></div>
                       <svg class="wa__chart" viewBox="0 0 200 64" preserveAspectRatio="none"><defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs><path d="M0 50 C 18 46, 30 32, 50 36 S 82 48, 102 32 S 140 24, 160 24 S 186 10, 200 8 L200 64 L0 64Z" fill="url(#ga)"/><path class="wa__line" d="M0 50 C 18 46, 30 32, 50 36 S 82 48, 102 32 S 140 24, 160 24 S 186 10, 200 8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>
                     </div>
                     <div class="tiles" data-a>
@@ -424,6 +425,73 @@
       </div>
     </section>
 
+    <!-- ============ PRICING ============ -->
+    <section class="section pricing" id="prezzi" aria-labelledby="price-title">
+      <div class="wrap">
+        <div class="price__head">
+          <p class="tag" data-i18n="prTag">Prezzi</p>
+          <h2 id="price-title" data-split data-i18n="prTitle">Prezzi chiari, <span class="grad">prima di iniziare.</span></h2>
+          <p class="lead" data-i18n="prLead">Questi sono i prezzi di partenza. Dopo la call ricevi un preventivo scritto e fisso, costruito sul tuo progetto.</p>
+        </div>
+        <div class="prices">
+          <article class="pcard" data-reveal>
+            <div class="pcard__top"><span class="pcard__ic"><svg viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="16" rx="2.5"/><path d="M3.5 9h17M8 13h8M8 16.5h5"/></svg></span><h3 data-i18n="pr1T">Landing page</h3></div>
+            <p class="pcard__d" data-i18n="pr1D">Una pagina pensata per presentare un servizio o una campagna e raccogliere contatti.</p>
+            <p class="pcard__price"><small data-i18n="from">da</small><b data-price="landing"></b></p>
+            <ul class="pcard__inc" data-i18n="pr1L"><li>Design su misura, ottimizzato per mobile</li><li>Struttura e testi orientati ai contatti</li><li>Modulo collegato a email o CRM</li><li>Velocità e SEO di base</li></ul>
+            <p class="pcard__time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span data-i18n="pr1W">1–2 settimane</span></p>
+            <a class="btn btn--light btn--block" href="#contatti" data-book data-i18n="prCta">Prenota una call</a>
+          </article>
+          <article class="pcard" data-reveal>
+            <div class="pcard__top"><span class="pcard__ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.6 3.5 5.4 3.5 8.5s-1 5.9-3.5 8.5c-2.5-2.6-3.5-5.4-3.5-8.5s1-5.9 3.5-8.5z"/></svg></span><h3 data-i18n="pr2T">Sito aziendale</h3></div>
+            <p class="pcard__d" data-i18n="pr2D">Fino a 5 pagine per presentare l'azienda, farsi trovare su Google e ricevere richieste.</p>
+            <p class="pcard__price"><small data-i18n="from">da</small><b data-price="site"></b></p>
+            <ul class="pcard__inc" data-i18n="pr2L"><li>Fino a 5 pagine su misura</li><li>Modificabile da te in autonomia</li><li>SEO tecnica e scheda Google</li><li>Accessibilità e prestazioni</li></ul>
+            <p class="pcard__time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span data-i18n="pr2W">3–4 settimane</span></p>
+            <a class="btn btn--light btn--block" href="#contatti" data-book data-i18n="prCta">Prenota una call</a>
+          </article>
+          <article class="pcard" data-reveal>
+            <div class="pcard__top"><span class="pcard__ic"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6.5a3 3 0 016 0V8"/></svg></span><h3 data-i18n="pr3T">E-commerce</h3></div>
+            <p class="pcard__d" data-i18n="pr3D">Un negozio online pronto a vendere, facile da gestire ogni giorno.</p>
+            <p class="pcard__price"><small data-i18n="from">da</small><b data-price="shop"></b></p>
+            <ul class="pcard__inc" data-i18n="pr3L"><li>Catalogo prodotti e categorie</li><li>Pagamenti online (Stripe, PayPal)</li><li>Spedizioni ed email automatiche</li><li>Gestione ordini semplice</li></ul>
+            <p class="pcard__time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span data-i18n="pr3W">4–6 settimane</span></p>
+            <a class="btn btn--light btn--block" href="#contatti" data-book data-i18n="prCta">Prenota una call</a>
+          </article>
+          <article class="pcard" data-reveal>
+            <div class="pcard__top"><span class="pcard__ic"><svg viewBox="0 0 24 24"><path d="M13 3L5 13h6l-1 8 8-10h-6z"/></svg></span><h3 data-i18n="pr4T">Automazione semplice</h3></div>
+            <p class="pcard__d" data-i18n="pr4D">Un flusso automatico che toglie di mezzo un lavoro ripetitivo.</p>
+            <p class="pcard__price"><small data-i18n="from">da</small><b data-price="auto"></b></p>
+            <ul class="pcard__inc" data-i18n="pr4L"><li>1 flusso automatico</li><li>Fino a 3 strumenti collegati</li><li>Test e documentazione</li><li>Assistenza dopo il rilascio</li></ul>
+            <p class="pcard__time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span data-i18n="pr4W">1–2 settimane</span></p>
+            <a class="btn btn--light btn--block" href="#contatti" data-book data-i18n="prCta">Prenota una call</a>
+          </article>
+          <article class="pcard" data-reveal>
+            <div class="pcard__top"><span class="pcard__ic"><svg viewBox="0 0 24 24"><path d="M12 3.5l1.9 5 5 1.9-5 1.9-1.9 5-1.9-5-5-1.9 5-1.9z"/><path d="M18.5 15.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/></svg></span><h3 data-i18n="pr5T">Automazione complessa / agente AI</h3></div>
+            <p class="pcard__d" data-i18n="pr5D">Agenti AI e flussi che collegano più sistemi e lavorano al posto tuo.</p>
+            <p class="pcard__price"><small data-i18n="from">da</small><b data-price="agent"></b></p>
+            <ul class="pcard__inc" data-i18n="pr5L"><li>Agente AI su WhatsApp, email o sito</li><li>Risposte basate sui tuoi documenti</li><li>Integrazione con CRM e gestionali</li><li>Passaggio a una persona quando serve</li></ul>
+            <p class="pcard__time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span data-i18n="pr5W">3–5 settimane</span></p>
+            <a class="btn btn--light btn--block" href="#contatti" data-book data-i18n="prCta">Prenota una call</a>
+          </article>
+          <article class="pcard vcard pcard--hl" data-reveal>
+            <div class="pcard__top"><span class="pcard__ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></svg></span><h3 data-i18n="pr6T">SaaS / web app</h3></div>
+            <p class="pcard__d" data-i18n="pr6D">Un primo prodotto funzionante da mostrare ai clienti, da far crescere per tappe.</p>
+            <p class="pcard__price"><small data-i18n="from">da</small><b data-price="saas"></b><span class="pcard__then" data-i18n="prThen">poi su preventivo</span></p>
+            <ul class="pcard__inc" data-i18n="pr6L"><li>Login e gestione utenti</li><li>Fino a 3 funzioni principali</li><li>1 integrazione (es. Stripe o CRM)</li><li>Messa online</li></ul>
+            <p class="pcard__time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span data-i18n="pr6W">da 4 settimane</span></p>
+            <a class="btn btn--white btn--block" href="#contatti" data-book data-i18n="prCta">Prenota una call</a>
+          </article>
+        </div>
+        <div class="recur" data-reveal>
+          <div><span class="recur__ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg></span><span><b data-i18n="prR1">Manutenzione sito</b><small data-i18n="prR1d">hosting, aggiornamenti e backup</small></span><em><b data-price="care"></b><small data-i18n="perMonth">/mese</small></em></div>
+          <div><span class="recur__ic"><svg viewBox="0 0 24 24"><path d="M14.5 6.5a4 4 0 015 5l-8.5 8.5a2.1 2.1 0 01-3-3z"/><path d="M14.5 6.5L12 4"/></svg></span><span><b data-i18n="prR2">Supporto automazioni</b><small data-i18n="prR2d">monitoraggio e piccole modifiche</small></span><em><b data-price="support"></b><small data-i18n="perMonth">/mese</small></em></div>
+          <div><span class="recur__ic"><svg viewBox="0 0 24 24"><path d="M7 3h10M7 21h10M8 3c0 5 8 5 8 9s-8 4-8 9M16 3c0 5-8 5-8 9"/></svg></span><span><b data-i18n="prR3">Ore extra</b><small data-i18n="prR3d">per richieste fuori preventivo</small></span><em><b data-price="hour"></b><small data-i18n="perHour">/ora</small></em></div>
+        </div>
+        <p class="price__note" data-i18n="prNote">Prezzi IVA esclusa. Il prezzo finale dipende da pagine, contenuti e integrazioni: lo trovi nel preventivo scritto, prima di iniziare qualsiasi lavoro.</p>
+      </div>
+    </section>
+
     <!-- ============ FAQ ============ -->
     <section class="section faq" id="faq" aria-labelledby="faq-title">
       <div class="wrap faq__grid">
@@ -433,7 +501,7 @@
         </div>
         <div class="faq__list">
           <details class="qa" open><summary><span data-i18n="q1">Quanto costa un progetto?</span><i aria-hidden="true"></i></summary>
-            <div class="qa__a"><p data-i18n="a1">Dipende da cosa serve: una consulenza, un'automazione e una piattaforma su misura sono lavori diversi. Dopo la call ricevi un preventivo scritto con costi, tempi e cosa è incluso, prima di iniziare qualsiasi lavoro.</p></div></details>
+            <div class="qa__a"><p data-i18n="a1">I prezzi di partenza li trovi nella sezione Prezzi: ad esempio una landing page parte da <b data-price="landing"></b> e un'automazione semplice da <b data-price="auto"></b>. Dopo la call ricevi un preventivo scritto e fisso con costi, tempi e cosa è incluso, prima di iniziare qualsiasi lavoro.</p></div></details>
           <details class="qa"><summary><span data-i18n="q2">Quanto tempo serve?</span><i aria-hidden="true"></i></summary>
             <div class="qa__a"><p data-i18n="a2">Una consulenza o un'automazione semplice richiedono qualche settimana, una web app qualche mese. Dividiamo il lavoro in tappe, così inizi a usare il software prima della fine.</p></div></details>
           <details class="qa"><summary><span data-i18n="q3">Lavorate anche su software esistenti?</span><i aria-hidden="true"></i></summary>
@@ -463,12 +531,8 @@
           <div class="form__row">
             <label class="field"><span data-i18n="fCompany">Azienda (facoltativo)</span><input name="azienda" autocomplete="organization"></label>
             <label class="field"><span data-i18n="fBudget">Budget indicativo</span>
-              <select name="budget">
+              <select name="budget" id="budget">
                 <option value="" data-i18n="bud0">Non lo so ancora</option>
-                <option value="< 2.000 €">&lt; 2.000 €</option>
-                <option value="2.000–5.000 €">2.000–5.000 €</option>
-                <option value="5.000–15.000 €">5.000–15.000 €</option>
-                <option value="> 15.000 €">&gt; 15.000 €</option>
               </select>
             </label>
           </div>
@@ -500,7 +564,7 @@
         <nav class="footer__col" aria-labelledby="f1"><h3 id="f1" data-i18n="navServices">Servizi</h3>
           <a href="#servizi" data-i18n="u1T">Consulenza e strategia AI</a><a href="#servizi" data-i18n="u2T">Software e web app su misura</a><a href="#servizi" data-i18n="u3T">Automazioni e agenti AI</a><a href="#servizi" data-i18n="u4T">Siti e landing che vendono</a></nav>
         <nav class="footer__col" aria-labelledby="f2"><h3 id="f2">Antipode</h3>
-          <a href="#come-lavoriamo" data-i18n="navHow">Come lavoriamo</a><a href="#casi" data-i18n="navCases">Casi studio</a><a href="#chi-siamo" data-i18n="aboutLink">Chi siamo</a><a href="#faq">FAQ</a></nav>
+          <a href="#come-lavoriamo" data-i18n="navHow">Come lavoriamo</a><a href="#casi" data-i18n="navCases">Casi studio</a><a href="#prezzi" data-i18n="prTag">Prezzi</a><a href="#chi-siamo" data-i18n="aboutLink">Chi siamo</a><a href="#faq">FAQ</a></nav>
         <div class="footer__col"><h3 data-i18n="footContact">Contatti</h3>
           <a href="mailto:antoniodebiase2003@gmail.com">antoniodebiase2003@gmail.com</a><span>Townsville, QLD · Australia</span><span>Aversa, CE · <span data-i18n="italy">Italia</span></span>
           <a href="https://www.linkedin.com/in/antonio-de-biase-1097b5235" target="_blank" rel="noopener">LinkedIn ↗</a></div>
