@@ -210,6 +210,8 @@
     /* v10.1 timings */
     pr1W: "Up to 4 days", pr2W: "7–10 days", pr3W: "14 days", pr4W: "5 days", pr5W: "14 days", pr6W: "2–6 weeks",
     a2: "A landing page is ready in a few days, a business website in 7–10 days, a simple automation in about 5 days. A web app usually takes 2 to 6 weeks. We work in stages, so you see progress and start using the software before the end.",
+    /* v12 viewer */
+    pvAuto: "Auto preview", pvHint: "Drag or use the ← → keys to change project",
     /* strings used from JS */
     _title: "Antipode — AI consulting, custom software and automation",
     _desc: "Antipode is an AI consulting and software development agency based in Townsville (Australia) and Aversa (Italy). We design and build web apps, automations, AI agents and websites, from idea to launch.",

@@ -293,48 +293,190 @@
     : `<div class="cover cover--${groupOf(p)} ${cls}"><span>${esc(p.title)}</span></div>`);
   const chipsHTML = (active) => GROUPS.map((g) => `<button type="button" class="fchip${g === active ? " on" : ""}" data-g="${g}" aria-pressed="${g === active}">${esc(GLABEL[g])}<small>${inGroup(g).length}</small></button>`).join("");
 
-  // viewer
+  // viewer — full-screen, continuous slider with auto-scrolling site previews
   const pv = $("#pv");
-  const V = { group: "all", list: PROJECTS, i: 0 };
+  const FULL = new Set(["adm", "agenzia-entrate", "axa-lamiasalute", "cheai", "demanio", "federalismo-fiscale", "finanze", "geoportale", "giustizia-tributaria", "mase", "mef", "repubblica-digitale", "scame", "scame-emobility", "sella", "unar"]);
+  const track = $("#pv-track"), stageEl = $("#pv-stage"), film = $("#pv-thumbs");
+  const V = { group: "all", list: PROJECTS, i: 0, pos: 0, slides: [], step: 600, auto: !reduceMotion, scroll: null, nav: null };
+  const slideHTML = (p) => {
+    const name = p.img ? p.img.replace(".webp", "") : null;
+    const screen = p.img
+      ? `<img class="vw__base" src="assets/shots/${p.img}" alt="" decoding="async">${FULL.has(name) ? `<img class="vw__full" data-src="assets/shots/full/${name}.webp" alt="">` : ""}`
+      : `<div class="vw__cover vw__cover--${groupOf(p)}"><span class="vw__mono">${esc(p.title.slice(0, 1))}</span><b>${esc(p.title)}</b><small>${esc(CAT[p.cat])}</small></div>`;
+    return `<div class="vw__slide"><div class="vw__frame"><div class="vw__bar"><i></i><i></i><i></i><span>${esc(host(p.url))}</span></div><div class="vw__screen">${screen}<i class="vw__prog"><b></b></i></div></div></div>`;
+  };
+  const wrap = (x, n) => ((x % n) + n) % n;
+  function layout() {
+    const n = V.slides.length;
+    V.slides.forEach((el, k) => {
+      let off = k - V.pos;
+      if (n > 2) off = wrap(off + n / 2, n) - n / 2;
+      const a = Math.abs(off);
+      const vis = a < 2.2;
+      el.style.visibility = vis ? "visible" : "hidden";
+      if (!vis) return;
+      el.style.transform = `translate3d(${off * V.step}px,0,0) scale(${1 - Math.min(a, 1) * 0.16}) rotateY(${-off * 7}deg)`;
+      el.style.opacity = String(1 - Math.min(a, 1.4) * 0.5);
+      el.style.zIndex = String(100 - Math.round(a * 10));
+      el.classList.toggle("is-active", a < 0.5);
+    });
+  }
+  function measure() {
+    const r = stageEl.getBoundingClientRect();
+    const mobile = innerWidth < 861;
+    const w = Math.min(r.width * (mobile ? 0.86 : 0.74), (r.height - (mobile ? 16 : 40)) * 1.48);
+    stageEl.style.setProperty("--sw", `${w}px`);
+    V.step = w * (mobile ? 0.94 : 0.9);
+    layout();
+  }
+  function stopPreview() {
+    V.scroll?.kill(); V.scroll = null;
+    $$(".vw__full", track).forEach((im) => gsap.to(im, { y: 0, duration: 0.6, ease: "power2.out" }));
+    $$(".vw__prog b", track).forEach((b) => gsap.set(b, { scaleY: 0 }));
+  }
+  function loadFull(k) {
+    const el = V.slides[wrap(k, V.slides.length)];
+    const im = el && $(".vw__full", el);
+    if (im && !im.src) im.src = im.dataset.src;
+    return im;
+  }
+  function startPreview() {
+    stopPreview();
+    const el = V.slides[V.i];
+    const im = loadFull(V.i); loadFull(V.i + 1); loadFull(V.i - 1);
+    if (!im || !V.auto) return;
+    const go = () => {
+      if (V.slides[V.i] !== el) return;
+      const scr = $(".vw__screen", el), bar = $(".vw__prog b", el);
+      const dist = im.offsetHeight - scr.offsetHeight;
+      if (dist < 40) return;
+      im.classList.add("is-on");
+      V.scroll = gsap.timeline({ repeat: -1, repeatDelay: 0.8, delay: 1 })
+        .to(im, { y: -dist, duration: Math.max(6, dist / 110), ease: "sine.inOut" })
+        .to(bar, { scaleY: 1, duration: Math.max(6, dist / 110), ease: "sine.inOut" }, "<")
+        .to({}, { duration: 1.4 })
+        .to([im], { y: 0, duration: 1.3, ease: "power3.inOut" })
+        .to(bar, { scaleY: 0, duration: 1.3, ease: "power3.inOut" }, "<");
+      if (stageEl.matches(":hover")) V.scroll.pause();
+    };
+    im.complete && im.naturalHeight ? go() : im.addEventListener("load", go, { once: true });
+  }
+  function renderInfo(animate) {
+    const p = V.list[V.i];
+    const fillInfo = () => {
+      $("#pv-cat").textContent = `${CAT[p.cat]} · ${whenLabel(p.when)}`;
+      $("#pv-title").textContent = p.title;
+      $("#pv-desc").textContent = p.desc[LANG] || p.desc.it;
+      $("#pv-tags").innerHTML = p.tags.map((t) => `<span>${esc(t)}</span>`).join("");
+      const link = $("#pv-link");
+      link.hidden = !p.url;
+      if (p.url) link.href = p.url;
+      $("#pv-play").hidden = !(p.img && FULL.has(p.img.replace(".webp", "")));
+    };
+    const nEl = $("#pv-n"), nTxt = String(V.i + 1).padStart(2, "0");
+    $("#pv-total").textContent = `/ ${String(V.list.length).padStart(2, "0")}`;
+    $$("button", film).forEach((b, k) => b.classList.toggle("on", k === V.i));
+    const on = $$("button", film)[V.i];
+    if (on) film.scrollTo({ left: on.offsetLeft - film.clientWidth / 2 + on.offsetWidth / 2, behavior: animate ? "smooth" : "auto" });
+    if (!animate) { fillInfo(); nEl.textContent = nTxt; return; }
+    gsap.timeline()
+      .to([".vw__txt > *", nEl], { opacity: 0, y: -10, duration: 0.18, stagger: 0.02, ease: "power2.in" })
+      .add(() => { fillInfo(); nEl.textContent = nTxt; })
+      .fromTo([nEl, ".vw__txt > *"], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.05, ease: "expo.out" });
+  }
+  function goTo(target, animate = true) {
+    const n = V.slides.length;
+    // shortest way round
+    let delta = target - V.pos;
+    if (n > 2) delta = wrap(delta + n / 2, n) - n / 2;
+    const end = V.pos + delta;
+    V.i = wrap(Math.round(end), n);
+    stopPreview();
+    renderInfo(animate);
+    V.nav?.kill();
+    if (!animate) { V.pos = V.i; layout(); startPreview(); return; }
+    V.nav = gsap.to(V, { pos: end, duration: 0.85, ease: "expo.out", onUpdate: layout, onComplete: () => { V.pos = V.i; layout(); startPreview(); } });
+  }
+  const vGo = (d) => goTo(Math.round(V.pos) + d);
   function vSet(group, title) {
     V.group = group; V.list = inGroup(group);
     V.i = Math.max(0, title ? V.list.findIndex((p) => p.title === title) : 0);
+    V.pos = V.i;
     $("#pv-filters").innerHTML = chipsHTML(group);
-    $("#pv-thumbs").innerHTML = V.list.map((p, k) => `<button type="button" data-k="${k}" aria-label="${esc(p.title)}">${media(p)}</button>`).join("");
-    vRender(false);
+    track.innerHTML = V.list.map(slideHTML).join("");
+    V.slides = $$(".vw__slide", track);
+    film.innerHTML = V.list.map((p, k) => `<button type="button" data-k="${k}" aria-label="${esc(p.title)}">${p.img ? `<img src="assets/shots/${p.img}" alt="" decoding="async">` : `<span class="vw__cover vw__cover--${groupOf(p)}"><b>${esc(p.title)}</b></span>`}<i></i></button>`).join("");
+    measure();
+    goTo(V.i, false);
   }
-  function vRender(animate = true) {
-    const p = V.list[V.i];
-    $("#pv-img").innerHTML = media(p);
-    $("#pv-url").textContent = host(p.url);
-    $("#pv-cat").textContent = `${CAT[p.cat]} · ${whenLabel(p.when)}`;
-    $("#pv-title").textContent = p.title;
-    $("#pv-desc").textContent = p.desc[LANG] || p.desc.it;
-    $("#pv-tags").innerHTML = p.tags.map((t) => `<span>${esc(t)}</span>`).join("");
-    const link = $("#pv-link");
-    link.hidden = !p.url;
-    if (p.url) link.href = p.url;
-    $("#pv-count").textContent = `${V.i + 1} / ${V.list.length}`;
-    $$("#pv-thumbs button").forEach((b, k) => b.classList.toggle("on", k === V.i));
-    $$("#pv-thumbs button")[V.i]?.scrollIntoView({ block: "nearest", inline: "center", behavior: animate ? "smooth" : "auto" });
-    if (animate) gsap.fromTo([".pv__media", ".pv__info"], { opacity: 0, x: 24 }, { opacity: 1, x: 0, duration: 0.4, stagger: 0.05, ease: "power3.out" });
+  function openViewer(group = "all", title) {
+    pv.hidden = false;
+    vSet(group, title);
+    pv.hidden = true;
+    openModal(pv);
+    requestAnimationFrame(measure);
+    gsap.fromTo(track, { opacity: 0, y: 50, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 1, ease: "expo.out", delay: 0.08, clearProps: "transform" });
+    gsap.fromTo([".vw__top", ".vw__info", ".vw__film"], { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7, stagger: 0.07, ease: "expo.out", delay: 0.2 });
   }
-  const vGo = (d) => { V.i = (V.i + d + V.list.length) % V.list.length; vRender(); };
-  function openViewer(group = "all", title) { vSet(group, title); openModal(pv); }
   $("#pv-prev").addEventListener("click", () => vGo(-1));
   $("#pv-next").addEventListener("click", () => vGo(1));
-  $("#pv-thumbs").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { V.i = +b.dataset.k; vRender(); } });
-  $("#pv-filters").addEventListener("click", (e) => { const b = e.target.closest(".fchip"); if (b) vSet(b.dataset.g); });
-  let sx = null;
-  $(".pv__media").addEventListener("pointerdown", (e) => { sx = e.clientX; });
-  $(".pv__media").addEventListener("pointerup", (e) => { if (sx !== null && Math.abs(e.clientX - sx) > 40) vGo(e.clientX < sx ? 1 : -1); sx = null; });
+  film.addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) goTo(+b.dataset.k); });
+  $("#pv-filters").addEventListener("click", (e) => {
+    const b = e.target.closest(".fchip"); if (!b) return;
+    vSet(b.dataset.g);
+    gsap.fromTo(track, { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.7, ease: "expo.out", clearProps: "transform" });
+  });
+  $("#pv-play").addEventListener("click", () => {
+    V.auto = !V.auto;
+    $("#pv-play").setAttribute("aria-pressed", V.auto);
+    V.auto ? startPreview() : stopPreview();
+  });
+  // pause the preview while hovering (desktop) or holding (touch)
+  stageEl.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") V.scroll?.pause(); });
+  stageEl.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") V.scroll?.resume(); });
+  // drag / swipe with the slides following the pointer
+  let drag = null;
+  stageEl.addEventListener("pointerdown", (e) => {
+    if (e.target.closest("button")) return;
+    drag = { x: e.clientX, y: e.clientY, pos: V.pos, moved: false, id: e.pointerId };
+    V.nav?.kill(); V.scroll?.pause();
+  });
+  stageEl.addEventListener("pointermove", (e) => {
+    if (!drag) return;
+    const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    if (!drag.moved) {
+      if (Math.abs(dx) < 6) return;
+      if (Math.abs(dy) > Math.abs(dx)) { drag = null; return; }
+      drag.moved = true; stageEl.setPointerCapture(drag.id); stageEl.classList.add("is-drag");
+    }
+    V.pos = drag.pos - dx / V.step;
+    layout();
+  });
+  const endDrag = (e) => {
+    if (!drag) return;
+    const d = drag; drag = null; stageEl.classList.remove("is-drag");
+    if (!d.moved) {
+      V.scroll?.resume();
+      // tap on a side slide goes to it
+      const sl = e.target.closest?.(".vw__slide");
+      if (sl && !sl.classList.contains("is-active")) goTo(V.slides.indexOf(sl));
+      return;
+    }
+    const moved = V.pos - d.pos;
+    const target = Math.abs(moved) > 0.15 ? (moved > 0 ? Math.ceil(V.pos) : Math.floor(V.pos)) : Math.round(d.pos);
+    goTo(target);
+  };
+  stageEl.addEventListener("pointerup", endDrag);
+  stageEl.addEventListener("pointercancel", endDrag);
+  addEventListener("resize", () => { if (!pv.hidden) measure(); });
   addEventListener("keydown", (e) => {
     if (!pv.hidden) {
       if (e.key === "ArrowRight") vGo(1);
       if (e.key === "ArrowLeft") vGo(-1);
     }
-    if (e.key === "Escape") { if (!pv.hidden) closeModal(pv); if (!bk.hidden) closeModal(bk); }
+    if (e.key === "Escape") { if (!pv.hidden) { stopPreview(); closeModal(pv); } if (!bk.hidden) closeModal(bk); }
   });
+  pv.addEventListener("click", (e) => { if (e.target.closest("[data-close]")) stopPreview(); });
 
   // hero stage opens the viewer
   const stage = $("#stage");
